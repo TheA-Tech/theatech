@@ -1,0 +1,25 @@
+/* Color Scheme & Global Styles */
+:root {
+    --primary: #00a8ff;
+    --dark: #121212;
+    --light: #ffffff;
+    --grey: #2d3436;
+}
+
+body { font-family: 'Poppins', sans-serif; margin: 0; background: #f5f6fa; color: #333; }
+
+/* Navigation Bar */
+nav { background: var(--dark); padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+nav .logo { color: var(--primary); font-size: 24px; font-weight: bold; }
+nav ul { list-style: none; display: flex; margin: 0; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
+nav ul li a:hover { color: var(--primary); }
+
+/* Slider Section */
+.hero { height: 450px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80'); background-size: cover; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+/* Sections */
+.container { padding: 80px 10%; }
+.footer { background: var(--dark); color: white; text-align: center; padding: 20px; margin-top: 50px; }
