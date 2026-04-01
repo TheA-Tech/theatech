@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheaTech | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">TheaTech</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1 id="slide-text">Innovative Tech Solutions</h1>
+        <p>Empowering your business with TheaTech</p>
+    </div>
+
+    <div class="container">
+        <h2>Welcome to TheaTech</h2>
+        <p>Aapki website ab GitHub par professional lag rahi hai.</p>
+    </div>
+
+    <footer class="footer">© 2024 TheaTech | Professional IT Solutions</footer>
+
+    <script>
+        const texts = ["Innovative Tech Solutions", "Expert Web Development", "Future Ready Software"];
+        let i = 0;
+        setInterval(() => {
+            document.getElementById('slide-text').innerText = texts[i];
+            i = (i + 1) % texts.length;
+        }, 3000);
+    </script>
+</body>
+</html>
