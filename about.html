@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><link rel="stylesheet" href="style.css"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><title>About Us | TheaTech</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | THEA.TECH</title>
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body>
-    <nav>...</nav> <div class="container">
-        <h1 class="section-title" data-aos="fade-right">Who We Are</h1>
-        <div class="card" data-aos="fade-up" style="max-width: 800px; margin: 0 auto;">
-            <p>TheaTech started with a simple goal: To revolutionize the digital landscape of Pakistan. We are a collective of engineers, designers, and strategists who believe that technology should be elegant and powerful.</p>
-            <p>Our journey began at theatech.wuaze.com, and now we are scaling globally. We specialize in transforming outdated business models into high-performing digital assets.</p>
+<body class="bg-[#0f172a] text-slate-200 font-sans antialiased">
+
+    <!-- NAVBAR (Same structure for consistency) -->
+    <nav class="bg-[#0b0f19]/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-wider text-white"><span class="text-sky-400">THEA</span>.TECH</a>
+            <div class="space-x-8 font-medium">
+                <a href="index.html" class="text-slate-300 hover:text-sky-400 transition">Home</a>
+                <a href="about.html" class="text-sky-400 border-b-2 border-sky-400 pb-1">About Us</a>
+                <a href="services.html" class="text-slate-300 hover:text-sky-400 transition">Our Services</a>
+                <a href="contact.html" class="text-slate-300 hover:text-sky-400 transition">Contact</a>
+            </div>
         </div>
-    </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
+    </nav>
+
+    <!-- ABOUT CONTENT -->
+    <section class="py-20 px-6 max-w-5xl mx-auto space-y-16">
+        <div class="text-center space-y-4">
+            <h2 class="text-4xl font-extrabold text-white">Who We Are</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">We bridge the gap between complex engineering methodologies and seamless digital architecture using premium tech stacks.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-sky-400">Our Vision & Philosophy</h3>
+                <p class="text-slate-400 leading-relaxed">At THEA.TECH, we believe that software should not only look phenomenal but operate with robust speed and zero downtime. From AI-driven analytics to deep cloud integrations, we craft technical infrastructure that keeps businesses scaling without barriers.</p>
+            </div>
+            <div class="bg-[#0b0f19] p-8 rounded-2xl border border-slate-800 space-y-6">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-bullseye text-sky-400 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Enterprise Standards</h4>
+                        <p class="text-sm text-slate-500 mt-1">We enforce precise tech standards for global systems.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-brain text-sky-400 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">AI & Cloud Optimization</h4>
+                        <p class="text-sm text-slate-500 mt-1">Integrating machine learning and native cloud models natively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
