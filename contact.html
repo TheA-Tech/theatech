@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | THEA.TECH</title>
+    <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] text-slate-200 font-sans antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#0b0f19]/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-wider text-white"><span class="text-sky-400">THEA</span>.TECH</a>
+            <div class="space-x-8 font-medium">
+                <a href="index.html" class="text-slate-300 hover:text-sky-400 transition">Home</a>
+                <a href="about.html" class="text-slate-300 hover:text-sky-400 transition">About Us</a>
+                <a href="services.html" class="text-slate-300 hover:text-sky-400 transition">Our Services</a>
+                <a href="contact.html" class="text-sky-400 border-b-2 border-sky-400 pb-1">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FORM -->
+    <section class="py-20 px-6 max-w-3xl mx-auto">
+        <div class="bg-[#0b0f19] p-8 md:p-12 rounded-3xl border border-slate-800 space-y-8 shadow-2xl">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl font-extrabold text-white">Start Your Project</h2>
+                <p class="text-slate-500 text-sm">Fill out the brief and an integration consultant will reach out shortly.</p>
+            </div>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Your Name" class="w-full bg-[#131926] border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 transition">
+                    <input type="email" placeholder="Your Email" class="w-full bg-[#131926] border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 transition">
+                </div>
+                <textarea rows="5" placeholder="Project details and scope..." class="w-full bg-[#131926] border border-slate-800 rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 transition"></textarea>
+                <button type="button" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-sky-500/10 hover:opacity-90 transition">Transmit Details</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
