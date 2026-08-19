@@ -3,106 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THEA.TECH | Premium IT Software House & Consultancy</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>THEA.TECH | Enterprise Software House</title>
     <style>
-        /* CORE RECOVERY & MODERN STYLES */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0b0f19; color: #e2e8f0; overflow-x: hidden; }
+        /* DIRECT SYSTEM STYLES (Zero External Fails) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+        body { background-color: #0b0f19; color: #ffffff; line-height: 1.6; }
         
-        /* CHROMIUM GLOW ANIMATION EFFECTS */
-        @keyframes pulseGlow {
-            0% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 0.3; }
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
+        /* NAVBAR */
+        header { background-color: #090d16; border-bottom: 1px solid #1e293b; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
+        .logo .blue { color: #38bdf8; }
+        .logo .white { color: #ffffff; }
+        nav a { color: #94a3b8; text-decoration: none; margin-left: 25px; font-weight: 600; }
+        nav a:hover, nav a.active { color: #38bdf8; }
 
-        /* 1. NAVIGATION BAR */
-        nav { background-color: #090d16; border-b: 1px solid #1e293b; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        nav .logo { font-size: 26px; font-weight: 900; letter-spacing: 1px; }
-        nav .logo .blue { color: #38bdf8; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
-        nav .logo .silver { color: #ffffff; }
-        nav .links a { color: #94a3b8; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; transition: 0.3s; }
-        nav .links a:hover, nav .links a.active { color: #38bdf8; }
-        nav .cta-btn { background: linear-gradient(to right, #38bdf8, #2563eb); color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2); transition: 0.3s; }
-        nav .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4); }
+        /* MULTI-PAGES SCROLL LAYOUT */
+        .section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; text-align: center; border-bottom: 1px solid #1e293b; }
+        
+        /* HERO SECTION */
+        .hero { padding: 120px 40px; }
+        .badge { background-color: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
+        h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; }
+        h1 span { color: #38bdf8; }
+        .lead { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto 40px auto; }
+        .btn { background: linear-gradient(to right, #38bdf8, #2563eb); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; }
 
-        /* HERO AREA BACKDROP BACKGROUND */
-        .glow-bg { position: absolute; top: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%); z-index: 1; animation: pulseGlow 6s infinite ease-in-out; pointer-events: none; }
-        section { position: relative; padding: 100px 50px; max-width: 1300px; margin: 0 auto; z-index: 2; }
+        /* GRID FOR 6+ SERVICES */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .card { background-color: #0f172a; border: 1px solid #1e293b; padding: 35px 25px; border-radius: 12px; text-align: left; transition: 0.3s; }
+        .card:hover { border-color: #38bdf8; transform: translateY(-5px); }
+        .card h3 { font-size: 20px; color: #ffffff; margin-bottom: 12px; }
+        .card p { font-size: 14px; color: #94a3b8; }
 
-        /* 2. PREMIUM HERO SECTION */
-        .hero-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 75vh; }
-        .hero-text { flex: 1; text-align: left; animation: floatUp 1s ease-out; }
-        .hero-visual { flex: 1; display: flex; justify-content: center; align-items: center; }
-        .badge { background-color: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 25px; }
-        h1 { font-size: 56px; font-weight: 900; color: #ffffff; line-height: 1.15; }
-        h1 span { background: linear-gradient(to right, #38bdf8, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #38bdf8; }
-        p.lead-text { font-size: 19px; color: #cbd5e1; margin: 25px 0 40px 0; max-width: 580px; line-height: 1.6; }
-        .btn-group { display: flex; gap: 20px; }
-        .btn-primary { background: linear-gradient(to right, #38bdf8, #2563eb); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2); text-align: center; }
-        .btn-secondary { border: 1px solid #475569; background-color: rgba(30, 41, 59, 0.5); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; text-align: center; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(56, 189, 248, 0.3); }
-        .btn-secondary:hover { background-color: #1e293b; color: white; }
-        .cube-wireframe { width: 320px; height: 320px; background-color: rgba(30, 41, 59, 0.5); border: 2px dashed #38bdf8; border-radius: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); transition: 0.5s; }
-        .cube-wireframe:hover { border-style: solid; transform: rotate(5deg) scale(1.03); border-color: white; }
-        .cube-wireframe i { font-size: 120px; color: #38bdf8; text-shadow: 0 0 40px rgba(56, 189, 248, 0.6); }
+        /* ABOUT DESIGN */
+        .about-text { max-width: 800px; margin: 0 auto; font-size: 17px; color: #cbd5e1; }
 
-        /* SECTION GLOBAL HEADERS */
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 70px auto; }
-        .section-header h2 { font-size: 40px; font-weight: 800; color: #ffffff; margin-bottom: 15px; }
-        .section-header p { color: #94a3b8; font-size: 17px; }
+        /* CONTACT FORM VECTOR MATERIAL */
+        .form-box { max-width: 600px; margin: 40px auto 0 auto; background-color: #090d16; border: 1px solid #1e293b; padding: 40px; border-radius: 16px; }
+        .input-group { display: flex; gap: 20px; margin-bottom: 20px; }
+        input, select, textarea { width: 100%; background-color: #131926; border: 1px solid #1e293b; border-radius: 8px; padding: 14px; color: white; font-size: 14px; outline: none; margin-bottom: 20px; }
+        input:focus, select:focus, textarea:focus { border-color: #38bdf8; }
+        .submit-btn { width: 100%; background: linear-gradient(to right, #38bdf8, #2563eb); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
 
-        /* 3. CORE METRICS STRIP */
-        .metrics-strip { background-color: #090d16; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; padding: 50px; }
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-        .metric-card h3 { font-size: 44px; font-weight: 800; color: #ffffff; }
-        .metric-card h3 span { color: #38bdf8; }
-        .metric-card p { font-size: 14px; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 968px) { .grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { h1 { font-size: 34px; } .grid { grid-template-columns: 1fr; } .input-group { flex-direction: column; gap: 0; } header { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
 
-        /* 4. EXPANDED IT SERVICES SECTION (6 CARDS) */
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-card { background-color: #0f172a; border: 1px solid #1e293b; padding: 40px 35px; border-radius: 16px; transition: 0.4s ease; position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, #38bdf8, #2563eb); opacity: 0; transition: 0.3s; }
-        .service-card:hover { transform: translateY(-8px); border-color: rgba(56, 189, 248, 0.3); box-shadow: 0 20px 30px rgba(0,0,0,0.4); }
-        .service-card:hover::before { opacity: 1; }
-        .service-icon { width: 60px; height: 60px; background-color: rgba(56, 189, 248, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border: 1px solid rgba(56, 189, 248, 0.2); }
-        .service-icon i { font-size: 24px; color: #38bdf8; }
-        .service-card h3 { color: #ffffff; font-size: 21px; margin-bottom: 15px; font-weight: 700; }
-        .service-card p { font-size: 14.5px; color: #cbd5e1; line-height: 1.6; }
+    <!-- 1. NAVIGATION BAR -->
+    <header>
+        <div class="logo"><span class="blue">THEA</span><span class="white">.TECH</span></div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-        /* 5. ABOUT US DYNAMIC LOOK */
-        .about-layout { display: flex; gap: 60px; align-items: center; background-color: #090d16; border: 1px solid #1e293b; padding: 60px; border-radius: 24px; }
-        .about-info { flex: 1.2; text-align: left; }
-        .about-info h2 { font-size: 38px; color: #ffffff; margin-bottom: 20px; font-weight: 800; }
-        .about-info p { font-size: 16.5px; color: #cbd5e1; margin-bottom: 30px; line-height: 1.7; }
-        .about-stats { flex: 0.8; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 40px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
-        .about-stats h4 { font-size: 64px; font-weight: 900; color: #ffffff; text-shadow: 0 0 30px rgba(255,255,255,0.1); }
-        .about-stats p { font-size: 13px; text-transform: uppercase; color: #38bdf8; font-weight: 700; letter-spacing: 1px; margin-bottom: 25px; }
-        .mini-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid #334155; padding-top: 25px; }
-        .mini-item h5 { font-size: 20px; color: #ffffff; font-weight: 700; }
-        .mini-item p { font-size: 12px; color: #94a3b8; margin: 3px 0 0 0; }
+    <!-- 2. HERO PAGE SECTION -->
+    <section class="section hero" id="home">
+        <span class="badge">Next-Gen Software Architecture</span>
+        <h1>Design. Code.<br><span>Deploy Innovation.</span></h1>
+        <p class="lead">Empowering brands with high-load full-stack software development, automated cloud native pipelines, and elite cyber security frameworks.</p>
+        <a href="#services" class="btn">Explore Services Spectrum</a>
+    </section>
 
-        /* 6. WHY CHOOSE US VERTICAL TIMELINE DESIGN */
-        .features-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .feature-box { background-color: rgba(15, 23, 42, 0.6); border: 1px solid #1e293b; padding: 35px; border-radius: 16px; text-align: left; }
-        .feature-box h4 { font-size: 18px; color: #ffffff; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-        .feature-box h4 i { color: #10b981; }
-        .feature-box p { font-size: 14.5px; color: #cbd5e1; line-height: 1.6; }
+    <!-- 3. EXPANDED IT SERVICES SECTION (6 CARDS) -->
+    <section class="section" id="services">
+        <h2>Professional Enterprise Services</h2>
+        <p style="color: #64748b; margin-top: 5px;">Comprehensive operational parameters built to scale your infrastructure natively.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Custom Software House</h3>
+                <p>Full-stack custom platform engineering. Automated operational pipelines, high-load backends, and modular database architectures.</p>
+            </div>
+            <div class="card">
+                <h3>Strategic IT Consultancy</h3>
+                <p>System risk diagnostics, frameworks assessment matrices, and optimized transition maps to clear corporate legacy friction.</p>
+            </div>
+            <div class="card">
+                <h3>UI/UX Architecture & Graphic Design</h3>
+                <p>High-fidelity platform wiring layouts, complete vector branding assets, and tailored design frameworks built on consumer behavior vectors.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Marketing & Growth Matrix</h3>
+                <p>Algorithmic pixel tracking architectures, funnel flow optimizations, and target network distribution formulas to maximize performance retention.</p>
+            </div>
+            <div class="card">
+                <h3>Cloud Operations & DevOps</h3>
+                <p>AWS/Azure node configuration management, automated deployment tracking scripts, and deep system server virtualization layers.</p>
+            </div>
+            <div class="card">
+                <h3>Cyber Security Operations</h3>
+                <p>System vulnerability stress testing, custom cryptographic protection parameters, and robust hardware network shield arrays.</p>
+            </div>
+        </div>
+    </section>
 
-        /* 7. HIGH-CONVERSION COMPREHENSIVE CONTACT MODULE */
-        .contact-layout { display: flex; gap: 50px; background-color: #090d16; border: 1px solid #1e293b; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
-        .contact-meta { flex: 0.9; background: linear-gradient(180deg, #1e293b 0%, #0b0f19 100%); padding: 60px; border-right: 1px solid #1e293b; display: flex; flex-direction: column; justify-content: space-between; }
-        .contact-form-area { flex: 1.1; padding: 60px; }
-        .meta-heading h3 { font-size: 32px; color: #ffffff; font-weight: 800; margin-bottom: 15px; }
-        .meta-heading p { color: #cbd5e1; font-size: 15px; line-height: 1.6; }
-        .info-cards { margin: 40px 0; display: flex; flex-direction: column; gap: 25px; }
-        .info-card-item { display: flex; align-items: center; gap: 20px; }
-        .info-card-item .icon-wrap { width: 50px; height: 50px; background-color: rgba(56, 189, 248, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 18px; border: 1px solid rgba(56, 189, 248, 0.2); }
-        .info-card-item div h6 { font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
-        .info-card-item div p { font-size: 15px; color: #ffffff; font-weight: 600; margin-top: 2px; }
-        .social-row a { color: #94a3b8; font-size: 20px; margin-right: 20px; transition: 0.3s; text-decoration: none; }
+    <!-- 4. COMPREHENSIVE ABOUT LAYER -->
+    <section class="section" id="about">
+        <h2 style="margin-bottom: 20px;">Who We Are</h2>
+        <div class="about-text">
+            <p style="margin-bottom: 20px;">We unify advanced tech engineering guidelines with robust execution mechanics. At THEA.TECH, our operations are designed to map complex data architectures into smooth, dynamic user interfaces without encountering latency exceptions.</p>
+            <p>Our core framework targets data integrity and system scalability to build long-term high-fidelity corporate digital identities globally.</p>
+        </div>
+    </section>
+
+    <!-- 5. COMPREHENSIVE HIGH-CONVERSION CONTACT MODULE -->
+    <section class="section" id="contact">
+        <h2>Initiate Project Discovery</h2>
+        <p style="color: #64748b; margin-top: 5px;">Transmit your engineering requirements and an operations design specialist will respond shortly.</p>
+        <div class="form-box">
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Full Identification Name" required>
+                    <input type="email" placeholder="Corporate Email Address" required>
+                </div>
+                <select required>
+                    <option value="" disabled selected>Select Targeted Architecture Vector...</option>
+                    <option value="software">Enterprise Software Engineering Package</option>
+                    <option value="consult">Strategic IT Matrix Consultancy</option>
+                    <option value="design">UI/UX Prototype Asset Design</option>
+                    <option value="marketing">Digital Marketing Growth Funnel</option>
+                    <option value="cloud">Cloud Native Infra / DevOps Framework</option>
+                </select>
+                <textarea rows="5" placeholder="Detail your project goals, scope parameters, or current workflow blockades..." required></textarea>
+                <button type="button" class="submit-btn">Transmit System Blueprint</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 40px; color: #64748b; font-size: 14px; background-color: #090d16;">
+        <p>&copy; 2026 THEA.TECH ENTERPRISE CORP. All Rights Reserved. Pure HTML Architecture Deployment.</p>
+    </footer>
+
+</body>
+</html>
