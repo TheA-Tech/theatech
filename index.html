@@ -5,135 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THEA.TECH | Enterprise IT Software House</title>
     <style>
-        /* 100% ERROR-FREE SECURE COMPACT ENGINE */
+        /* ELITE KINETIC NEON GLOW ENGINE */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
+        body { background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
         
-        /* HEADER & NAVIGATION */
-        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; letter-spacing: 1px; }
-        .logo-box .blue { color: #0284c7; }
+        /* HIGH-FIDELITY ANIMATION CONFIGURATIONS */
+        @keyframes fadeInRise {
+            0% { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes floatSystem {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(2, 132, 199, 0.25); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes neonGlowStrip {
+            0% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.1); }
+            50% { box-shadow: 0 0 35px rgba(2, 132, 199, 0.4); border-color: #0284c7; }
+            100% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.1); }
+        }
+
+        /* NAVIGATION HEADER */
+        header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-b: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; }
+        .logo-box .blue { color: #0284c7; text-shadow: 0 0 10px rgba(2,132,199,0.2); }
         .logo-box .dark { color: #0f172a; }
-        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
-        nav a:hover { color: #0284c7; }
+        
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; transition: 0.3s; position: relative; padding-bottom: 4px; }
+        nav a:hover, nav a.active { color: #0284c7; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background-color: #0284c7; transition: 0.3s; box-shadow: 0 0 8px #0284c7; }
+        nav a:hover::after { width: 100%; }
 
-        /* VIEWPORTS LAYOUT */
-        .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        .center-heading { margin-bottom: 60px; }
-        .center-heading h2 { font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
-        .center-heading p { color: #475569; font-size: 17px; }
+        /* MULTI-PAGE SYSTEM SECTIONS WITH FADE-IN ENTRANCES */
+        .section-viewport { padding: 120px 40px; max-width: 1300px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; animation: fadeInRise 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .center-heading { margin-bottom: 70px; text-align: center; }
+        .center-heading h2 { font-size: 42px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -1px; }
+        .center-heading p { color: #475569; font-size: 18px; }
 
-        /* HERO AREA SECTION */
-        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; text-align: left; }
-        .hero-text { flex: 1.2; }
-        .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
-        .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
-        h1 { font-size: 48px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
-        h1 span { color: #0284c7; }
-        .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
-        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
-        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
-        .tech-box-graphic { width: 280px; height: 280px; background-color: #ffffff; border: 2px solid rgba(2,132,199,0.15); border-radius: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.02); font-size: 72px; color: #0284c7; font-weight: bold; }
+        /* HERO SUITE WITH FADE ENTRANCE */
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 70vh; text-align: left; }
+        .hero-text { flex: 1.2; animation: fadeInRise 1s ease-out; }
+        .hero-graphic { flex: 0.8; display: flex; justify-content: center; animation: fadeInRise 1.4s ease-out; }
+        
+        .badge { background-color: rgba(2, 132, 199, 0.05); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 8px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 25px; box-shadow: 0 0 10px rgba(2,132,199,0.1); }
+        h1 { font-size: 56px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 25px; }
+        h1 span { color: #0284c7; text-shadow: 0 0 15px rgba(2,132,199,0.2); }
+        .hero-text p { font-size: 20px; color: #475569; margin-bottom: 45px; line-height: 1.6; }
+        
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 16px 36px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); }
+        .btn-gradient:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(2,132,199,0.4); }
+        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 14px 34px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; margin-left: 15px; font-size: 16px; }
+        .btn-outline:hover { background-color: #f8fafc; border-color: #22c55e; color: #16a34a; transform: translateY(-2px); box-shadow: 0 0 15px rgba(34,197,94,0.15); }
+        
+        /* Interactive Glowing Framework Container */
+        .tech-box-graphic { width: 320px; height: 320px; background-color: #ffffff; border: 2px solid rgba(2,132,199,0.15); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 80px; color: #0284c7; font-weight: bold; animation: floatSystem 5s infinite ease-in-out, neonGlowStrip 4s infinite ease-in-out; }
 
         /* METRICS BLOCK */
-        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; }
-        .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
+        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 55px 40px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; }
+        .metrics-layout { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .metric-item h3 { font-size: 44px; font-weight: 800; color: #0f172a; }
         .metric-item h3 span { color: #0284c7; }
-        .metric-item p { font-size: 13px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-top: 5px; }
+        .metric-item p { font-size: 13px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
 
-        /* 5 CORE SERVICES RESPONSIVE BLOCKS */
-        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
-        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
-        .service-node h3 { color: #0f172a; font-size: 22px; margin-bottom: 10px; font-weight: 700; border-left: 4px solid #0284c7; padding-left: 12px; }
-        .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; line-height: 1.6; }
-        .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; }
-        .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
+        /* 5 CORE COMPREHENSIVE SERVICES NODES GRID */
+        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px; text-align: left; }
+        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 45px 35px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.01); transition: 0.3s ease; }
+        .service-node:hover { transform: translateY(-8px); border-color: #0284c7; box-shadow: 0 20px 40px rgba(2,132,199,0.06); }
+        .service-node h3 { color: #0f172a; font-size: 24px; margin-bottom: 12px; font-weight: 700; border-left: 4px solid #0284c7; padding-left: 12px; }
+        .service-node p { font-size: 15.5px; color: #475569; margin-bottom: 20px; line-height: 1.6; }
+        .service-how { background-color: #f8fafc; padding: 20px; border-radius: 12px; font-size: 14.5px; color: #64748b; border: 1px dashed #cbd5e1; border-left: 4px solid #0284c7; }
+        .service-how strong { color: #0284c7; display: block; margin-bottom: 6px; text-transform: uppercase; font-size: 13px; letter-spacing: 0.5px; }
 
         /* BROAD ABOUT LAYER */
-        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
-        .about-narrative { flex: 1.3; font-size: 17px; color: #475569; }
-        .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
-        .about-numerical-box h4 { font-size: 56px; color: #0f172a; font-weight: 900; }
-        .about-numerical-box p { color: #0284c7; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 5px; }
+        .about-master-layout { display: flex; gap: 60px; align-items: center; text-align: left; background-color: #ffffff; padding: 60px; border-radius: 24px; border: 1px solid #cbd5e1; box-shadow: 0 10px 40px rgba(0,0,0,0.01); }
+        .about-narrative { flex: 1.2; font-size: 17.5px; color: #475569; }
+        .about-narrative p { margin-bottom: 20px; line-height: 1.7; }
+        .about-numerical-box { flex: 0.8; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 55px 40px; border-radius: 20px; border: 1px solid #cbd5e1; text-align: center; }
+        .about-numerical-box h4 { font-size: 64px; color: #0f172a; font-weight: 900; }
+        .about-numerical-box p { color: #0284c7; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 8px; letter-spacing: 2px; }
 
-        /* CORE VALUES */
-        .features-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left; margin-top: 30px; }
-        .feature-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 30px; border-radius: 16px; }
-        .feature-box h4 { font-size: 18px; color: #16a34a; font-weight: 700; margin-bottom: 10px; }
-        .feature-box p { font-size: 14px; color: #64748b; }
+        /* CORE VALUES SPEC PARAMETERS */
+        .features-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: left; margin-top: 20px; }
+        .feature-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 35px; border-radius: 20px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+        .feature-box:hover { border-color: #0284c7; transform: translateY(-4px); }
+        .feature-box h4 { font-size: 19px; color: #16a34a; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+        .feature-box p { font-size: 14.5px; color: #64748b; line-height: 1.6; }
 
-        /* CONTACT FORM GRID AND CHANNELS TO GMAIL */
-        .contact-card-box { display: flex; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.02); text-align: left; margin-top: 40px; }
-        .contact-sidebar { flex: 0.8; background: #0f172a; padding: 50px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
-        .contact-form-side { flex: 1.2; padding: 50px; background-color: #ffffff; }
-        .communication-nodes { margin: 30px 0; display: flex; flex-direction: column; gap: 20px; }
-        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; }
+        /* CONTACT CONVERSION MATRIX FOR GMAIL FORM ENGINE */
+        .contact-card-box { display: flex; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 28px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.03); text-align: left; margin-top: 40px; }
+        .contact-sidebar { flex: 0.85; background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 60px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+        .contact-form-side { flex: 1.15; padding: 60px; background-color: #ffffff; }
+        .sidebar-title h3 { font-size: 34px; font-weight: 800; margin-bottom: 15px; }
+        .sidebar-title p { color: #cbd5e1; font-size: 15.5px; line-height: 1.6; }
+        .communication-nodes { margin: 40px 0; display: flex; flex-direction: column; gap: 25px; }
+        .node-row { color: #38bdf8; text-decoration: none; font-size: 16px; font-weight: 600; display: block; transition: 0.3s; }
+        .node-row:hover { transform: translateX(5px); }
         .node-row.wp { color: #22c55e; }
-        .social-matrix-row a { color: #94a3b8; font-size: 15px; margin-right: 15px; text-decoration: none; font-weight: bold; }
-        .social-matrix-row a:hover { color: #ffffff; }
+        .social-matrix-row a { color: #94a3b8; font-size: 16px; margin-right: 20px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .social-matrix-row a:hover { color: #38bdf8; }
         
-        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
-        .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
-        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; color: #0f172a; font-size: 14px; outline: none; width: 100%; }
-        .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #0284c7; }
-        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(2,132,199,0.15); }
-
-        footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; }
-        @media (max-width: 968px) { .services-layout-grid, .hero-layout, .about-master-layout, .contact-card-box, .grid-split-2, .features-container { grid-template-columns: 1fr; flex-direction: column; text-align: center; } .hero-text { text-align: center; } .contact-sidebar { border-bottom: 1px solid #cbd5e1; } .btn-outline { margin-left: 0; margin-top: 15px; } }
-    </style>
-</head>
-<body>
-
-    <!-- 1. NAVIGATION MODULE -->
-    <header>
-        <a href="#" class="logo-box">
-            <span class="blue">THEA</span><span class="dark">.TECH</span>
-        </a>
-        <nav>
-            <a href="#home-view">Home</a>
-            <a href="#services-view">Services</a>
-            <a href="#about-view">About</a>
-            <a href="#contact-view">Contact</a>
-        </nav>
-    </header>
-
-    <!-- 2. HERO PAGE BANNER -->
-    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 80px;">
-        <div class="hero-layout">
-            <div class="hero-text">
-                <span class="badge">Architecting Corporate Digital Future</span>
-                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
-                <p>Empowering progressive global operations with scalable enterprise software house solutions, advanced full-stack systems engineering, and elite visibility frameworks [3.1].</p>
-                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
-                <a href="https://wa.me" target="_blank" class="btn-outline">Live WhatsApp Chat</a>
-            </div>
-            <div class="hero-graphic">
-                <div class="tech-box-graphic">&lt;/&gt;</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- METRICS -->
-    <section class="metrics-bar">
-        <div class="metrics-layout">
-            <div class="metric-item">
-                <h3>99<span>%</span></h3>
-                <p>Client Retention</p>
-            </div>
-            <div class="metric-item">
-                <h3>150<span>+</span></h3>
-                <p>Nodes Deployed</p>
-            </div>
-            <div class="metric-item">
-                <h3>24<span>/7</span></h3>
-                <p>Infrastructure Support</p>
-            </div>
-            <div class="metric-item">
-                <h3>100<span>%</span></h3>
-                <p>Secure Handshaking</p>
-            </div>
-        </div>
-    </section>
-    
+        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .input-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; }
+        .input-block label { font-size: 13px; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; }
+        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 15px 18px; color: #0f172a; font-size: 15px; outline: none; width: 100%; transition: 0.3s; }
