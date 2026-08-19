@@ -6,15 +6,15 @@
     <title>THEA.TECH | Enterprise IT Software House & Consultancy</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* PURE MODERN VECTOR GRAPHIC ENGINE STYLES */
+        /* PREMIUM METALLIC SILVER SPECS */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0b0f19; color: #cbd5e1; overflow-x: hidden; }
+        body { background-color: #f1f5f9; color: #1e293b; overflow-x: hidden; }
         
-        /* DYNAMIC KINETIC KEYFRAMES FOR TECH EFFECT */
+        /* HOVER KINETIC ANIMATIONS */
         @keyframes subtlePulse {
-            0% { transform: scale(1) rotate(0deg); opacity: 0.2; }
-            50% { transform: scale(1.08) rotate(3deg); opacity: 0.4; }
-            100% { transform: scale(1) rotate(0deg); opacity: 0.2; }
+            0% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.05); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 0.4; }
         }
         @keyframes floatUpFade {
             0% { transform: translateY(40px); opacity: 0; }
@@ -25,84 +25,83 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* 1. HIGH-FIDELITY NAVIGATION */
-        header { background-color: rgba(9, 13, 22, 0.9); backdrop-filter: blur(12px); border-b: 1px solid #1e293b; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        /* 1. METALLIC TOP NAVIGATION */
+        header { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-b: 1px solid #cbd5e1; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-img { height: 45px; width: auto; object-fit: contain; transition: transform 0.3s; }
         .logo-box:hover .logo-img { transform: scale(1.05) rotate(-2deg); }
         .logo-text { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
-        .logo-text .blue { color: #38bdf8; text-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
-        .logo-text .white { color: #ffffff; }
-        nav a { color: #94a3b8; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; transition: 0.3s; position: relative; padding-bottom: 4px; }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #38bdf8; transition: 0.3s; }
+        .logo-text .blue { color: #0284c7; }
+        .logo-text .dark { color: #0f172a; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 15px; transition: 0.3s; position: relative; padding-bottom: 4px; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #0284c7; transition: 0.3s; }
         nav a:hover::after, nav a.active::after { width: 100%; }
-        nav a:hover, nav a.active { color: #38bdf8; }
+        nav a:hover, nav a.active { color: #0284c7; }
         .header-actions { display: flex; align-items: center; gap: 20px; }
-        .whatsapp-icon-top { color: #25d366; font-size: 24px; transition: 0.3s; text-decoration: none; }
-        .whatsapp-icon-top:hover { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(37,211,102,0.5)); }
+        .whatsapp-icon-top { color: #16a34a; font-size: 24px; transition: 0.3s; text-decoration: none; }
+        .whatsapp-icon-top:hover { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(22,163,74,0.3)); }
 
-        /* MULTI-PAGE VIEWPORT WRAPPERS */
-        .section { padding: 120px 50px; max-width: 1300px; margin: 0 auto; position: relative; z-index: 10; border-bottom: 1px solid rgba(30, 41, 59, 0.5); }
-        .glow-overlay { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%); top: -10%; right: -5%; z-index: 1; animation: subtlePulse 8s infinite ease-in-out; pointer-events: none; }
+        /* BRIGHT MODERN LAYOUT PARAMETERS */
+        .section { padding: 120px 50px; max-width: 1300px; margin: 0 auto; position: relative; z-index: 10; border-bottom: 1px solid #e2e8f0; }
+        .glow-overlay { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, transparent 70%); top: -10%; right: -5%; z-index: 1; animation: subtlePulse 8s infinite ease-in-out; pointer-events: none; }
 
-        /* 2. DYNAMIC HERO EXPERIENCE WITH HOVER GRAPHICS */
+        /* 2. PREMIUM BRIGHT HERO SECTION */
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; min-height: 70vh; }
         .hero-content { flex: 1.2; text-align: left; animation: floatUpFade 1s ease-out; }
         .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
-        .badge { background-color: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 25px; }
-        h1 { font-size: 58px; font-weight: 900; color: #ffffff; line-height: 1.15; margin-bottom: 25px; }
-        h1 span { background: linear-gradient(to right, #38bdf8, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #38bdf8; }
-        .hero-content p { font-size: 19px; color: #94a3b8; line-height: 1.6; margin-bottom: 45px; max-width: 600px; }
+        .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 25px; }
+        h1 { font-size: 58px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 25px; }
+        h1 span { background: linear-gradient(to right, #0284c7, #64748b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #0284c7; }
+        .hero-content p { font-size: 19px; color: #475569; line-height: 1.6; margin-bottom: 45px; max-width: 600px; }
         .btn-row { display: flex; gap: 20px; }
-        .btn-gradient { background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25); text-align: center; }
-        .btn-outline { border: 1px solid #334155; background-color: rgba(15, 23, 42, 0.4); color: #cbd5e1; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; text-align: center; }
-        .btn-gradient:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4); }
-        .btn-outline:hover { background-color: #1e293b; color: #ffffff; transform: translateY(-2px); }
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25); text-align: center; }
+        .btn-outline { border: 1px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .btn-gradient:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.4); }
+        .btn-outline:hover { background-color: #f8fafc; color: #0f172a; transform: translateY(-2px); border-color: #94a3b8; }
         
-        /* HOVER TECH IMAGE BLUEPRINT PLACEHOLDER */
-        .tech-visual-frame { width: 360px; height: 360px; border: 2px solid rgba(56, 189, 248, 0.2); background: linear-gradient(145deg, #0f172a 0%, #090d16 100%); border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.5); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; }
-        .tech-visual-frame::before { content: ''; position: absolute; width: 150%; height: 150%; border: 1px dashed rgba(56,189,248,0.15); border-radius: 50%; animation: spinSlow 20s infinite linear; }
-        .tech-visual-frame:hover { transform: scale(1.05) rotate(2deg); border-color: #38bdf8; box-shadow: 0 40px 80px rgba(56,189,248,0.15); }
-        .tech-visual-frame i { font-size: 130px; color: #38bdf8; text-shadow: 0 0 40px rgba(56, 189, 248, 0.5); transition: 0.3s; }
-        .tech-visual-frame:hover i { transform: scale(1.1); color: #ffffff; }
+        /* HOVER TECH PLATFORM IMAGE WRAPPER */
+        .tech-visual-frame { width: 360px; height: 360px; border: 2px solid rgba(2, 132, 199, 0.15); background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%); border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.05); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; }
+        .tech-visual-frame::before { content: ''; position: absolute; width: 150%; height: 150%; border: 1px dashed rgba(2, 132, 199, 0.2); border-radius: 50%; animation: spinSlow 20s infinite linear; }
+        .tech-visual-frame:hover { transform: scale(1.05) rotate(2deg); border-color: #0284c7; box-shadow: 0 40px 80px rgba(2, 132, 199, 0.15); }
+        .tech-visual-frame i { font-size: 130px; color: #0284c7; text-shadow: 0 0 30px rgba(2, 132, 199, 0.2); transition: 0.3s; }
+        .tech-visual-frame:hover i { transform: scale(1.1); color: #1d4ed8; }
 
-        /* METRICS STRIP */
-        .metrics-bar { background-color: #080c14; border-y: 1px solid #1e293b; padding: 60px 50px; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+        /* BRIGHT METRICS STRIP */
+        .metrics-bar { background-color: #ffffff; border-y: 1px solid #e2e8f0; padding: 60px 50px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.01); }
         .metrics-layout { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
-        .metric-item h3 { font-size: 46px; font-weight: 800; color: #ffffff; }
-        .metric-item h3 span { color: #38bdf8; }
+        .metric-item h3 { font-size: 46px; font-weight: 800; color: #0f172a; }
+        .metric-item h3 span { color: #0284c7; }
         .metric-item p { font-size: 13px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-top: 8px; letter-spacing: 1.5px; }
 
-        /* SECTION HEADER SCHEMATICS */
+        /* SECTION HEAD SCHEMATICS */
         .section-center-head { text-align: center; max-width: 750px; margin: 0 auto 80px auto; }
-        .section-center-head h2 { font-size: 42px; font-weight: 800; color: #ffffff; margin-bottom: 15px; letter-spacing: -0.5px; }
-        .section-center-head p { color: #94a3b8; font-size: 17px; line-height: 1.6; }
+        .section-center-head h2 { font-size: 42px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .section-center-head p { color: #475569; font-size: 17px; line-height: 1.6; }
 
-        /* 3. BROAD COMPREHENSIVE 6+ CARD SERVICES GRID */
+        /* 3. CORE 6+ SERVICE MATRIX GRID */
         .services-layout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-node { background-color: #0f172a; border: 1px solid #1e293b; padding: 45px 35px; border-radius: 20px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
-        .service-node:hover { transform: translateY(-10px); border-color: #38bdf8; box-shadow: 0 30px 50px rgba(0,0,0,0.5); }
+        .service-node { background-color: #ffffff; border: 1px solid #e2e8f0; padding: 45px 35px; border-radius: 20px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .service-node:hover { transform: translateY(-10px); border-color: #0284c7; box-shadow: 0 30px 60px rgba(2, 132, 199, 0.08); }
         .service-node-top { display: flex; flex-direction: column; }
-        .service-node-icon { width: 65px; height: 65px; background-color: rgba(56, 189, 248, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; border: 1px solid rgba(56, 189, 248, 0.15); transition: 0.3s; }
-        .service-node-icon i { font-size: 26px; color: #38bdf8; }
-        .service-node:hover .service-node-icon { background-color: #38bdf8; border-color: #38bdf8; transform: rotate(-5deg); }
-        .service-node:hover .service-node-icon i { color: #0b0f19; }
-        .service-node h3 { color: #ffffff; font-size: 22px; margin-bottom: 15px; font-weight: 700; transition: 0.3s; }
-        .service-node:hover h3 { color: #38bdf8; }
-        .service-node p { font-size: 14.5px; color: #cbd5e1; line-height: 1.6; }
-        .service-img-placeholder { width: 100%; height: 140px; background-color: rgba(30, 41, 59, 0.3); border-radius: 10px; margin-top: 25px; border: 1px dashed rgba(56,189,248,0.1); display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .service-node:hover .service-img-placeholder { background-color: rgba(56,189,248,0.03); border-color: rgba(56,189,248,0.3); }
-        .service-img-placeholder i { font-size: 40px; color: rgba(56,189,248,0.2); transition: 0.3s; }
-        .service-node:hover .service-img-placeholder i { color: #38bdf8; transform: scale(1.1); }
+        .service-node-icon { width: 65px; height: 65px; background-color: rgba(2, 132, 199, 0.06); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; border: 1px solid rgba(2, 132, 199, 0.1); transition: 0.3s; }
+        .service-node-icon i { font-size: 26px; color: #0284c7; }
+        .service-node:hover .service-node-icon { background-color: #0284c7; border-color: #0284c7; transform: rotate(-5deg); }
+        .service-node:hover .service-node-icon i { color: #ffffff; }
+        .service-node h3 { color: #0f172a; font-size: 22px; margin-bottom: 15px; font-weight: 700; transition: 0.3s; }
+        .service-node:hover h3 { color: #0284c7; }
+        .service-node p { font-size: 14.5px; color: #475569; line-height: 1.6; }
+        .service-img-placeholder { width: 100%; height: 140px; background-color: #f8fafc; border-radius: 10px; margin-top: 25px; border: 1px dashed #cbd5e1; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .service-node:hover .service-img-placeholder { background-color: rgba(2, 132, 199, 0.02); border-color: rgba(2, 132, 199, 0.3); }
+        .service-img-placeholder i { font-size: 40px; color: #cbd5e1; transition: 0.3s; }
+        .service-node:hover .service-img-placeholder i { color: #0284c7; transform: scale(1.1); }
 
-        /* 4. ANIMATED EXPANDED BROAD ABOUT INFRASTRUCTURE */
+        /* 4. ANIMATED BROAD METALLIC ABOUT SPECS */
         .about-expanded-layout { display: flex; flex-direction: column; gap: 60px; }
         .about-main-split { display: flex; gap: 60px; align-items: center; }
         .about-text-area { flex: 1.2; text-align: left; }
-        .about-text-area h2 { font-size: 42px; color: #ffffff; font-weight: 800; margin-bottom: 25px; }
-        .about-text-area p { font-size: 17px; color: #cbd5e1; line-height: 1.7; margin-bottom: 25px; }
-        .about-visual-area { flex: 0.8; background: linear-gradient(135deg, #1e293b 0%, #090d16 100%); padding: 50px; border-radius: 24px; border: 1px solid #1e293b; text-align: center; position: relative; overflow: hidden; }
-        .about-visual-area h4 { font-size: 68px; font-weight: 900; color: #ffffff; }
-        .about-visual-area p { font-size: 13px; text-transform: uppercase; color: #38bdf8; font-weight: 700; letter-spacing: 2px; margin-top: 5px; }
+        .about-text-area h2 { font-size: 42px; color: #0f172a; font-weight: 800; margin-bottom: 25px; }
+        .about-text-area p { font-size: 17px; color: #475569; line-height: 1.7; margin-bottom: 25px; }
+        .about-visual-area { flex: 0.8; background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%); padding: 50px; border-radius: 24px; border: 1px solid #cbd5e1; text-align: center; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .about-visual-area h4 { font-size: 68px; font-weight: 900; color: #0f172a; }
+        .about-visual-area p { font-size: 13px; text-transform: uppercase; color: #0284c7; font-weight: 700; letter-spacing: 2px; margin-top: 5px; }
         
-        /* BROAD PILLARS GRID WITH ANIMATION EFFECTS */
