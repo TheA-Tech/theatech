@@ -5,41 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THEA.TECH | Enterprise Software House</title>
     <style>
-        /* CORE STRUCTURAL COMPACT ENGINE */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
         body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
-        
-        /* HEADER NAV WITH SMOOTH SECTION ANCHORS */
-        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
         .logo-box .blue { color: #0284c7; } .logo-box .dark { color: #0f172a; }
         nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
         nav a:hover { color: #0284c7; }
-
-        /* MULTI-PAGE BROAD SECTIONS VIEWPORTS */
         .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
         .center-heading { margin-bottom: 50px; }
-        .center-heading h2 { font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
-        
-        /* HERO COMPONENTS */
+        .center-heading h2 { font-size: 38px; font-weight: 800; color: #0f172a; }
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 55vh; text-align: left; }
         .hero-text { flex: 1.2; } .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
         .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
         h1 { font-size: 48px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
         h1 span { color: #0284c7; } .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
-        
         .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
         .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
         .btn-outline:hover { border-color: #22c55e; color: #16a34a; }
         .tech-box-graphic { width: 280px; height: 280px; background: #0f172a; border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 72px; color: #0284c7; font-weight: bold; border: 2px solid #0284c7; box-shadow: 0 0 20px rgba(2,132,199,0.3); }
-
-        /* PERFORMANCE METRICS STRIP */
         .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; }
         .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
         .metric-item p { font-size: 13px; color: #64748b; text-transform: uppercase; margin-top: 5px; font-weight: 700; }
-
-        /* 5 CORE CORPORATE SERVICES BLOCKS WITH FIXED PULSING ENGINES */
         @keyframes neonPulse { 0% { border-color: #cbd5e1; } 50% { border-color: #0284c7; box-shadow: 0 0 15px rgba(2,132,199,0.2); } 100% { border-color: #cbd5e1; } }
         .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
         .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; animation: neonPulse 3s infinite ease-in-out; transition: 0.3s; }
@@ -48,13 +36,9 @@
         .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; }
         .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
         .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
-
-        /* ABOUT MASTER CORES */
         .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
         .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
         .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
-
-        /* CONTACT CARD DESIGNED WITH CONTINUOUS RGB GLOW LINE BOUNDARY */
         @keyframes rgbMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .contact-card-box { display: flex; background-color: #ffffff; border-radius: 24px; overflow: hidden; margin-top: 40px; text-align: left; position: relative; padding: 4px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbMove 6s linear infinite; box-shadow: 0 0 25px rgba(2,132,199,0.25); }
         .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 20px; overflow: hidden; width: 100%; }
@@ -67,11 +51,8 @@
         .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
         .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
         .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
-        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(2,132,199,0.15); }
-        
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; }
-
-        /* AUTOMATIC INTELLIGENT ADAPTIVE SWITCH: MOBILE SYSTEM SWITCHES TO TECH SPACE DARK THEME */
         @media (max-width: 968px) {
             body { background-color: #0b0f19; color: #cbd5e1; }
             header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
@@ -91,16 +72,20 @@
     </style>
 </head>
 <body>
-
-    <!-- 1. NAVIGATION MODULE WITH SMART AUTO SCROLL CHAINS -->
     <header>
         <a href="#" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
-        <nav>
-            <a href="#home-view">Home</a>
-            <a href="#services-view">Services</a>
-            <a href="#about-view">About</a>
-            <a href="#contact-view">Contact</a>
-        </nav>
+        <nav><a href="#home-view">Home</a><a href="#services-view">Services</a><a href="#about-view">About</a><a href="#contact-view">Contact</a></nav>
     </header>
-
-    <!-- 2. HERO PAGE SUITE -->
+    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 60px;">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <span class="badge">Architecting Corporate Digital Future</span>
+                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
+                <p>Empowering progressive global operations with scalable enterprise software house solutions and elite auto-adaptive responsive frameworks [3.1].</p>
+                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
+                <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
+            </div>
+            <div class="hero-graphic"><div class="tech-box-graphic">&lt;/&gt;</div></div>
+        </div>
+    </section>
+    <section class="metrics-bar">
