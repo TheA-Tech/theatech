@@ -55,7 +55,7 @@
         .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
         .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
 
-        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
+        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; margin-top: 40px; }
         .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
         .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
 
@@ -76,7 +76,7 @@
         .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; }
 
-        /* 📱 SMART RESPONSIVE RESPONSIVITY: AUTOMATIC DEPLOY DARK MODE FOR MOBILE TERMINALS */
+        /* AUTOMATIC DEPLOY DARK MODE FOR MOBILE TERMINALS */
         @media (max-width: 968px) {
             body { background-color: #0b0f19; color: #cbd5e1; }
             header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
@@ -118,7 +118,6 @@
                 <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
             </div>
             <div class="hero-graphic">
-                <!-- Moveable Tech Orb Presentation Frame -->
                 <div class="orb-canvas-wrapper" id="orb-scope">
                     <canvas id="orbEngine"></canvas>
                 </div>
@@ -158,7 +157,7 @@
                 <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
                 <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
             </div>
-            <div class="service-node" style="grid-column: span 1; width: 100%;">
+            <div class="service-node">
                 <h3>UI/UX Designing</h3>
                 <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
                 <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
@@ -199,7 +198,7 @@
                             <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
                         </div>
                         <div class="input-block">
-                            <label>Requested Service</label>
+                            <label>Service</label>
                             <select name="Service" required>
                                 <option>Web & App Development</option>
                                 <option>Graphic Designing</option>
@@ -219,7 +218,6 @@
     <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
 
     <script>
-        /* SCROLL ENGINE ANIMATIONS LAYER */
         const scrollElements = document.querySelectorAll('.scroll-fade');
         const handleScrollAnimation = () => {
             scrollElements.forEach((el) => {
@@ -229,7 +227,6 @@
         window.addEventListener('scroll', handleScrollAnimation);
         window.addEventListener('load', handleScrollAnimation);
 
-        /* 3D INTERACTIVE MOVEABLE DOT MATRIX SPHERE CODES */
         const canvas = document.getElementById('orbEngine');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = 340;
@@ -247,7 +244,6 @@
             });
         }
 
-        /* Mouse Track movement logic matrix */
         document.getElementById('orb-scope').addEventListener('mousemove', (e) => {
             rotationY = (e.offsetX - width/2) * 0.0001;
             rotationX = (e.offsetY - height/2) * 0.0001;
@@ -256,17 +252,17 @@
         function renderOrb() {
             ctx.clearRect(0, 0, width, height);
             let cx = width / 2, cy = height / 2;
-            
             dots.forEach(dot => {
-                // Rotate X axis
                 let cosX = Math.cos(rotationX), sinX = Math.sin(rotationX);
                 let y1 = dot.y * cosX - dot.z * sinX, z1 = dot.z * cosX + dot.y * sinX;
-                // Rotate Y axis
                 let cosY = Math.cos(rotationY), sinY = Math.sin(rotationY);
                 let x2 = dot.x * cosY - z1 * sinY, z2 = z1 * cosY + dot.x * sinY;
-                
                 dot.x = x2; dot.y = y1; dot.z = z2;
-                
                 let scale = 230 / (230 + z2);
-                let x2d = dot.x * scale + cx;
-                let y2d = dot.y * scale + cy;
+                let x2d = dot.x * scale + cx, y2d = dot.y * scale + cy;
+                let alpha = (z2 + radius) / (radius * 2);
+                ctx.fillStyle = `rgba(56, 189, 248, ${alpha + 0.15})`;
+                ctx.beginPath(); ctx.arc(x2d, y2d, scale * 3.5, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = `rgba(2, 132, 199, ${(alpha + 0.05) * 0.2})`;
+                ctx.lineWidth = 0.5;
+                dots.forEach(other => {
