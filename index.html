@@ -3,105 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THEA.TECH | Enterprise IT Software House & Global Consultancy</title>
-    <!-- Stable Icon Pack Delivery -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>THEA.TECH | Software House</title>
     <style>
-        /* 100% UN-CRASHABLE SOLID EMBEDDED ENGINE CSS */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, sans-serif; scroll-behavior: smooth; }
+        /* 100% ERROR-FREE SECURE COMPACT ENGINE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
         
-        /* Premium Light Metallic Silver & Sky Blue Color Palette */
-        body { background-color: #f1f5f9; color: #1e293b; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-        
-        /* SOLID HOVER ANIMATIONS */
-        @keyframes floatUp { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-        @keyframes pulseGlow { 0% { box-shadow: 0 4px 15px rgba(2,132,199,0.1); } 50% { box-shadow: 0 4px 25px rgba(2,132,199,0.3); border-color: #0284c7; } 100% { box-shadow: 0 4px 15px rgba(2,132,199,0.1); } }
+        /* HEADER & NAVIGATION */
+        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; letter-spacing: 1px; }
+        .logo-box .blue { color: #0284c7; }
+        .logo-box .dark { color: #0f172a; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
+        nav a:hover { color: #0284c7; }
 
-        /* 1. STABLE TOP NAV BAR MODULE */
-        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { height: 45px; width: auto; object-fit: contain; }
-        .logo-text { font-size: 24px; font-weight: 900; letter-spacing: 1px; }
-        .logo-text .blue { color: #0284c7; }
-        .logo-text .dark { color: #0f172a; }
-        
-        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; transition: 0.3s; position: relative; padding-bottom: 4px; }
-        nav a:hover, nav a.active { color: #0284c7; }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #0284c7; transition: 0.3s; }
-        nav a:hover::after { width: 100%; }
-        
-        .header-actions { display: flex; align-items: center; gap: 20px; }
-        .whatsapp-top { color: #16a34a; font-size: 26px; text-decoration: none; transition: 0.3s; }
-        .whatsapp-top:hover { transform: scale(1.15); }
+        /* VIEWPORTS LAYOUT WITH AUTOMATIC EXPANSION */
+        .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .center-heading { margin-bottom: 60px; }
+        .center-heading h2 { font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
+        .center-heading p { color: #475569; font-size: 17px; }
 
-        /* MULTI-PAGE BROAD SECTIONS VIEWPORTS */
-        .section-viewport { padding: 120px 50px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; animation: floatUp 0.8s ease-out; }
-        .center-heading { text-align: center; max-width: 800px; margin: 0 auto 80px auto; }
-        .center-heading h2 { font-size: 42px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -1px; }
-        .center-heading p { color: #475569; font-size: 18px; line-height: 1.6; }
-
-        /* 2. DYNAMIC BROAD HERO COMPONENT */
-        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; min-height: 70vh; text-align: left; }
+        /* HERO AREA SECTION */
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; text-align: left; }
         .hero-text { flex: 1.2; }
         .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
-        
-        .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 25px; }
-        h1 { font-size: 56px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 25px; }
+        .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
+        h1 { font-size: 48px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
         h1 span { color: #0284c7; }
-        .hero-text p { font-size: 20px; color: #475569; margin-bottom: 40px; line-height: 1.6; }
-        
-        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; box-shadow: 0 8px 20px rgba(2,132,199,0.15); }
-        .btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(2,132,199,0.3); }
-        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 14px 34px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: 0.3s; display: inline-block; margin-left: 15px; }
-        .btn-outline:hover { background-color: #f8fafc; border-color: #0284c7; }
-        
-        .tech-box-graphic { width: 340px; height: 340px; background-color: #ffffff; border: 2px solid rgba(2,132,199,0.15); border-radius: 28px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(0,0,0,0.03); animation: pulseGlow 4s infinite ease-in-out; }
-        .tech-box-graphic i { font-size: 120px; color: #0284c7; }
+        .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
+        .tech-box-graphic { width: 280px; height: 280px; background-color: #ffffff; border: 2px solid rgba(2,132,199,0.15); border-radius: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.02); font-size: 72px; color: #0284c7; font-weight: bold; }
 
-        /* 3. CORE METRICS STRIP */
-        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; padding: 55px 40px; }
-        .metrics-layout { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-        .metric-item h3 { font-size: 46px; font-weight: 800; color: #0f172a; }
+        /* METRICS BLOCK */
+        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; }
+        .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
         .metric-item h3 span { color: #0284c7; }
-        .metric-item p { font-size: 13px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; }
+        .metric-item p { font-size: 13px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-top: 5px; }
 
-        /* 4. EXPANDED CORE SERVICES GRID (2x2 Structure layout) */
-        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px; }
-        .service-node { background-color: #ffffff; border: 1px solid #e2e8f0; padding: 45px 35px; border-radius: 24px; text-align: left; transition: 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.01); display: flex; flex-direction: column; justify-content: space-between; }
-        .service-node:hover { transform: translateY(-8px); border-color: #0284c7; box-shadow: 0 20px 40px rgba(2,132,199,0.08); }
-        .service-node-top { display: flex; flex-direction: column; }
-        .service-node-icon { width: 60px; height: 60px; background-color: rgba(2, 132, 199, 0.06); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border: 1px solid rgba(2, 132, 199, 0.1); }
-        .service-node-icon i { font-size: 24px; color: #0284c7; }
-        .service-node h3 { color: #0f172a; font-size: 24px; margin-bottom: 12px; font-weight: 700; }
-        .service-node p { font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 15px; }
-        .service-how-it-works { background-color: #f8fafc; border-left: 3px solid #0284c7; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 10px; }
-        .service-how-it-works strong { font-size: 13px; text-transform: uppercase; color: #0284c7; display: block; margin-bottom: 5px; letter-spacing: 0.5px; }
-        .service-how-it-works span { font-size: 14px; color: #64748b; line-height: 1.5; }
+        /* 5 CORE SERVICES RESPONSIVE BLOCKS */
+        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
+        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+        .service-node h3 { color: #0f172a; font-size: 22px; margin-bottom: 10px; font-weight: 700; border-left: 4px solid #0284c7; padding-left: 12px; }
+        .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; line-height: 1.6; }
+        .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; }
+        .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
 
-        /* 5. BROAD DETAILED ABOUT SECTION */
-        .about-master-layout { display: flex; gap: 60px; align-items: center; text-align: left; background-color: #ffffff; padding: 60px; border-radius: 24px; border: 1px solid #cbd5e1; margin-top: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.01); }
-        .about-narrative { flex: 1.2; }
-        .about-narrative p { font-size: 17.5px; color: #475569; line-height: 1.7; margin-bottom: 25px; }
-        .about-numerical-box { flex: 0.8; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 55px 40px; border-radius: 20px; border: 1px solid #cbd5e1; text-align: center; }
-        .about-numerical-box h4 { font-size: 64px; color: #0f172a; font-weight: 900; }
-        .about-numerical-box p { color: #0284c7; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 8px; letter-spacing: 2px; }
+        /* BROAD ABOUT LAYER */
+        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
+        .about-narrative { flex: 1.3; font-size: 17px; color: #475569; }
+        .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
+        .about-numerical-box h4 { font-size: 56px; color: #0f172a; font-weight: 900; }
+        .about-numerical-box p { color: #0284c7; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 5px; }
 
-        /* 6. CORE VALUES / PARAMETERS */
-        .features-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .feature-box { background-color: #ffffff; border: 1px solid #e2e8f0; padding: 35px; border-radius: 16px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
-        .feature-box:hover { border-color: #0284c7; }
-        .feature-box h4 { font-size: 19px; color: #0f172a; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-        .feature-box h4 i { color: #16a34a; }
-        .feature-box p { font-size: 14.5px; color: #64748b; line-height: 1.6; }
+        /* CONTACT FORM GRID AND CHANNELS TO GMAIL */
+        .contact-card-box { display: flex; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.02); text-align: left; }
+        .contact-sidebar { flex: 0.8; background: #0f172a; padding: 50px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+        .contact-form-side { flex: 1.2; padding: 50px; background-color: #ffffff; }
+        .communication-nodes { margin: 30px 0; display: flex; flex-direction: column; gap: 20px; }
+        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; margin-bottom: 15px; }
+        .node-row.wp { color: #22c55e; }
+        .social-matrix-row a { color: #94a3b8; font-size: 16px; margin-right: 15px; text-decoration: none; font-weight: bold; }
+        .social-matrix-row a:hover { color: #ffffff; }
+        
+        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+        .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
+        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; color: #0f172a; font-size: 14px; outline: none; width: 100%; }
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(2,132,199,0.15); }
 
-        /* 7. COMPREHENSIVE CONVERSION CONTACT MODULE TO GMAIL */
-        .contact-card-box { display: flex; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 28px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.03); margin-top: 50px; text-align: left; }
-        .contact-sidebar { flex: 0.85; background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); padding: 60px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
-        .contact-form-side { flex: 1.15; padding: 60px; background-color: #ffffff; }
-        .sidebar-title h3 { font-size: 34px; font-weight: 800; margin-bottom: 15px; }
-        .sidebar-title p { color: #cbd5e1; font-size: 15.5px; line-height: 1.6; }
-        .communication-nodes { margin: 40px 0; display: flex; flex-direction: column; gap: 25px; }
-        .node-row { display: flex; align-items: center; gap: 18px; text-decoration: none; color: inherit; font-size: 15.5px; font-weight: 600; transition: 0.3s; }
-        .node-row:hover { transform: translateX(5px); color: #38bdf8; }
-        .node-row i { width: 44px; height: 44px; background-color: rgba(255, 255, 255, 0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 18px; border: 1px solid rgba(255,255,255,0.08); }
-        .node-row.wp-node i { color: #25d366; }
+        footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; }
+        @media (max-width: 968px) { .services-layout-grid, .hero-layout, .about-master-layout, .contact-card-box, .grid-split-2 { grid-template-columns: 1fr; flex-direction: column; text-align: center; } .hero-text { text-align: center; } .contact-sidebar { border-bottom: 1px solid #cbd5e1; } }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION MODULE -->
+    <header>
+        <a href="#" class="logo-box">
+            <span class="blue">THEA</span><span class="dark">.TECH</span>
+        </a>
+        <nav>
+            <a href="#home-view">Home</a>
+            <a href="#services-view">Services</a>
+            <a href="#about-view">About</a>
+            <a href="#contact-view">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 2. HERO PAGE BANNER -->
+    <section class="section-viewport" id="home-view" style="border-bottom: none;">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <span class="badge">Architecting Corporate Digital Future</span>
+                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
+                <p>Empowering progressive global operations with scalable enterprise software house solutions, advanced full-stack systems engineering, and elite visibility frameworks [3.1].</p>
+                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
+            </div>
+            <div class="hero-graphic">
+                <div class="tech-box-graphic">&lt;/&gt;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS -->
+    <section class="metrics-bar">
+        <div class="metrics-layout">
+            <div class="metric-item">
+                <h3>99<span>%</span></h3>
+                <p>Client Retention</p>
+            </div>
+            <div class="metric-item">
+                <h3>150<span>+</span></h3>
+                <p>Nodes Deployed</p>
+            </div>
+            <div class="metric-item">
+                <h3>24<span>/7</span></h3>
+                <p>Infrastructure Support</p>
+            </div>
+            <div class="metric-item">
+                <h3>100<span>%</span></h3>
+                <p>Secure Handshaking</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES SPEC MATRIX SECTION -->
+    <section class="section-viewport" id="services-view">
+        <div class="center-heading">
+            <h2>Our Architectural Expertise</h2>
+            <p>High-end full-lifecycle technology systems engineered natively to secure, digitize, and accelerate corporate performance metrics globally [3.1].</p>
+        </div>
+        <div class="services-layout-grid">
+            
+            <div class="service-node">
+                <h3>Web & App Development</h3>
+                <p>Brief: We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance native iOS and Android mobile ecosystems tailored to scale your brand business natively [3.1].</p>
+                <div class="service-how">
+                    <strong>How It Works:</strong>
