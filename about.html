@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | THEA.TECH</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
+        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
+        .logo-box .blue { color: #0284c7; } .logo-box .dark { color: #0f172a; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
+        nav a:hover { color: #0284c7; }
+        
+        .container { padding: 80px 40px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; margin-top: 40px; }
+        .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
+        .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
+        footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; margin-top: 60px; }
+
+        @media (max-width: 968px) {
+            body { background-color: #0b0f19; color: #cbd5e1; }
+            header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
+            .logo-box .dark { color: #ffffff; } .logo-box .blue { color: #38bdf8; } nav a { color: #94a3b8; }
+            .about-master-layout { background-color: #111827; border-color: #1e293b; flex-direction: column; } .about-numerical-box { background: #0f172a; border-color: #1e293b; width: 100%; } .about-numerical-box h4 { color: #ffffff; }
+            footer { background-color: #090d16; border-color: #1e293b; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="about-master-layout">
+            <div class="about-narrative">
+                <h2 style="font-size: 36px; margin-bottom: 20px;">Who We Are</h2>
+                <p style="font-size: 18px; color: #475569;">We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies [3.1].</p>
+            </div>
+            <div class="about-numerical-box"><h4>99.99%</h4><p style="color: #0284c7; font-weight: bold; text-transform: uppercase; font-size: 12px; margin-top: 5px;">Server Uptime</p></div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
+</body>
+</html>
