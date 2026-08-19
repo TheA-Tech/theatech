@@ -6,99 +6,94 @@
     <title>THEA.TECH | Enterprise Software House</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #0b0f19; color: #f8fafc; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        /* PURE NATIVE 3D & NEON FLOW KEYFRAMES */
-        @keyframes rotateNeon { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes rgbGlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes mobilePulse { 0% { box-shadow: 0 0 10px rgba(2, 132, 199, 0.2); border-color: rgba(2, 132, 199, 0.3); } 50% { box-shadow: 0 0 25px #0284c7; border-color: #38bdf8; } 100% { box-shadow: 0 0 10px rgba(2, 132, 199, 0.2); border-color: rgba(2, 132, 199, 0.3); } }
-        @keyframes barGrow { 0% { height: 0%; opacity: 0; } 100% { opacity: 1; } }
-        
-        /* PREMIUM 3D SCROLL EFFECT SPECIFICATIONS */
-        .scroll-fade { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(4px); transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.9s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .scroll-fade.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        
-        header { background-color: rgba(11, 15, 25, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #1e293b; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        /* DEFAULT PC PREMIUM LIGHT SILVER THEME */
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: 0.3s; }
+        header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
         .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
-        .logo-box .blue { color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.4); }
-        .logo-box .dark { color: #ffffff; }
-        nav a { color: #94a3b8; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; transition: 0.3s; }
-        nav a:hover { color: #38bdf8; text-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }
-        
-        .section-viewport { padding: 120px 40px; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid #1e293b; text-align: center; }
+        .logo-box .blue { color: #0284c7; text-shadow: 0 0 10px rgba(2,132,199,0.2); }
+        .logo-box .dark { color: #0f172a; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
+        nav a:hover { color: #0284c7; }
+
+        /* VIEWPORT GENERAL STYLES */
+        .section-viewport { padding: 120px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
         .center-heading { margin-bottom: 60px; }
-        .center-heading h2 { font-size: 42px; font-weight: 800; color: #ffffff; margin-bottom: 15px; letter-spacing: -1px; text-shadow: 0 0 15px rgba(255,255,255,0.05); }
-        .center-heading p { color: #94a3b8; font-size: 18px; }
+        .center-heading h2 { font-size: 40px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -1px; }
+        .center-heading p { color: #475569; font-size: 18px; }
         
-        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 50px; min-height: 65vh; text-align: left; }
+        /* HERO & INTERACTIVE ORB PANEL */
+        .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; text-align: left; }
         .hero-text { flex: 1.2; } .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
-        .badge { background-color: rgba(56, 189, 248, 0.06); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; display: inline-block; margin-bottom: 25px; }
-        h1 { font-size: 58px; font-weight: 900; color: #ffffff; line-height: 1.15; margin-bottom: 25px; }
-        h1 span { color: #38bdf8; text-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
-        .hero-text p { font-size: 20px; color: #cbd5e1; margin-bottom: 45px; }
+        .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
+        h1 { font-size: 52px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
+        h1 span { color: #0284c7; }
+        .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); text-align: center; }
+        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
         
-        .btn-container { display: flex; flex-wrap: wrap; gap: 15px; }
-        .btn-gradient { background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%); color: #ffffff; padding: 16px 36px; border-radius: 10px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); text-align: center; transition: 0.3s; }
-        .btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 0 25px #38bdf8; }
-        .btn-outline { border: 2px solid #334155; background-color: transparent; color: #ffffff; padding: 14px 34px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block; text-align: center; transition: 0.3s; }
-        .btn-outline:hover { background-color: #1e293b; border-color: #22c55e; color: #22c55e; box-shadow: 0 0 15px rgba(34,197,94,0.2); }
-        /* ULTRA-PREMIUM 3D GLASSY NEON GRAPHIC BARS PANEL */
-        .skyline-container { width: 340px; height: 340px; background-color: #090d16; border-radius: 32px; position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; border: 1px solid #1e293b; box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
-        .skyline-grid-mesh { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px); background-size: 20px 20px; }
-        .skyline-buildings { width: 85%; height: 65%; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; position: relative; z-index: 5; margin-bottom: 20px; }
-        .building { background: linear-gradient(180deg, rgba(56, 189, 248, 0.8) 0%, rgba(37, 99, 235, 0.2) 100%); border-radius: 8px 8px 0 0; width: 42px; border: 1px solid rgba(56, 189, 248, 0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); box-shadow: 0 0 15px rgba(56, 189, 248, 0.3), inset 0 0 10px rgba(255,255,255,0.1); transform-origin: bottom; animation: barGrow 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .b1 { height: 55%; animation-delay: 0.2s; }
-        .b2 { height: 85%; background: linear-gradient(180deg, rgba(168, 85, 247, 0.8) 0%, rgba(37, 99, 235, 0.2) 100%); border-color: rgba(168, 85, Purple, 0.5); box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); animation-delay: 0.4s; }
-        .b3 { height: 50%; animation-delay: 0.6s; }
-        .b4 { height: 90%; animation-delay: 0.8s; }
-        
-        .metrics-bar { background-color: #090d16; border-y: 1px solid #1e293b; padding: 60px 20px; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
-        .metrics-layout { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .metric-item h3 { font-size: 46px; font-weight: 800; color: #ffffff; }
-        .metric-item h3 span { color: #38bdf8; }
-        .metric-item p { font-size: 13px; color: #94a3b8; text-transform: uppercase; margin-top: 5px; font-weight: 700; letter-spacing: 1px; }
-        
-        /* 5 EXPERT SERVICES MATRIX WITH FIXED PULSING NEON ENGINES */
-        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 35px; text-align: left; margin-top: 40px; }
-        .service-node { background-color: #111827; border: 1px solid #1e293b; padding: 45px 35px; border-radius: 24px; position: relative; overflow: hidden; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); animation: mobilePulse 3s infinite ease-in-out; }
-        .service-node:hover { transform: translateY(-8px) scale(1.02); border-color: #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); }
-        .service-node::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, #38bdf8, #e1306c, transparent); animation: rotateNeon 5s linear infinite; z-index: 1; opacity: 0; transition: opacity 0.3s; }
-        .service-node:hover::before { opacity: 1; }
-        .service-node::after { content: ''; position: absolute; inset: 2px; background: #111827; border-radius: 22px; z-index: 2; }
-        .service-node-content { position: relative; z-index: 3; }
-        .service-node h3 { color: #ffffff; font-size: 24px; margin-bottom: 12px; font-weight: 700; border-left: 4px solid #38bdf8; padding-left: 12px; }
-        .service-node p { font-size: 15.5px; color: #cbd5e1; margin-bottom: 15px; }
-        .service-how { background-color: rgba(30, 41, 59, 0.5); padding: 18px; border-radius: 12px; font-size: 14.5px; color: #94a3b8; border: 1px dashed #334155; margin-top: 15px; }
-        .service-how strong { color: #38bdf8; display: block; margin-bottom: 4px; }
-        
-        .about-master-layout { display: flex; gap: 60px; align-items: center; text-align: left; background-color: #111827; padding: 60px; border-radius: 28px; border: 1px solid #1e293b; margin-top: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        .about-narrative { flex: 1.3; font-size: 18px; color: #cbd5e1; }
-        .about-numerical-box { flex: 0.7; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 50px; border-radius: 20px; border: 1px solid #334155; text-align: center; }
-        .about-numerical-box h4 { font-size: 64px; font-weight: 900; color: #ffffff; }
-        .about-numerical-box p { color: #38bdf8; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 5px; }
-        
-        /* 5. CONTACT FORM SYSTEM WRAPPED WITH BLENDED RGB NEON BORDER */
-        .contact-card-box { display: flex; background-color: #111827; border-radius: 32px; overflow: hidden; margin-top: 50px; text-align: left; position: relative; padding: 4px; background: linear-gradient(45deg, #38bdf8, #a855f7, #00ffd5, #2563eb, #38bdf8); background-size: 400%; animation: rgbGlow 6s linear infinite; box-shadow: 0 0 35px rgba(56, 189, 248, 0.25); width: 100%; }
-        .contact-inner-wrapper { display: flex; background: #111827; border-radius: 28px; overflow: hidden; width: 100%; z-index: 5; }
-        .contact-sidebar { flex: 0.8; background: linear-gradient(180deg, #1e293b 0%, #0b0f19 100%); padding: 60px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid #1e293b; }
-        .contact-form-side { flex: 1.2; padding: 60px; }
+        /* 3D INTERACTIVE MOVEABLE ORB CONTROLS */
+        .orb-canvas-wrapper { width: 340px; height: 340px; border-radius: 50%; background: #0f172a; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(2,132,199,0.2), inset 0 0 20px rgba(56,189,248,0.3); border: 2px solid rgba(56,189,248,0.2); cursor: grab; }
+        .orb-canvas-wrapper:active { cursor: grabbing; }
+        canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+        /* SCROLL ANIMATION STATES */
+        .scroll-fade { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .scroll-fade.active { opacity: 1; transform: translateY(0); }
+
+        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; }
+        .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
+        .metric-item h3 span { color: #0284c7; }
+        .metric-item p { font-size: 13px; color: #64748b; text-transform: uppercase; margin-top: 5px; font-weight: 700; }
+
+        /* SERVICES NEON INTERFACES */
+        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
+        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; transition: 0.4s; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+        .service-node:hover { transform: translateY(-5px); border-color: #0284c7; box-shadow: 0 0 20px rgba(2,132,199,0.3); }
+        .service-node h3 { color: #0f172a; font-size: 22px; margin-bottom: 12px; font-weight: 700; border-left: 4px solid #0284c7; padding-left: 12px; }
+        .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; }
+        .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
+        .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
+
+        .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
+        .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
+        .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
+
+        /* RGB GLOW CONTACT CONTAINER */
+        @keyframes rgbMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .contact-card-box { display: flex; background-color: #ffffff; border-radius: 24px; overflow: hidden; margin-top: 40px; text-align: left; position: relative; padding: 4px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbMove 6s linear infinite; box-shadow: 0 0 25px rgba(2,132,199,0.3); }
+        .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 20px; overflow: hidden; width: 100%; }
+        .contact-sidebar { flex: 0.8; background: #0f172a; padding: 50px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+        .contact-form-side { flex: 1.2; padding: 50px; background: #ffffff; }
         .communication-nodes { margin: 30px 0; display: flex; flex-direction: column; gap: 20px; }
-        .node-row { color: #38bdf8; text-decoration: none; font-size: 16px; font-weight: 600; display: block; }
-        .node-row.wp { color: #22c55e; }
-        .social-matrix-row a { color: #94a3b8; text-decoration: none; margin-right: 25px; font-weight: bold; font-size: 16px; }
-        .social-matrix-row a:hover { color: #38bdf8; }
-        
-        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .input-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; }
-        .input-block label { font-size: 12px; font-weight: 700; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.5px; }
-        .input-block input, .input-block select, .input-block textarea { background-color: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 16px 20px; outline: none; width: 100%; color: #ffffff; font-size: 15px; transition: 0.3s; }
-        .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56,189,248,0.25); background-color: #111827; }
-        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 0 15px rgba(56,189,248,0.2); transition: 0.3s; }
-        .submit-blueprint-btn:hover { transform: translateY(-2px); box-shadow: 0 0 25px #38bdf8; }
-        
-        footer { background-color: #090d16; border-top: 1px solid #1e293b; padding: 50px; text-align: center; color: #64748b; font-size: 15px; }
-        @media (max-width: 1100px) { .services-layout-grid { grid-template-columns: 1fr; } .hero-layout, .about-master-layout { flex-direction: column; text-align: center; gap: 40px; } .hero-text { text-align: center; } .btn-container { justify-content: center; } .contact-inner-wrapper { flex-direction: column; } .contact-sidebar, .contact-form-side { flex: 1; padding: 40px; } .btn-outline { margin-left: 0; margin-top: 15px; } }
-        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav a { margin: 0 10px; font-size: 14px; } .section-viewport { padding: 80px 20px; } h1 { font-size: 40px; } .grid-split-2 { grid-template-columns: 1fr; gap: 0; } }
+        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; }
+        .node-row.wp { color: #22c55e; } .social-matrix-row a { color: #cbd5e1; text-decoration: none; margin-right: 20px; font-weight: bold; }
+        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+        .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
+        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; transition: 0.3s; }
+        .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #0284c7; background-color: #ffffff; box-shadow: 0 0 10px rgba(2,132,199,0.2); }
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
+        footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; }
+
+        /* 📱 SMART RESPONSIVE RESPONSIVITY: AUTOMATIC DEPLOY DARK MODE FOR MOBILE TERMINALS */
+        @media (max-width: 968px) {
+            body { background-color: #0b0f19; color: #cbd5e1; }
+            header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
+            .logo-box .dark { color: #ffffff; } .logo-box .blue { color: #38bdf8; }
+            nav a { color: #94a3b8; } .center-heading h2 { color: #ffffff; } .center-heading p { color: #94a3b8; }
+            h1 { color: #ffffff; } h1 span { color: #38bdf8; } .hero-text p { color: #cbd5e1; }
+            .btn-outline { background-color: transparent; color: #ffffff; border-color: #334155; }
+            .metrics-bar { background-color: #090d16; border-y: 1px solid #1e293b; } .metric-item h3 { color: #ffffff; } .metric-item h3 span { color: #38bdf8; }
+            .services-layout-grid { grid-template-columns: 1fr; }
+            .service-node { background-color: #111827; border-color: #1e293b; } .service-node h3 { color: #ffffff; border-left-color: #38bdf8; } .service-node p { color: #cbd5e1; } .service-how { background-color: rgba(30,41,59,0.5); border-color: #334155; }
+            .service-node:hover { border-color: #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.4); }
+            .about-master-layout { background-color: #111827; border-color: #1e293b; flex-direction: column; } .about-narrative { color: #cbd5e1; } .about-numerical-box { background: #0f172a; border-color: #1e293b; width: 100%; } .about-numerical-box h4 { color: #ffffff; }
+            .contact-inner-wrapper { flex-direction: column; background: #111827; } .contact-form-side { background: #111827; padding: 30px 15px; } .contact-sidebar { padding: 40px; }
+            .input-block label { color: #38bdf8; } .input-block input, .input-block select, .input-block textarea { background-color: #1f2937; border-color: #374151; color: #ffffff; } .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #38bdf8; background-color: #111827; }
+            footer { background-color: #090d16; border-color: #1e293b; }
+            .hero-layout, .contact-card-box, .grid-split-2 { grid-template-columns: 1fr; flex-direction: column; text-align: center; } .hero-text { text-align: center; } .btn-outline { margin-left: 0; margin-top: 15px; } .contact-sidebar { border-bottom: 1px solid #1e293b; border-right: none; }
+        }
     </style>
 </head>
 <body>
@@ -113,23 +108,19 @@
         </nav>
     </header>
 
-    <section class="section-viewport scroll-fade" id="home-view" style="border-bottom: none; padding-top: 60px;">
+    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 60px;">
         <div class="hero-layout">
             <div class="hero-text">
                 <span class="badge">Architecting Corporate Digital Future</span>
                 <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
-                <p>Empowering progressive global operations with scalable enterprise software house solutions and elite 3D architectural frameworks [3.1].</p>
-                <div class="btn-container">
-                    <a href="#services-view" class="btn-gradient">Explore Core Services</a>
-                    <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
-                </div>
+                <p>Empowering progressive global operations with scalable enterprise software house solutions and elite auto-adaptive responsive modules [3.1].</p>
+                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
+                <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
             </div>
             <div class="hero-graphic">
-                <div class="skyline-container">
-                    <div class="skyline-grid-mesh"></div>
-                    <div class="skyline-buildings">
-                        <div class="building b1"></div><div class="building b2"></div><div class="building b3"></div><div class="building b4"></div>
-                    </div>
+                <!-- Moveable Tech Orb Presentation Frame -->
+                <div class="orb-canvas-wrapper" id="orb-scope">
+                    <canvas id="orbEngine"></canvas>
                 </div>
             </div>
         </div>
@@ -137,57 +128,41 @@
 
     <section class="metrics-bar scroll-fade">
         <div class="metrics-layout">
-            <div class="metric-item"><h3>99<span>%</span></h3><p>Client Retention</p></div>
-            <div class="metric-item"><h3>150<span>+</span></h3><p>Nodes Deployed</p></div>
-            <div class="metric-item"><h3>24<span>/7</span></h3><p>Active Support</p></div>
-            <div class="metric-item"><h3>100<span>%</span></h3><p>Secure System</p></div>
+            <div class="metric-item"><h3>99%</h3><p>Client Retention</p></div>
+            <div class="metric-item"><h3>150+</h3><p>Nodes Deployed</p></div>
+            <div class="metric-item"><h3>24/7</h3><p>Active Support</p></div>
+            <div class="metric-item"><h3>100%</h3><p>Secure System</p></div>
         </div>
     </section>
 
     <section class="section-viewport scroll-fade" id="services-view">
         <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
         <div class="services-layout-grid">
-            
             <div class="service-node">
-                <div class="service-node-content">
-                    <h3>Web & App Development</h3>
-                    <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance mobile ecosystems tailored to scale your brand business natively [3.1].</p>
-                    <div class="service-how"><strong>How It Works:</strong>We execute agile development models using secure framework clean code script [3.1].</div>
-                </div>
+                <h3>Web & App Development</h3>
+                <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance native mobile ecosystems [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We execute agile development models using secure framework clean code script [3.1].</div>
             </div>
-
             <div class="service-node">
-                <div class="service-node-content">
-                    <h3>Graphic Designing</h3>
-                    <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, print-ready media vectors, and modern conceptual artwork packages.</p>
-                    <div class="service-how"><strong>How It Works:</strong>We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
-                </div>
+                <h3>Graphic Designing</h3>
+                <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, and artwork packages.</p>
+                <div class="service-how"><strong>How It Works:</strong>We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
             </div>
-
             <div class="service-node">
-                <div class="service-node-content">
-                    <h3>Cloud Computing</h3>
-                    <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
-                    <div class="service-how"><strong>How It Works:</strong>We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
-                </div>
+                <h3>Cloud Computing</h3>
+                <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
             </div>
-
             <div class="service-node">
-                <div class="service-node-content">
-                    <h3>Cybersecurity</h3>
-                    <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
-                    <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
-                </div>
+                <h3>Cybersecurity</h3>
+                <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
+                <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
             </div>
-
             <div class="service-node" style="grid-column: span 1; width: 100%;">
-                <div class="service-node-content">
-                    <h3>UI/UX Designing</h3>
-                    <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings constructed entirely around advanced usability interaction metrics.</p>
-                    <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
-                </div>
+                <h3>UI/UX Designing</h3>
+                <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
+                <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
             </div>
-
         </div>
     </section>
 
@@ -196,9 +171,8 @@
         <div class="about-master-layout">
             <div class="about-narrative">
                 <p>We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies [3.1].</p>
-                <p>Our dedicated consultancy framework specializes in deep technological structure testing, helping companies upscale infrastructure cleanly before release cycles [3.1].</p>
             </div>
-            <div class="about-numerical-box"><h4>99.99%</h4><p>Server Node Uptime</p></div>
+            <div class="about-numerical-box"><h4>99.99%</h4><p>Server Uptime</p></div>
         </div>
     </section>
 
@@ -217,18 +191,16 @@
                     </div>
                 </div>
                 <div class="contact-form-side">
-                    <!-- Secure Direct Routing to Inbox without Captcha Errors -->
                     <form action="https://formsubmit.co" method="POST">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://github.io">
-                        
                         <div class="grid-split-2">
-                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" placeholder="Mark Sterling" required></div>
-                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" placeholder="mark@company.com" required></div>
+                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
+                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
                         </div>
                         <div class="input-block">
-                            <label>Target Service Vector</label>
-                            <select name="Requested Service" required>
+                            <label>Requested Service</label>
+                            <select name="Service" required>
                                 <option>Web & App Development</option>
                                 <option>Graphic Designing</option>
                                 <option>Cloud Computing</option>
@@ -236,7 +208,7 @@
                                 <option>UI/UX Designing</option>
                             </select>
                         </div>
-                        <div class="input-block"><label>Guidelines Scope Matrix</label><textarea name="Details" rows="5" placeholder="Detail your project features natively..." required></textarea></div>
+                        <div class="input-block"><label>Guidelines Matrix</label><textarea name="Details" rows="4" required></textarea></div>
                         <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
                     </form>
                 </div>
@@ -244,22 +216,57 @@
         </div>
     </section>
 
-    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved. Premium 3D Neon Architecture.</p></footer>
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
 
     <script>
-        /* TRANSITION SCROLLING INTERACTION DETECTOR */
+        /* SCROLL ENGINE ANIMATIONS LAYER */
         const scrollElements = document.querySelectorAll('.scroll-fade');
-        const elementInView = (el, dividend = 1) => {
-            const elementTop = el.getBoundingClientRect().top;
-            return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
-        };
         const handleScrollAnimation = () => {
             scrollElements.forEach((el) => {
-                if (elementInView(el, 1.12)) { el.classList.add('active'); }
+                if (el.getBoundingClientRect().top <= (window.innerHeight || document.documentElement.clientHeight) / 1.15) { el.classList.add('active'); }
             });
         };
         window.addEventListener('scroll', handleScrollAnimation);
         window.addEventListener('load', handleScrollAnimation);
-    </script>
-</body>
-</html>
+
+        /* 3D INTERACTIVE MOVEABLE DOT MATRIX SPHERE CODES */
+        const canvas = document.getElementById('orbEngine');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = 340;
+        let height = canvas.height = 340;
+        let numParticles = 65, dots = [], radius = 110;
+        let rotationX = 0.005, rotationY = 0.008;
+
+        for (let i = 0; i < numParticles; i++) {
+            let theta = Math.acos(Math.random() * 2 - 1);
+            let phi = Math.random() * Math.PI * 2;
+            dots.push({
+                x: radius * Math.sin(theta) * Math.cos(phi),
+                y: radius * Math.sin(theta) * Math.sin(phi),
+                z: radius * Math.cos(theta)
+            });
+        }
+
+        /* Mouse Track movement logic matrix */
+        document.getElementById('orb-scope').addEventListener('mousemove', (e) => {
+            rotationY = (e.offsetX - width/2) * 0.0001;
+            rotationX = (e.offsetY - height/2) * 0.0001;
+        });
+
+        function renderOrb() {
+            ctx.clearRect(0, 0, width, height);
+            let cx = width / 2, cy = height / 2;
+            
+            dots.forEach(dot => {
+                // Rotate X axis
+                let cosX = Math.cos(rotationX), sinX = Math.sin(rotationX);
+                let y1 = dot.y * cosX - dot.z * sinX, z1 = dot.z * cosX + dot.y * sinX;
+                // Rotate Y axis
+                let cosY = Math.cos(rotationY), sinY = Math.sin(rotationY);
+                let x2 = dot.x * cosY - z1 * sinY, z2 = z1 * cosY + dot.x * sinY;
+                
+                dot.x = x2; dot.y = y1; dot.z = z2;
+                
+                let scale = 230 / (230 + z2);
+                let x2d = dot.x * scale + cx;
+                let y2d = dot.y * scale + cy;
