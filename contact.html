@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | THEA.TECH</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
+        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
+        .logo-box .blue { color: #0284c7; } .logo-box .dark { color: #0f172a; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
+        nav a:hover { color: #0284c7; }
+        
+        .container { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
+        @keyframes rgbMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .contact-card-box { display: flex; background-color: #ffffff; border-radius: 24px; overflow: hidden; position: relative; padding: 4px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbMove 6s linear infinite; box-shadow: 0 0 25px rgba(2,132,199,0.25); }
+        .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 20px; overflow: hidden; width: 100%; }
+        .contact-sidebar { flex: 0.8; background: #0f172a; padding: 50px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
+        .contact-form-side { flex: 1.2; padding: 50px; background: #ffffff; }
+        .communication-nodes { margin: 20px 0; display: flex; flex-direction: column; gap: 15px; }
+        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; }
+        .node-row.wp { color: #22c55e; } .social-matrix-row a { color: #cbd5e1; text-decoration: none; margin-right: 20px; font-weight: bold; }
+        
+        .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; }
+        .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
+        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
+        footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; margin-top: 60px; }
+
+        @media (max-width: 968px) {
+            body { background-color: #0b0f19; color: #cbd5e1; }
+            header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
+            .logo-box .dark { color: #ffffff; } .logo-box .blue { color: #38bdf8; } nav a { color: #94a3b8; }
+            .contact-inner-wrapper { flex-direction: column; background: #111827; } .contact-form-side { background: #111827; padding: 20px 10px; } .contact-sidebar { padding: 30px; border-bottom: 1px solid #1e293b; }
+            .input-block label { color: #38bdf8; } .input-block input, .input-block select, .input-block textarea { background-color: #1f2937; border-color: #374151; color: #ffffff; }
+            .contact-card-box { grid-template-columns: 1fr; flex-direction: column; text-align: center; } .grid-split-2 { grid-template-columns: 1fr; gap: 0; }
+            footer { background-color: #090d16; border-color: #1e293b; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="contact-card-box">
+            <div class="contact-inner-wrapper">
+                <div class="contact-sidebar">
+                    <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px; margin-top: 5px;">Direct active customer communication channels.</p></div>
+                    <div class="communication-nodes">
+                        <a href="https://wa.me" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
+                        <a href="mailto:theatech2@gmail.com" class="node-row">Email: theatech2@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-form-side">
+                    <form action="https://formsubmit.co" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://github.io">
+                        <div class="grid-split-2">
+                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
+                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
+                        </div>
+                        <div class="input-block">
+                            <label>Service</label>
+                            <select name="Service" required>
+                                <option>Web & App Development</option>
+                                <option>Graphic Designing</option>
+                                <option>Cloud Computing</option>
+                                <option>Cybersecurity</option>
+                                <option>UI/UX Designing</option>
+                            </select>
+                        </div>
+                        <div class="input-block"><label>Guidelines Matrix</label><textarea name="Details" rows="4" required></textarea></div>
+                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
+</body>
+</html>
