@@ -5,181 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THEA.TECH | Enterprise Software House</title>
     <style>
+        /* CORE KINETIC RGB NEON ENGINE */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
-        @keyframes fadeGlow { 0% { box-shadow: 0 0 15px rgba(2,132,199,0.2); border-color: rgba(2,132,199,0.2); } 50% { box-shadow: 0 0 35px #0284c7; border-color: #0284c7; } 100% { box-shadow: 0 0 15px rgba(2,132,199,0.2); border-color: rgba(2,132,199,0.2); } }
-        @keyframes skylineRise { 0% { transform: translateY(10px); opacity: 0.7; } 50% { transform: translateY(0px); opacity: 1; } 100% { transform: translateY(10px); opacity: 0.7; } }
-        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
+        
+        /* 100% NATIVE ANIMATION FRAMEWORKS */
+        @keyframes rotateNeon { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes rgbGlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes fadeGlow { 0% { box-shadow: 0 0 15px rgba(2,132,199,0.2); } 50% { box-shadow: 0 0 35px #0284c7; } 100% { box-shadow: 0 0 15px rgba(2,132,199,0.2); } }
+
+        /* SCROLL ENTRANCE INTERACTION CLASS */
+        .scroll-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .scroll-fade.active { opacity: 1; transform: translateY(0); }
+
+        /* HEADER NAV - MOBILE FRIENDLY */
+        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
         .logo-box .blue { color: #0284c7; text-shadow: 0 0 10px rgba(2,132,199,0.3); }
         .logo-box .dark { color: #0f172a; }
-        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
+        nav { display: flex; align-items: center; }
+        nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; position: relative; padding-bottom: 4px; }
         nav a:hover { color: #0284c7; }
-        .section-viewport { padding: 120px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        .center-heading { margin-bottom: 60px; }
+
+        /* VIEWPORT STRUT */
+        .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .center-heading { margin-bottom: 50px; }
         .center-heading h2 { font-size: 40px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -1px; }
         .center-heading p { color: #475569; font-size: 18px; }
+
+        /* HERO AREA */
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; text-align: left; }
         .hero-text { flex: 1.2; } .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
         .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
         h1 { font-size: 52px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
         h1 span { color: #0284c7; }
         .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
-        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
+        .btn-container { display: flex; flex-wrap: wrap; gap: 15px; }
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); text-align: center; }
         .btn-gradient:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(2,132,199,0.35); }
-        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
-        .btn-outline:hover { background-color: #f8fafc; border-color: #0284c7; }
-        .skyline-container { width: 340px; height: 340px; background-color: #0f172a; border-radius: 28px; position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 25px 50px rgba(0,0,0,0.15); animation: fadeGlow 4s infinite ease-in-out; }
+        .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; text-align: center; transition: 0.3s; }
+        .btn-outline:hover { background-color: #f8fafc; border-color: #22c55e; color: #16a34a; }
+        
+        .skyline-container { width: 340px; height: 340px; background-color: #0f172a; border-radius: 28px; position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; animation: fadeGlow 4s infinite ease-in-out; }
         .skyline-grid-mesh { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.1) 1px, transparent 1px); background-size: 20px 20px; }
-        .skyline-buildings { width: 90%; height: 60%; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; position: relative; z-index: 5; animation: skylineRise 5s infinite ease-in-out; }
-        .building { background: linear-gradient(to top, #1e293b, #0284c7); border-radius: 6px 6px 0 0; position: relative; }
-        .building::before { content: '.. .. .. ..'; position: absolute; top: 10px; left: 5px; color: rgba(255,255,255,0.3); font-size: 10px; letter-spacing: 2px; line-height: 12px; word-break: break-all; width: 80%; }
-        .b1 { width: 45px; height: 85%; } .b2 { width: 55px; height: 100%; background: linear-gradient(to top, #0f172a, #38bdf8); } .b3 { width: 40px; height: 70%; } .b4 { width: 50px; height: 90%; }
-        .skyline-glow-core { position: absolute; width: 140px; height: 140px; background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%); top: 20%; left: 20%; filter: blur(10px); }
-        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; }
+        .skyline-buildings { width: 90%; height: 60%; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; position: relative; z-index: 5; }
+        .building { background: linear-gradient(to top, #1e293b, #0284c7); border-radius: 6px 6px 0 0; width: 45px; height: 85%; }
+        .building.b2 { height: 100%; background: linear-gradient(to top, #0f172a, #38bdf8); }
+
+        /* METRICS BLOCK */
+        .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 20px; }
         .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
         .metric-item p { font-size: 13px; color: #64748b; text-transform: uppercase; margin-top: 5px; font-weight: 700; }
-        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
-        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; transition: 0.3s; }
-        .service-node:hover { border-color: #0284c7; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(2,132,199,0.06); }
+
+        /* SERVICES GRID: DYNAMIC MOVING NEON ON CLICK */
+        .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; margin-top: 40px; }
+        .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; position: relative; overflow: hidden; transition: 0.3s; cursor: pointer; }
+        .service-node:hover::before, .service-node:focus-within::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, #0284c7, #ff007f, transparent); animation: rotateNeon 4s linear infinite; z-index: 1; }
+        .service-node::after { content: ''; position: absolute; inset: 3px; background: #ffffff; border-radius: 17px; z-index: 2; }
+        .service-node-content { position: relative; z-index: 3; }
         .service-node h3 { color: #0f172a; font-size: 22px; margin-bottom: 12px; font-weight: 700; border-left: 4px solid #0284c7; padding-left: 12px; }
         .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; }
         .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
         .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
+
+        /* ABOUT SECTION */
         .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; margin-top: 40px; }
-        .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
+        .about-narrative { flex: 1.3; } 
+        .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
         .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
         .about-numerical-box p { color: #0284c7; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 5px; }
-        .contact-card-box { display: flex; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 24px; overflow: hidden; margin-top: 40px; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.02); }
+
+        /* CONTACT FORM GRID WITH RGB MIXTURE BOX */
+        .contact-card-box { display: flex; background-color: #ffffff; border-radius: 28px; overflow: hidden; margin-top: 40px; text-align: left; position: relative; padding: 5px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbGlow 8s linear infinite; box-shadow: 0 0 25px rgba(2, 132, 199, 0.4); width: 100%; }
+        .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 24px; overflow: hidden; width: 100%; z-index: 5; }
         .contact-sidebar { flex: 0.8; background: #0f172a; padding: 50px; color: #ffffff; display: flex; flex-direction: column; justify-content: space-between; }
-        .contact-form-side { flex: 1.2; padding: 50px; background-color: #ffffff; }
+        .contact-form-side { flex: 1.2; padding: 50px; background: #ffffff; }
         .communication-nodes { margin: 30px 0; display: flex; flex-direction: column; gap: 20px; }
-        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; margin-bottom: 15px; }
+        .node-row { color: #38bdf8; text-decoration: none; font-size: 15px; font-weight: 600; display: block; }
         .node-row.wp { color: #22c55e; }
         .social-matrix-row a { color: #cbd5e1; text-decoration: none; margin-right: 20px; font-weight: bold; }
+        
         .grid-split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
         .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
-        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
-        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(2,132,199,0.15); }
+        .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #1e293b; font-size: 14px; transition: 0.3s; }
+        .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #0284c7; box-shadow: 0 0 10px rgba(2,132,199,0.3); }
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 5px 15px rgba(2,132,199,0.3); transition: 0.3s; }
+        .submit-blueprint-btn:hover { transform: scale(1.02); box-shadow: 0 0 20px #0284c7; }
+
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; }
-        @media (max-width: 1100px) { .services-layout-grid, .hero-layout, .about-master-layout, .contact-card-box, .grid-split-2 { grid-template-columns: 1fr; flex-direction: column; text-align: center; } .hero-text { text-align: center; } .contact-sidebar { border-bottom: 1px solid #cbd5e1; } }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="#" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
-        <nav>
-            <a href="#home-view">Home</a>
-            <a href="#services-view">Services</a>
-            <a href="#about-view">About</a>
-            <a href="#contact-view">Contact</a>
-        </nav>
-    </header>
 
-    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 80px;">
-        <div class="hero-layout">
-            <div class="hero-text">
-                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
-                <p>Empowering progressive global operations with scalable enterprise software house solutions and elite visibility frameworks [3.1].</p>
-                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
-                <a href="https://wa.me" target="_blank" class="btn-gradient" style="background: #22c55e; margin-left: 10px;">WhatsApp Chat</a>
-            </div>
-            <div class="hero-graphic">
-                <div class="skyline-container">
-                    <div class="skyline-grid-mesh"></div>
-                    <div class="skyline-glow-core"></div>
-                    <div class="skyline-buildings">
-                        <div class="building b1"></div><div class="building b2"></div><div class="building b3"></div><div class="building b4"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="metrics-bar">
-        <div class="metrics-layout">
-            <div class="metric-item"><h3>99%</h3><p>Client Retention</p></div>
-            <div class="metric-item"><h3>150+</h3><p>Nodes Deployed</p></div>
-            <div class="metric-item"><h3>24/7</h3><p>Active Support</p></div>
-            <div class="metric-item"><h3>100%</h3><p>Secure System</p></div>
-        </div>
-    </section>
-
-    <section class="section-viewport" id="services-view">
-        <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
-        <div class="services-layout-grid">
-            <div class="service-node">
-                <h3>Web & App Development</h3>
-                <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance mobile ecosystems [3.1].</p>
-                <div class="service-how"><strong>How It Works:</strong>We execute agile development models using secure framework clean code script [3.1].</div>
-            </div>
-            <div class="service-node">
-                <h3>Graphic Designing</h3>
-                <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, and artwork packages.</p>
-                <div class="service-how"><strong>How It Works:</strong>We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
-            </div>
-            <div class="service-node">
-                <h3>Cloud Computing</h3>
-                <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
-                <div class="service-how"><strong>How It Works:</strong>We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
-            </div>
-            <div class="service-node">
-                <h3>Cybersecurity</h3>
-                <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
-                <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
-            </div>
-            <div class="service-node" style="grid-column: span 2; text-align: center;">
-                <h3>UI/UX Designing</h3>
-                <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
-                <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-viewport" id="about-view">
-        <div class="center-heading"><h2>Who We Are</h2></div>
-        <div class="about-master-layout">
-            <div class="about-narrative">
-                <p>We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies [3.1].</p>
-            </div>
-            <div class="about-numerical-box"><h4>99.99%</h4><p>Server Uptime</p></div>
-        </div>
-    </section>
-
-    <section class="section-viewport" id="contact-view" style="border-bottom: none;">
-        <div class="contact-card-box">
-            <div class="contact-sidebar">
-                <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px;">Direct active customer communication channels.</p></div>
-                <div class="communication-nodes">
-                    <a href="https://wa.me" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
-                    <a href="mailto:theatech2@gmail.com" class="node-row">Email: theatech2@gmail.com</a>
-                </div>
-                <div class="social-matrix-row">
-                    <a href="https://facebook.com" target="_blank">Facebook</a>
-                    <a href="https://instagram.com" target="_blank">Instagram</a>
-                </div>
-            </div>
-            <div class="contact-form-side">
-                <form action="https://formsubmit.co" method="POST">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://github.io">
-                    <div class="grid-split-2">
-                        <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
-                        <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
-                    </div>
-                    <div class="grid-split-2">
-                        <div class="input-block"><label>Service</label><select name="Service"><option>Web & App Development</option><option>Graphic Designing</option><option>Cloud Computing</option><option>Cybersecurity</option></select></div>
-                        <div class="input-block"><label>Budget</label><select name="Budget"><option>$2k - $10k Scope</option><option>$10k+ Enterprise</option></select></div>
-                    </div>
-                    <div class="input-block"><label>Guidelines</label><textarea name="Details" rows="4" required></textarea></div>
-                    <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
-</body>
-</html>
+        /* 100% BULLETPROOF MOBILE FRIENDLY LAYER PARAMETERS (RESPONSIVE CSS) */
+        @media (max-width: 1024px) {
+            .services-layout-grid { grid-template-columns: 1fr 1fr; }
+            .hero-layout, .about-master-layout { flex-direction: column; text-align: center; gap: 40px; }
