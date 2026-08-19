@@ -7,24 +7,34 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
         body { background-color: #f8fafc; color: #0f172a; line-height: 1.6; overflow-x: hidden; position: relative; }
+        
+        /* HIGH-BRIGHTNESS KINETIC BACKGROUND DISPLAY */
         #bgCanvasAnimation { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        
         header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; position: relative; z-index: 5; }
         .logo-box .blue { color: #0284c7; } .logo-box .dark { color: #0f172a; }
         nav { position: relative; z-index: 5; }
         nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
         nav a:hover { color: #0284c7; }
+
         .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; position: relative; z-index: 5; }
         .center-heading { margin-bottom: 50px; }
         .center-heading h2 { font-size: 40px; font-weight: 800; color: #0f172a; letter-spacing: -1px; }
+        
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; position: relative; z-index: 5; }
-        .hero-text { flex: 1.2; position: relative; z-index: 10; } .hero-graphic { flex: 0.8; display: flex; justify-content: center; position: relative; z-index: 10; }
+        .hero-text { flex: 1.2; position: relative; z-index: 10; } 
+        .hero-graphic { flex: 0.8; display: flex; justify-content: center; position: relative; z-index: 10; }
+        
         .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
         h1 { font-size: 52px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
         h1 span { color: #0284c7; } .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
+        
         .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
         .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
         .btn-outline:hover { border-color: #0284c7; color: #0284c7; }
+        
+        /* MOVEABLE TECH PORTAL FRAME CODE RULES */
         .portal-frame-wrapper { width: 300px; height: 320px; position: relative; perspective: 1000px; cursor: grab; }
         .cyber-shield-portal { width: 100%; height: 100%; background: radial-gradient(circle, #0f172a 40%, #0284c7 100%); border-radius: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 3px solid #00f3ff; box-shadow: 0 0 30px #0284c7, inset 0 0 20px rgba(0,243,255,0.4); transform-style: preserve-3d; transition: transform 0.1s ease; }
         .portal-nodes { width: 80px; height: 80px; border: 4px dotted #00f3ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: rotateNeon 8s linear infinite; transform: translateZ(30px); }
@@ -34,8 +44,11 @@
         .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
         .metric-item p { font-size: 13px; color: #64748b; text-transform: uppercase; margin-top: 5px; font-weight: 700; }
+        
+        /* DOUBLE PULSING NEON ENGINES MATRIX FOR CORES AND SERVICES */
         @keyframes rotateNeon { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes neonPulseGlow { 0% { border-color: rgba(2,132,199,0.3); box-shadow: 0 0 10px rgba(2,132,199,0.1); } 50% { border-color: #00f3ff; box-shadow: 0 0 25px rgba(0,243,255,0.4); } 100% { border-color: rgba(2,132,199,0.3); box-shadow: 0 0 10px rgba(2,132,199,0.1); } }
+        
         .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
         .service-node { background-color: #ffffff; border: 2px solid rgba(2,132,199,0.3); padding: 40px; border-radius: 20px; animation: neonPulseGlow 3.5s infinite ease-in-out; transition: 0.3s; }
         .service-node:hover { transform: translateY(-5px); border-color: #00f3ff; }
@@ -43,9 +56,12 @@
         .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; }
         .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
         .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
+        
+        /* ABOUT CARD WITH NEON ENGINES BOUNDARY EFFECT */
         .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 24px; border: 2px solid rgba(2,132,199,0.3); animation: neonPulseGlow 4s infinite ease-in-out; }
         .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
         .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
+        
         @keyframes rgbBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .contact-card-box { display: flex; background-color: #ffffff; border-radius: 24px; overflow: hidden; margin-top: 40px; text-align: left; position: relative; padding: 4px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbBorder 6s linear infinite; box-shadow: 0 0 25px rgba(2,132,199,0.25); }
         .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 20px; overflow: hidden; width: 100%; }
@@ -60,33 +76,41 @@
         .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
         .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; position: relative; z-index: 5; }
+
         @media (max-width: 968px) {
             body { background-color: #0b0f19; color: #cbd5e1; }
-            header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .logo-box .dark { color: #ffffff; } .logo-box .blue { color: #38bdf8; } nav a { color: #94a3b8; }
+            header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; }
+            .logo-box { font-size: 22px; } .logo-box .dark { color: #ffffff; } .logo-box .blue { color: #38bdf8; }
+            nav { width: 100%; display: flex; justify-content: center; gap: 5px; flex-wrap: wrap; }
+            nav a { margin: 0 8px; font-size: 14px; color: #94a3b8; }
             .section-viewport { padding: 60px 15px; } .center-heading h2 { color: #ffffff; font-size: 32px; }
-            h1 { color: #ffffff; font-size: 34px; text-align: center; } h1 span { color: #38bdf8; } .hero-text p { color: #cbd5e1; font-size: 16px; }
-            .hero-layout { flex-direction: column-reverse; text-align: center; gap: 30px; }
-            .btn-gradient, .btn-outline { width: 100%; margin-left: 0 !important; margin-bottom: 12px; }
+            h1 { color: #ffffff; font-size: 34px; text-align: center; } h1 span { color: #38bdf8; } .hero-text p { color: #cbd5e1; font-size: 16px; text-align: center; }
+            .hero-layout { flex-direction: column-reverse; text-align: center; gap: 30px; padding-top: 20px; }
+            .btn-gradient, .btn-outline { width: 100%; text-align: center; margin-left: 0 !important; margin-bottom: 12px; padding: 14px 20px; }
             .btn-outline { background-color: transparent; color: #ffffff; border-color: #334155; }
-            .portal-frame-wrapper { width: 260px; height: 280px; } .cyber-shield-portal { background: radial-gradient(circle, #0f172a 40%, #111827 100%); }
-            .metrics-bar { background-color: #090d16; border-y: 1px solid #1e293b; } .metric-item h3 { color: #ffffff; }
-            .services-layout-grid { grid-template-columns: 1fr; gap: 20px; } .service-node { background-color: #111827; padding: 25px 20px; }
-            .service-node h3 { color: #ffffff; border-left-color: #38bdf8; } .service-node p { color: #cbd5e1; } .service-how { background-color: rgba(30,41,59,0.5); border-color: #334155; }
-            .about-master-layout { background-color: #111827; flex-direction: column; padding: 30px 20px; } .about-numerical-box { background: #0f172a; border-color: #1e293b; width: 100%; } .about-numerical-box h4 { color: #ffffff; }
-            .contact-card-box { padding: 3px; } .contact-inner-wrapper { flex-direction: column; background: #111827; } .contact-form-side { background: #111827; padding: 30px 15px; } .contact-sidebar { padding: 40px; border-bottom: 1px solid #1e293b; text-align: center; }
-            .communication-nodes { align-items: center; } .grid-split-2 { grid-template-columns: 1fr; gap: 0; }
-            .input-block label { color: #38bdf8; } .input-block input, .input-block select, .input-block textarea { background-color: #1f2937; border-color: #374151; color: #ffffff; }
-            footer { background-color: #090d16; border-color: #1e293b; }
+            .portal-frame-wrapper { width: 260px; height: 280px; } .cyber-shield-portal { background: radial-gradient(circle, #0f172a 40%, #111827 100%); animation: neonPulseGlow 3.5s infinite ease-in-out; }
+            .metrics-bar { background-color: #090d16; border-y: 1px solid #1e293b; padding: 30px 15px; }
+            .metrics-layout { grid-template-columns: repeat(2, 1fr); gap: 15px; } .metric-item h3 { color: #ffffff; font-size: 32px; }
+            .services-layout-grid { grid-template-columns: 1fr; gap: 20px; }
+            .service-node { background-color: #111827; padding: 25px 20px; } .service-node h3 { color: #ffffff; border-left-color: #38bdf8; } .service-node p { color: #cbd5e1; } .service-how { background-color: rgba(30,41,59,0.5); border-color: #334155; }
+            .about-master-layout { background-color: #111827; flex-direction: column; padding: 30px 20px; } .about-numerical-box { background: #0f172a; border-color: #1e293b; width: 100%; padding: 30px 10px; } .about-numerical-box h4 { color: #ffffff; }
+            .contact-card-box { padding: 3px; border-radius: 20px; } .contact-inner-wrapper { flex-direction: column; background: #111827; border-radius: 17px; } .contact-form-side { background: #111827; padding: 30px 15px; } .contact-sidebar { padding: 40px; border-bottom: 1px solid #1e293b; text-align: center; }
+            .communication-nodes { align-items: center; margin: 15px 0; } .grid-split-2 { grid-template-columns: 1fr; gap: 0; }
+            .input-block label { color: #38bdf8; text-align: left; } .input-block input, .input-block select, .input-block textarea { background-color: #1f2937; border-color: #374151; color: #ffffff; padding: 12px; }
+            .input-block input:focus, .input-block select:focus, .input-block textarea:focus { border-color: #38bdf8; background-color: #111827; }
+            footer { background-color: #090d16; border-color: #1e293b; padding: 30px 15px; }
         }
     </style>
 </head>
 <body>
+    <!-- BACKGROUND INTERACTIVE BRIGHT NETWORKS CANVAS LAYER -->
     <canvas id="bgCanvasAnimation"></canvas>
+
     <header>
         <a href="#" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
         <nav><a href="#home-view">Home</a><a href="#services-view">Services</a><a href="#about-view">About</a><a href="#contact-view">Contact</a></nav>
     </header>
+
     <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 40px;">
         <div class="hero-layout">
             <div class="hero-text">
@@ -97,15 +121,19 @@
                 <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
             </div>
             <div class="hero-graphic">
+                <!-- Moveable Cyber Shield Portal Graphic Frame -->
                 <div class="portal-frame-wrapper" id="portalContainer">
                     <div class="cyber-shield-portal" id="portalShield">
-                        <div class="portal-nodes"><span>&lt;/&gt;</span></div>
+                        <div class="portal-nodes">
+                            <span>&lt;/&gt;</span>
+                        </div>
                         <div class="portal-tag">THEA CORE Matrix</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="metrics-bar">
         <div class="metrics-layout">
             <div class="metric-item"><h3>99%</h3><p>Client Retention</p></div>
@@ -114,6 +142,7 @@
             <div class="metric-item"><h3>100%</h3><p>Secure System</p></div>
         </div>
     </section>
+
     <section class="section-viewport" id="services-view">
         <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
         <div class="services-layout-grid">
@@ -153,6 +182,7 @@
             <div class="about-numerical-box"><h4>99.99%</h4><p style="color:#0284c7; font-weight:bold; font-size:12px; margin-top:5px; text-transform:uppercase;">Server Uptime</p></div>
         </div>
     </section>
+
     <section class="section-viewport" id="contact-view" style="border-bottom: none;">
         <div class="contact-card-box">
             <div class="contact-inner-wrapper">
@@ -162,23 +192,18 @@
                         <a href="https://wa.me" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
                         <a href="mailto:theatech2@gmail.com" class="node-row">Email: theatech2@gmail.com</a>
                     </div>
-                    <div class="social-matrix-row">
-                        <a href="https://facebook.com" target="_blank">Facebook</a>
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                    </div>
                 </div>
                 <div class="contact-form-side">
                     <form action="https://formsubmit.co" method="POST">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Technical Blueprint Transmitted!">
                         <input type="hidden" name="_next" value="https://github.io">
                         <div class="grid-split-2">
-                            <div class="input-block"><label>Full Name</label><input type="text" name="name" required></div>
-                            <div class="input-block"><label>Email Address</label><input type="email" name="email" required></div>
+                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
+                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
                         </div>
                         <div class="input-block">
                             <label>Service</label>
-                            <select name="service" required>
+                            <select name="Service" required>
                                 <option>Web & App Development</option>
                                 <option>Graphic Designing</option>
                                 <option>Cloud Computing</option>
@@ -186,3 +211,81 @@
                                 <option>UI/UX Designing</option>
                             </select>
                         </div>
+                        <div class="input-block"><label>Guidelines Matrix</label><textarea name="Details" rows="4" required></textarea></div>
+                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
+
+    <!-- BRIGHT NETWORKS LOGIC & 3D MOVEABLE PORTAL ENGINE SCRIPT -->
+    <script>
+        const canvas = document.getElementById('bgCanvasAnimation');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        let particles = [];
+        let numParticles = window.innerWidth < 768 ? 20 : 55;
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * (height * 1.5), 
+                vx: (Math.random() - 0.5) * 1.2,
+                vy: (Math.random() - 0.5) * 1.2,
+                radius: Math.random() * 3 + 2
+            });
+        }
+
+        function animateBgMesh() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach((p, idx) => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height * 1.5) p.vy *= -1;
+                
+                // Set high contrast bright tech colors
+                ctx.fillStyle = window.innerWidth < 768 ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                for (let j = idx + 1; j < particles.length; j++) {
+                    let other = particles[j];
+                    let dist = Math.hypot(p.x - other.x, p.y - other.y);
+                    if (dist < 130) {
+                        ctx.strokeStyle = window.innerWidth < 768 ? `rgba(56, 189, 248, ${0.35 - dist/130})` : `rgba(2, 132, 199, 0.15)`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animateBgMesh);
+        }
+        animateBgMesh();
+
+        /* 3D ACTIVE ORIENTATION LOGIC FOR THE PORTAL FRAME */
+        const container = document.getElementById('portalContainer');
+        const shield = document.getElementById('portalShield');
+        if(window.innerWidth > 968) {
+            container.addEventListener('mousemove', (e) => {
+                let ax = -(container.offsetWidth / 2 - e.offsetX) / 10;
+                let ay = (container.offsetHeight / 2 - e.offsetY) / 10;
+                shield.style.transform = `rotateY(${ax}deg) rotateX(${ay}deg) scale(1.03)`;
+            });
+            container.addEventListener('mouseleave', () => {
+                shield.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>
