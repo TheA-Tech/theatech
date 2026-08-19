@@ -51,7 +51,7 @@
         .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
         .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
         .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
-        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 15px rgba(2,132,199,0.15); }
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; font-size: 14px; }
         @media (max-width: 968px) {
             body { background-color: #0b0f19; color: #cbd5e1; }
@@ -89,3 +89,87 @@
         </div>
     </section>
     <section class="metrics-bar">
+        <div class="metrics-layout">
+            <div class="metric-item"><h3>99%</h3><p>Client Retention</p></div>
+            <div class="metric-item"><h3>150+</h3><p>Nodes Deployed</p></div>
+            <div class="metric-item"><h3>24/7</h3><p>Active Support</p></div>
+            <div class="metric-item"><h3>100%</h3><p>Secure System</p></div>
+        </div>
+    </section>
+    <section class="section-viewport" id="services-view">
+        <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
+        <div class="services-layout-grid">
+            <div class="service-node">
+                <h3>Web & App Development</h3>
+                <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance native mobile ecosystems tailored to scale natively [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We execute agile development models using secure framework clean code script [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Graphic Designing</h3>
+                <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, and artwork packages.</p>
+                <div class="service-how"><strong>How It Works:</strong>We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Cloud Computing</h3>
+                <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
+            </div>
+            <div class="service-node">
+                <h3>Cybersecurity</h3>
+                <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
+                <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
+            </div>
+            <div class="service-node" style="grid-column: span 1; width: 100%;">
+                <h3>UI/UX Designing</h3>
+                <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
+                <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
+            </div>
+        </div>
+    </section>
+    <section class="section-viewport" id="about-view">
+        <div class="center-heading"><h2>Who We Are</h2></div>
+        <div class="about-master-layout">
+            <div class="about-narrative">
+                <p>We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies [3.1].</p>
+            </div>
+            <div class="about-numerical-box"><h4>99.99%</h4><p style="color:#0284c7; font-weight:bold; font-size:12px; margin-top:5px; text-transform:uppercase;">Server Uptime</p></div>
+        </div>
+    </section>
+    <section class="section-viewport" id="contact-view" style="border-bottom: none;">
+        <div class="contact-card-box">
+            <div class="contact-inner-wrapper">
+                <div class="contact-sidebar">
+                    <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px; margin-top: 5px;">Direct active customer communication channels.</p></div>
+                    <div class="communication-nodes">
+                        <a href="https://wa.me" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
+                        <a href="mailto:theatech2@gmail.com" class="node-row">Email: theatech2@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-form-side">
+                    <form action="https://formsubmit.co" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://github.io">
+                        <div class="grid-split-2">
+                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
+                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
+                        </div>
+                        <div class="input-block">
+                            <label>Service</label>
+                            <select name="Service" required>
+                                <option>Web & App Development</option>
+                                <option>Graphic Designing</option>
+                                <option>Cloud Computing</option>
+                                <option>Cybersecurity</option>
+                                <option>UI/UX Designing</option>
+                            </select>
+                        </div>
+                        <div class="input-block"><label>Guidelines Matrix</label><textarea name="Details" rows="4" required></textarea></div>
+                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
+</body>
+</html>
