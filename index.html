@@ -1,74 +1,106 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THEA.TECH | Premium IT Consultancy & Software House</title>
-    <!-- New Secure Unblocked Tailwind Link -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>THEA.TECH | Premium IT Consultancy</title>
+    <style>
+        /* DIRECT CSS (Yeh kabhi block nahi ho sakti) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #cbd5e1; line-height: 1.6; }
+        
+        /* NAVBAR */
+        nav { background-color: #0b0f19; border-b: 1px solid #1e293b; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        nav .logo { font-size: 24px; font-weight: 900; tracking-content: 2px; }
+        nav .logo .blue { color: #38bdf8; }
+        nav .logo .silver { color: #94a3b8; }
+        nav .links a { color: #94a3b8; text-decoration: none; margin-left: 30px; font-weight: 500; transition: 0.3s; }
+        nav .links a:hover, nav .links a.active { color: #38bdf8; }
+
+        /* HERO SECTION */
+        .hero { max-width: 1200px; mx-auto: auto; margin: 80px auto; padding: 0 40px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+        .badge { background-color: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2); padding: 6px 16px; rounded-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; border-radius: 20px; display: inline-block; }
+        h1 { font-size: 52px; font-weight: 900; color: #ffffff; line-height: 1.2; margin-top: 20px; }
+        h1 span { color: #38bdf8; }
+        p.subtitle { font-size: 18px; color: #94a3b8; max-width: 650px; margin: 20px auto; }
+        
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+        .btn-primary { background: linear-gradient(to right, #38bdf8, #2563eb); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.2); }
+        .btn-secondary { border: 1px solid #334155; background-color: rgba(15, 23, 42, 0.5); color: #cbd5e1; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-secondary:hover { background-color: #1e293b; }
+
+        /* METRICS */
+        .metrics { background-color: #0b0f19; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; width: 100%; margin-top: 100px; padding: 60px 40px; }
+        .metrics-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .metric-number { font-size: 40px; font-weight: 800; color: #ffffff; }
+        .metric-blue { color: #38bdf8; }
+        .metric-label { font-size: 14px; color: #64748b; margin-top: 8px; }
+
+        /* FOOTER */
+        footer { background-color: #0b0f19; padding: 40px; text-align: center; color: #64748b; font-size: 14px; border-top: 1px solid #1e293b; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            nav { flex-direction: column; gap: 20px; }
+            nav .links a { margin: 0 10px; }
+        }
+    </style>
 </head>
-<body class="bg-[#0f172a] text-gray-200 font-sans antialiased">
+<body>
 
     <!-- NAVIGATION BAR -->
-    <nav class="bg-[#0b0f19] border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black tracking-wider text-white">
-                <span class="text-blue-400">THEA</span><span class="text-gray-400">.TECH</span>
-            </a>
-            <div class="space-x-8 font-medium">
-                <a href="index.html" class="text-blue-400 border-b-2 border-blue-400 pb-1">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-blue-400 transition">About Us</a>
-                <a href="services.html" class="text-gray-300 hover:text-blue-400 transition">Our Services</a>
-                <a href="contact.html" class="text-gray-300 hover:text-blue-400 transition">Contact</a>
-            </div>
+    <nav>
+        <div class="logo">
+            <span class="blue">THEA</span><span class="silver">.TECH</span>
+        </div>
+        <div class="links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Our Services</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="py-24 px-6 bg-gradient-to-br from-gray-900 to-slate-900">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-6 text-center md:text-left">
-                <span class="bg-blue-500 bg-opacity-10 text-blue-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-blue-500 border-opacity-20 inline-block">Next-Gen Software Solutions</span>
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Design. Code.<br><span class="text-blue-400">Deploy Innovation.</span></h1>
-                <p class="text-gray-400 text-lg">Empowering elite brands with next-generation digital architecture, enterprise software engineering, and strategic IT consultancy.</p>
-                <div class="flex gap-4 pt-4 justify-center md:justify-start">
-                    <a href="services.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg">Explore Services</a>
-                    <a href="about.html" class="border border-gray-700 bg-gray-950 text-gray-300 px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition">Learn More</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="w-72 h-72 bg-gray-800 rounded-3xl border border-gray-700 flex items-center justify-center shadow-2xl">
-                    <i class="fa-solid fa-cubes text-8xl text-blue-400"></i>
-                </div>
+    <section class="hero">
+        <div>
+            <span class="badge">Next-Gen Software Solutions</span>
+            <h1>Design. Code.<br><span>Deploy Innovation.</span></h1>
+            <p class="subtitle">Empowering elite brands with next-generation digital architecture, enterprise software engineering, and strategic IT consultancy.</p>
+            <div class="btn-group">
+                <a href="services.html" class="btn-primary">Explore Services</a>
+                <a href="about.html" class="btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
 
     <!-- CORE METRICS -->
-    <section class="bg-[#0b0f19] border-y border-gray-800 py-12 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <section class="metrics">
+        <div class="metrics-grid">
             <div>
-                <p class="text-4xl font-extrabold text-white">99%</p>
-                <p class="text-sm text-gray-500 mt-1">Client Satisfaction</p>
+                <p class="metric-number">99%</p>
+                <p class="metric-label">Client Satisfaction</p>
             </div>
             <div>
-                <p class="text-4xl font-extrabold text-blue-400">150+</p>
-                <p class="text-sm text-gray-500 mt-1">Projects Deployed</p>
+                <p class="metric-number metric-blue">150+</p>
+                <p class="metric-label">Projects Deployed</p>
             </div>
             <div>
-                <p class="text-4xl font-extrabold text-white">24/7</p>
-                <p class="text-sm text-gray-500 mt-1">Technical Support</p>
+                <p class="metric-number">24/7</p>
+                <p class="metric-label">Technical Support</p>
             </div>
             <div>
-                <p class="text-4xl font-extrabold text-blue-400">100%</p>
-                <p class="text-sm text-gray-500 mt-1">Secure Architecture</p>
+                <p class="metric-number metric-blue">100%</p>
+                <p class="metric-label">Secure Architecture</p>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#0b0f19] border-t border-gray-800 py-12 px-6 text-center text-gray-500 text-sm">
+    <footer>
         <p>&copy; 2026 THEA.TECH OFFICIAL. All Rights Reserved.</p>
     </footer>
 
