@@ -6,45 +6,33 @@
     <title>THEA.TECH | Enterprise Software House</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
-        
-        /* CHROMIUM SCROLL FADE INTERACTION */
-        .scroll-fade { opacity: 0; transform: translateY(25px); transition: 0.7s ease-out; }
-        .scroll-fade.active { opacity: 1; transform: translateY(0); }
-
-        /* NAVIGATION HEADER */
-        header { background-color: #ffffff; border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        body { background-color: #f1f5f9; color: #1e293b; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: 0.3s; }
+        header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #cbd5e1; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
         .logo-box { font-size: 24px; font-weight: 900; text-decoration: none; }
-        .logo-box .blue { color: #0284c7; } .logo-box .dark { color: #0f172a; }
+        .logo-box .blue { color: #0284c7; text-shadow: 0 0 10px rgba(2,132,199,0.2); }
+        .logo-box .dark { color: #0f172a; }
         nav a { color: #64748b; text-decoration: none; margin-left: 25px; font-weight: 700; font-size: 15px; }
         nav a:hover { color: #0284c7; }
-
-        /* VIEWPORT BOX STRUCTURES */
-        .section-viewport { padding: 100px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
-        .center-heading { margin-bottom: 50px; }
-        .center-heading h2 { font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 15px; }
-        
+        .section-viewport { padding: 120px 40px; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .center-heading { margin-bottom: 60px; }
+        .center-heading h2 { font-size: 40px; font-weight: 800; color: #0f172a; margin-bottom: 15px; letter-spacing: -1px; }
+        .center-heading p { color: #475569; font-size: 18px; }
         .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; min-height: 60vh; text-align: left; }
         .hero-text { flex: 1.2; } .hero-graphic { flex: 0.8; display: flex; justify-content: center; }
         .badge { background-color: rgba(2, 132, 199, 0.06); color: #0284c7; border: 1px solid rgba(2, 132, 199, 0.2); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; display: inline-block; margin-bottom: 20px; }
-        h1 { font-size: 48px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
+        h1 { font-size: 52px; font-weight: 900; color: #0f172a; line-height: 1.15; margin-bottom: 20px; }
         h1 span { color: #0284c7; } .hero-text p { font-size: 19px; color: #475569; margin-bottom: 35px; }
-        
-        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); }
+        .btn-gradient { background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: 0 6px 15px rgba(2,132,199,0.2); text-align: center; }
         .btn-outline { border: 2px solid #cbd5e1; background-color: #ffffff; color: #334155; padding: 12px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; margin-left: 15px; }
         .btn-outline:hover { border-color: #22c55e; color: #16a34a; }
-
-        /* MOVEABLE TECH NEON ORB */
         .orb-canvas-wrapper { width: 320px; height: 320px; border-radius: 50%; background: #0f172a; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(2,132,199,0.2); border: 2px solid rgba(56,189,248,0.2); cursor: grab; }
         canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-
-        /* METRICS BLOCK */
+        .scroll-fade { opacity: 0; transform: translateY(25px); transition: 0.7s ease-out; }
+        .scroll-fade.active { opacity: 1; transform: translateY(0); }
         .metrics-bar { background-color: #ffffff; border-y: 1px solid #cbd5e1; padding: 50px 40px; }
         .metrics-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
         .metric-item h3 { font-size: 40px; font-weight: 800; color: #0f172a; }
         .metric-item p { font-size: 13px; color: #64748b; text-transform: uppercase; margin-top: 5px; font-weight: 700; }
-
-        /* 5 CORE SERVICES RESPONSIVE BLOCKS WITH PULSING NEON */
         @keyframes neonPulse { 0% { border-color: #cbd5e1; } 50% { border-color: #0284c7; box-shadow: 0 0 15px rgba(2,132,199,0.2); } 100% { border-color: #cbd5e1; } }
         .services-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; }
         .service-node { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 40px; border-radius: 20px; animation: neonPulse 3s infinite ease-in-out; transition: 0.3s; }
@@ -53,13 +41,9 @@
         .service-node p { font-size: 15px; color: #475569; margin-bottom: 15px; }
         .service-how { background-color: #f8fafc; padding: 15px; border-radius: 8px; font-size: 14px; color: #64748b; border: 1px dashed #cbd5e1; margin-top: 10px; }
         .service-how strong { color: #0284c7; display: block; margin-bottom: 4px; }
-
-        /* ABOUT MATRIX */
         .about-master-layout { display: flex; gap: 50px; align-items: center; text-align: left; background-color: #ffffff; padding: 50px; border-radius: 20px; border: 1px solid #cbd5e1; }
         .about-narrative { flex: 1.3; } .about-numerical-box { flex: 0.7; background: #f8fafc; padding: 40px; border-radius: 16px; border: 1px solid #cbd5e1; text-align: center; }
         .about-numerical-box h4 { font-size: 56px; font-weight: 900; color: #0f172a; }
-
-        /* CONTACT FORM GRID WITH RGB BLEND BORDER */
         @keyframes rgbMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .contact-card-box { display: flex; background-color: #ffffff; border-radius: 24px; overflow: hidden; margin-top: 40px; text-align: left; position: relative; padding: 4px; background: linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size: 400%; animation: rgbMove 6s linear infinite; box-shadow: 0 0 25px rgba(2,132,199,0.25); }
         .contact-inner-wrapper { display: flex; background: #ffffff; border-radius: 20px; overflow: hidden; width: 100%; }
@@ -73,10 +57,7 @@
         .input-block label { font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; }
         .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 14px; outline: none; width: 100%; color: #0f172a; font-size: 14px; }
         .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
-        
         footer { background-color: #ffffff; border-top: 1px solid #cbd5e1; padding: 40px; text-align: center; color: #64748b; }
-
-        /* AUTOMATIC DEPLOY DARK MODE FOR MOBILE DEVICES */
         @media (max-width: 968px) {
             body { background-color: #0b0f19; color: #cbd5e1; }
             header { background-color: rgba(11, 15, 25, 0.95); border-bottom: 1px solid #1e293b; }
@@ -96,7 +77,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <a href="#" class="logo-box"><span class="blue">THEA</span><span class="dark">.TECH</span></a>
         <nav>
@@ -106,4 +86,154 @@
             <a href="#contact-view">Contact</a>
         </nav>
     </header>
+    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 60px;">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <span class="badge">Architecting Corporate Digital Future</span>
+                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
+                <p>Empowering progressive global operations with scalable enterprise software house solutions and elite auto-adaptive responsive frameworks [3.1].</p>
+                <a href="#services-view" class="btn-gradient">Explore Core Services</a>
+                <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Chat</a>
+            </div>
+            <div class="hero-graphic">
+                <div class="orb-canvas-wrapper" id="orb-scope">
+                    <canvas id="orbEngine"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="metrics-bar scroll-fade">
+        <div class="metrics-layout">
+            <div class="metric-item"><h3>99%</h3><p>Client Retention</p></div>
+            <div class="metric-item"><h3>150+</h3><p>Nodes Deployed</p></div>
+            <div class="metric-item"><h3>24/7</h3><p>Active Support</p></div>
+            <div class="metric-item"><h3>100%</h3><p>Secure System</p></div>
+        </div>
+    </section>
+    <section class="section-viewport scroll-fade" id="services-view">
+        <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
+        <div class="services-layout-grid">
+            <div class="service-node">
+                <h3>Web & App Development</h3>
+                <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance native mobile ecosystems [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We execute agile development models using secure framework clean code script [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Graphic Designing</h3>
+                <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, and artwork packages.</p>
+                <div class="service-how"><strong>How It Works:</strong>We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Cloud Computing</h3>
+                <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
+                <div class="service-how"><strong>How It Works:</strong>We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
+            </div>
+            <div class="service-node">
+                <h3>Cybersecurity</h3>
+                <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
+                <div class="service-how"><strong>How It Works:</strong>Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
+            </div>
+            <div class="service-node" style="grid-column: span 1; width: 100%;">
+                <h3>UI/UX Designing</h3>
+                <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
+                <div class="service-how"><strong>How It Works:</strong>We map layout structures based on clickable operational prototypes before final production codes.</div>
+            </div>
+        </div>
+    </section>
+    <section class="section-viewport scroll-fade" id="about-view">
+        <div class="center-heading"><h2>Who We Are</h2></div>
+        <div class="about-master-layout">
+            <div class="about-narrative">
+                <p>We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies [3.1].</p>
+            </div>
+            <div class="about-numerical-box"><h4>99.99%</h4><p>Server Uptime</p></div>
+        </div>
+    </section>
+    <section class="section-viewport scroll-fade" id="contact-view" style="border-bottom: none;">
+        <div class="contact-card-box">
+            <div class="contact-inner-wrapper">
+                <div class="contact-sidebar">
+                    <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px; margin-top: 5px;">Direct active customer communication channels.</p></div>
+                    <div class="communication-nodes">
+                        <a href="https://wa.me" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
+                        <a href="mailto:theatech2@gmail.com" class="node-row">Email: theatech2@gmail.com</a>
+                    </div>
+                    <div class="social-matrix-row">
+                        <a href="https://facebook.com" target="_blank">Facebook</a>
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                    </div>
+                </div>
+                <div class="contact-form-side">
+                    <form action="https://formsubmit.co" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://github.io">
+                        <div class="grid-split-2">
+                            <div class="input-block"><label>Full Name</label><input type="text" name="Client Name" required></div>
+                            <div class="input-block"><label>Email Address</label><input type="email" name="Email" required></div>
+                        </div>
+                        <div class="input-block">
+                            <label>Service</label>
+                            <select name="Service" required>
+                                <option>Web & App Development</option>
+                                <option>Graphic Designing</option>
+                                <option>Cloud Computing</option>
+                                <option>Cybersecurity</option>
+                                <option>UI/UX Designing</option>
+                            </select>
+                        </div>
+                        <div class="input-block"><label>Guidelines Matrix</label><textarea name="Details" rows="4" required></textarea></div>
+                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
+    <script>
+        const scrollElements = document.querySelectorAll('.scroll-fade');
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (el.getBoundingClientRect().top <= (window.innerHeight || document.documentElement.clientHeight) / 1.15) { el.classList.add('active'); }
+            });
+        };
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('load', handleScrollAnimation);
 
+        const canvas = document.getElementById('orbEngine');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = 320; let height = canvas.height = 320;
+        let numParticles = 60, dots = [], radius = 100;
+        let rotationX = 0.005, rotationY = 0.008;
+
+        for (let i = 0; i < numParticles; i++) {
+            let theta = Math.acos(Math.random() * 2 - 1);
+            let phi = Math.random() * Math.PI * 2;
+            dots.push({
+                x: radius * Math.sin(theta) * Math.cos(phi),
+                y: radius * Math.sin(theta) * Math.sin(phi),
+                z: radius * Math.cos(theta)
+            });
+        }
+
+        document.getElementById('orb-scope').addEventListener('mousemove', (e) => {
+            rotationY = (e.offsetX - width/2) * 0.0001;
+            rotationX = (e.offsetY - height/2) * 0.0001;
+        });
+
+        function renderOrb() {
+            ctx.clearRect(0, 0, width, height);
+            let cx = width / 2, cy = height / 2;
+            dots.forEach(dot => {
+                let cosX = Math.cos(rotationX), sinX = Math.sin(rotationX);
+                let y1 = dot.y * cosX - dot.z * sinX, z1 = dot.z * cosX + dot.y * sinX;
+                let cosY = Math.cos(rotationY), sinY = Math.sin(rotationY);
+                let x2 = dot.x * cosY - z1 * sinY, z2 = z1 * cosY + dot.x * sinY;
+                dot.x = x2; dot.y = y1; dot.z = z2;
+                let scale = 200 / (200 + z2);
+                let x2d = dot.x * scale + cx, y2d = dot.y * scale + cy;
+                let alpha = (z2 + radius) / (radius * 2);
+                ctx.fillStyle = `rgba(56, 189, 248, ${alpha + 0.15})`;
+                ctx.beginPath(); ctx.arc(x2d, y2d, scale * 3.5, 0, Math.PI * 2); ctx.fill();
+                ctx.strokeStyle = `rgba(2, 132, 199, ${(alpha + 0.05) * 0.15})`;
+                ctx.lineWidth = 0.5;
+                dots.forEach(other => {
