@@ -76,29 +76,36 @@
         .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
         footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:30px; text-align:center; color:#64748b; font-size:13px; width: 100%; }
-
-        /* 📱 MOBILE RESPONSIVE WRAPPERS AND FIXED MARGIN STACKS */
+        /* 📱 FIXED HIGH-CONTRAST MOBILE BREAKPOINTS ONLY - NO BACKGROUND SHIFTING */
         @media (max-width: 968px) {
-            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; }
+            html, body { background-color: #f8fafc !important; color: #0f172a !important; }
+            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; background-color: rgba(255, 255, 255, 0.98) !important; border-bottom: 1px solid #cbd5e1 !important; }
+            .logo-box { color: #0f172a !important; }
             nav { margin-top: 5px; justify-content: center; width: 100%; }
-            nav a { margin: 0 8px; font-size: 13px; }
+            nav a { color: #64748b !important; margin: 0 8px; font-size: 13px; }
+            nav a:hover { color: #0284c7 !important; }
             .section-viewport { padding: 40px 15px; }
-            .center-heading h2 { font-size: 28px; }
+            .center-heading h2 { font-size: 28px; color: #0f172a !important; }
             .hero-layout { flex-direction: column-reverse; text-align: center; gap: 30px; }
             .hero-text { text-align: center; width: 100%; }
-            h1 { font-size: 30px; } .hero-text p { font-size: 15px; }
+            h1 { font-size: 30px; color: #0f172a !important; } .hero-text p { font-size: 15px; color: #475569 !important; }
             .btn-gradient, .btn-outline { width: 100%; margin-left: 0 !important; margin-bottom: 12px; padding: 12px; }
             .portal-frame-wrapper { width: 250px; height: 270px; margin: 0 auto; }
-            .metrics-bar { padding: 25px 15px; }
+            .metrics-bar { padding: 25px 15px; background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; border-bottom: 1px solid #cbd5e1 !important; }
             .metrics-layout { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .metric-item h3 { font-size: 28px; }
+            .metric-item h3 { font-size: 28px; color: #0f172a !important; } .metric-item p { color: #64748b !important; }
             .services-layout-grid, .project-matrix-grid, .contact-inner-wrapper, .grid-split-2 { grid-template-columns: 1fr; gap: 15px; }
-            .about-master-layout { flex-direction: column; padding: 25px 15px; gap: 20px; }
-            .about-numerical-box { width: 100%; padding: 20px; }
-            .contact-card-box { border-radius: 16px; }
-            .contact-sidebar { padding: 30px 20px; text-align: center; gap: 20px; }
+            .service-node, .matrix-blueprint-box { background-color: #ffffff !important; border: 2px solid rgba(2,132,199,0.2) !important; }
+            .service-node h3, .matrix-blueprint-box h3 { color: #0f172a !important; } .service-node p { color: #475569 !important; }
+            .about-master-layout { flex-direction: column; padding: 25px 15px; gap: 20px; background-color: #ffffff !important; border: 2px solid rgba(2,132,199,0.2) !important; }
+            .about-numerical-box { width: 100%; padding: 20px; background-color: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
+            .about-numerical-box h4 { color: #0f172a !important; }
+            .contact-card-box { border-radius: 16px; background-color: #ffffff !important; }
+            .contact-sidebar { padding: 30px 20px; text-align: center; gap: 20px; background-color: #0f172a !important; }
             .communication-nodes { align-items: center; }
-            .contact-form-side { padding: 30px 15px; }
+            .contact-form-side { padding: 30px 15px; background-color: #ffffff !important; }
+            .input-block label { color: #0284c7 !important; } .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc !important; border-color: #cbd5e1 !important; color: #0f172a !important; }
+            footer { background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; color: #64748b !important; padding: 25px 15px; }
         }
     </style>
 </head>
@@ -204,48 +211,3 @@
         <div class="contact-card-box">
             <div class="contact-inner-wrapper">
                 <div class="contact-sidebar">
-                    <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px; margin-top: 5px;">Direct active customer communication channels.</p></div>
-                    <div class="communication-nodes">
-                        <a href="https://whatsapp.com" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
-                        <a href="mailto:thea.tech2@gmail.com" class="node-row">Email: thea.tech2@gmail.com</a>
-                    </div>
-                </div>
-                <div class="contact-form-side">
-                    <form id="theaNativeForm">
-                        <div class="grid-split-2">
-                            <div class="input-block"><label>Full Name</label><input type="text" id="formName" placeholder="Enter name" required></div>
-                            <div class="input-block"><label>Email Address</label><input type="email" id="formEmail" placeholder="Enter email" required></div>
-                        </div>
-                        <div class="input-block">
-                            <label>Service Portfolio Spectrum</label>
-                            <select id="formService" required>
-                                <option>Boot Camps & AI Trainings</option>
-                                <option>Cloud Apps Development</option>
-                                <option>Website Design & Development</option>
-                                <option>Cybersecurity Solutions</option>
-                            </select>
-                        </div>
-                        <div class="input-block"><label>Project Guidelines Scope</label><textarea id="formMessage" rows="4" placeholder="Brief requirements natively..." required></textarea></div>
-                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer><p>&copy; 2026 THEA.TECH HOLDINGS CORP. All Rights Reserved.</p></footer>
-
-    <script>
-        const canvas = document.getElementById('bgCanvasAnimation'); const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
-        window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
-        let particles = []; let numParticles = window.innerWidth < 768 ? 15 : 55;
-        for (let i = 0; i < numParticles; i++) { particles.push({ x: Math.random() * width, y: Math.random() * (height * 1.5), vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2, radius: Math.random() * 3 + 2 }); }
-        
-        function animateBgMesh() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach((p, idx) => {
-                p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > width) p.vx *= -1; if (p.y < 0 || p.y > height * 1.5) p.vy *= -1;
-                ctx.fillStyle = window.innerWidth < 768 ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
-                for (let j = idx + 1; j < particles.length; j++) {
