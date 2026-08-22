@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Gateway Portal | THEA.TECH</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; color: #0f172a; overflow: hidden; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        
+        #multiColorBgCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        
+        .back-link { position: absolute; top: 30px; left: 40px; color: #64748b; text-decoration: none; font-weight: 700; font-size: 14px; z-index: 500; transition: 0.3s; }
+        .back-link:hover { color: #0284c7; text-shadow: 0 0 8px rgba(2,132,199,0.3); }
+        
+        /* FIRST TIME OPENING ENTRY ANIMATION LOOP RUNS ONCE */
+        @keyframes dynamicPortalIntro {
+            0% { opacity: 0; transform: scale(0.95) translateY(30px); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
+        }
+
+        @keyframes rgbNeonCircuit {
+            0% { border-color: #0284c7; box-shadow: 0 0 25px rgba(2, 132, 199, 0.45); }
+            50% { border-color: #ff007f; box-shadow: 0 0 30px rgba(255, 0, 127, 0.45); }
+            100% { border-color: #7a00ff; box-shadow: 0 0 25px rgba(122, 0, 255, 0.45); }
+        }
+        
+        .master-portal-wrapper { 
+            display: flex; width: 920px; height: 600px; background: #ffffff; border-radius: 32px; overflow: hidden; position: relative; z-index: 10; 
+            border: 3px solid #e2e8f0;
+            animation: dynamicPortalIntro 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            box-shadow: 0 20px 50px rgba(15,23,42,0.06);
+        }
+        
+        /* RGB LIGHTS TURNS ON EXCLUSIVELY ONLY ON CURSOR HOVER STAGES */
+        .master-portal-wrapper:hover { border-color: #0284c7; animation: rgbNeonCircuit 5s linear infinite; }
+        
+        .form-interface-side { flex: 1; padding: 55px; display: flex; flex-direction: column; justify-content: center; background: #ffffff; position: relative; }
+        .corporate-badge-tag { font-size: 11px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+        .form-interface-side h2 { font-size: 34px; font-weight: 900; color: #0f172a; letter-spacing: -1px; margin-bottom: 6px; }
+        .form-interface-side p { font-size: 14px; color: #64748b; margin-bottom: 35px; }
+        
+        /* HIGH FIDELITY UNCONNECTED HOVER TABS CHANNELS */
+        .gateway-tabs { display: flex; gap: 25px; margin-bottom: 30px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; width: 100%; position: relative; z-index: 999; }
+        .gateway-tab { font-size: 14px; font-weight: 700; color: #94a3b8; cursor: pointer; transition: 0.2s; text-transform: uppercase; user-select: none; -webkit-user-select: none; padding-bottom: 10px; display: inline-block; position: relative; z-index: 9999; }
+        .gateway-tab.active-tab { color: #0284c7; border-bottom: 2px solid #0284c7; }
+        
+        .gateway-form-wrapper { width: 100%; position: relative; z-index: 50; }
+        .input-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; text-align: left; }
+        .input-block label { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .gateway-input { background: #f8fafc !important; border: 2px solid #cbd5e1 !important; border-radius: 12px; padding: 15px; outline: none; width: 100%; color: #0f172a !important; font-size: 15px; font-weight: 600; transition: 0.2s; }
+        .gateway-input::placeholder { color: #94a3b8 !important; }
+        .gateway-input:focus { border-color: #0284c7; background: #ffffff !important; box-shadow: 0 0 12px rgba(2,132,199,0.15); }
+        
+        .submit-blueprint-btn { width: 100%; background: linear-gradient(135deg, #facc15 0%, #eab308 100%); color: #0f172a; border: none; padding: 16px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 15px rgba(234,179,8,0.25); margin-top: 10px; }
+        .submit-blueprint-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(234,179,8,0.4); }
+        
+        .graphic-display-side { flex: 1.1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+        .team-vector-backdrop { width: 85%; height: auto; opacity: 0.90; z-index: 5; }
+        
+        .exit-launch-velocity { animation: submitExitVelocity 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards !important; }
+        @keyframes submitExitVelocity {
+            0% { transform: scale(1) translateY(0px); filter: brightness(1); }
+            100% { transform: scale(0.92) translateY(-680px); opacity: 0; filter: blur(15px); }
+        }
+        
+        @media (max-width: 900px) { .master-portal-wrapper { width: 95%; height: auto; flex-direction: column; } .graphic-display-side { display: none; } }
+    </style>
+</head>
+<body>
+
+    <canvas id="multiColorBgCanvas"></canvas>
+
+    <a href="index.html" class="back-link">&#8592; Return to Terminal</a>
+
+    <div class="master-portal-wrapper" id="moveablePortalContainer">
+        
+        <div class="form-interface-side">
+            <span class="corporate-badge-tag">A TECH Operational System</span>
+            <h2>Create an account</h2>
+            <p>Access authorized gateway logs natively.</p>
+            
+            <div class="gateway-tabs">
+                <!-- ACCESSIBILITY CORES REGISTERED WITHOUT UPPER OVERLAPS -->
+                <div class="gateway-tab active-tab" id="loginTab">Sign In</div>
+                <div class="gateway-tab" id="signupTab">Sign Up</div>
+            </div>
+            
+            <div class="gateway-form-wrapper">
+                <form id="gatewayForm">
+                    <div class="input-block" id="usernameBlock" style="display: none;">
+                        <label>Choose Handle Name</label>
+                        <input type="text" class="gateway-input" id="userInputField" placeholder="Enter cyber handle">
+                    </div>
+                    <div class="input-block">
+                        <label>Identity Network Email</label>
+                        <input type="email" class="gateway-input" placeholder="name@thea.tech" required>
+                    </div>
+                    <div class="input-block">
+                        <label>Security Password</label>
+                        <input type="password" class="gateway-input" id="passInputField" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="submit-blueprint-btn" id="gateBtn">Initialize Session</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="graphic-display-side">
+            <svg class="team-vector-backdrop" viewBox="0 0 500 400" xmlns="http://w3.org">
+                <rect x="20" y="300" width="460" height="15" rx="5" fill="#cbd5e1"/>
+                <circle cx="250" cy="315" r="30" fill="#94a3b8" opacity="0.3"/>
+                <circle cx="140" cy="180" r="42" fill="#0284c7" opacity="0.85"/>
+                <path d="M95 255 C95 210, 185 210, 185 255 Z" fill="#0284c7" opacity="0.75"/>
+                <path d="M125 175 L138 175 M142 175 L155 175" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+                <circle cx="250" cy="135" r="48" fill="#eab308" opacity="0.95"/>
+                <path d="M195 225 C195 180, 305 180, 305 225 Z" fill="#eab308" opacity="0.85"/>
+                <path d="M232 135 L245 135 M255 135 L268 135" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+                <circle cx="360" cy="190" r="38" fill="#ec4899" opacity="0.85"/>
+                <path d="M320 260 C320 220, 400 220, 400 260 Z" fill="#ec4899" opacity="0.75"/>
+                <rect x="310" y="50" width="130" height="40" rx="10" fill="#ffffff"/>
+                <text x="325" y="74" fill="#1e293b" font-size="12" font-weight="bold">✓ Sync Secure</text>
+                <rect x="50" y="80" width="120" height="35" rx="8" fill="#0f172a"/>
+                <text x="65" y="102" fill="#00f3ff" font-size="11" font-weight="bold">Nodes Active</text>
+                <path d="M140 180 L250 135 M250 135 L360 190 M140 255 L250 225 L360 260" stroke="#64748b" stroke-width="2" stroke-dasharray="6 4" opacity="0.35"/>
+            </svg>
+        </div>
+        
+    </div>
+
+    <script>
+        const container = document.getElementById('moveablePortalContainer');
+        const passInput = document.getElementById('passInputField');
+        const loginTab = document.getElementById('loginTab');
+        const signupTab = document.getElementById('signupTab');
+        const userBlock = document.getElementById('usernameBlock');
+        const btn = document.getElementById('gateBtn');
+
+        /* 🌌 RAW WINDOW DIRECT INJECTIONS TO BYPASS ANY CLICK CLIPS */
+        loginTab.onclick = function() {
+            loginTab.className = 'gateway-tab active-tab';
+            signupTab.className = 'gateway-tab';
+            userBlock.style.display = 'none';
+            btn.innerText = 'Initialize Session';
+        };
+
+        signupTab.onclick = function() {
+            signupTab.className = 'gateway-tab active-tab';
+            loginTab.className = 'gateway-tab';
+            userBlock.style.display = 'flex';
+            btn.innerText = 'Create Account Framework';
+        };
+
+        /* 🌌 BACKGROUND CANVAS ENGINES */
+        const bgCanvas = document.getElementById('multiColorBgCanvas'); const bgCtx = bgCanvas.getContext('2d');
+        let bgParticles = []; let numBgParticles = window.innerWidth < 768 ? 25 : 65;
+        const colorSpectrum = ['#cbd5e1', '#94a3b8', '#0284c7', '#38bdf8'];
+        function sizeBgCanvas() { bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; }
+        window.addEventListener('resize', sizeBgCanvas); sizeBgCanvas();
+        for (let i = 0; i < numBgParticles; i++) {
+            bgParticles.push({ x: Math.random() * bgCanvas.width, y: Math.random() * bgCanvas.height, radius: Math.random() * 2 + 0.8, angle: Math.random() * Math.PI * 2, speed: Math.random() * 0.008 + 0.003, color: colorSpectrum[Math.floor(Math.random() * colorSpectrum.length)] });
+        }
+        function animateBgSparks() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            bgParticles.forEach(p => {
+                p.angle += p.speed; p.x += Math.cos(p.angle) * 0.3; p.y += Math.sin(p.angle) * 0.3;
+                if (p.x < 0) p.x = bgCanvas.width; if (p.x > bgCanvas.width) p.x = 0;
+                if (p.y < 0) p.y = bgCanvas.height; if (p.y > bgCanvas.height) p.y = 0;
+                bgCtx.fillStyle = p.color; bgCtx.beginPath(); bgCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); bgCtx.fill();
+            });
+            requestAnimationFrame(animateBgSparks);
+        }
+        animateBgSparks();
+
+        /* 🌌 ENTER KEY PIPELINE LISTENER FOR MOVEMENT EXIT */
+        passInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if(passInput.value.trim() !== "") {
+                    container.className = 'master-portal-wrapper exit-launch-velocity';
+                    setTimeout(() => { alert('Session Verified! Connecting to A TECH Hub Matrix...'); }, 400);
+                } else {
+                    passInput.style.borderColor = "red";
+                    setTimeout(() => { passInput.style.borderColor = "#cbd5e1"; }, 400);
+                }
+            }
+        });
+
+        document.getElementById('gatewayForm').addEventListener('submit', function(e) { e.preventDefault(); container.className = 'master-portal-wrapper exit-launch-velocity'; });
+    </script>
+</body>
+</html>
