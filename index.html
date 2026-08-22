@@ -67,8 +67,8 @@
         .contact-inner-wrapper { display:flex; background:#ffffff; width:100%; }
         .contact-sidebar { flex:0.8; background:#0f172a; padding:40px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; width: 100%; }
         .contact-form-side { flex:1.2; padding:40px; background:#ffffff; width: 100%; }
-        .communication-nodes { margin:20px 0; display:flex; flex-direction:column; gap:15px; }
-        .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; word-break: break-all; word-wrap: break-word; }
+        .communication-nodes { margin:20px 0; display:flex; flex-direction:column; gap:15px; width: 100%; }
+        .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; word-break: break-all; }
         .node-row.wp { color:#22c55e; }
         .grid-split-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; width: 100%; }
         .input-block { display:flex; flex-direction:column; gap:6px; margin-bottom:15px; width: 100%; }
@@ -76,43 +76,38 @@
         .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
         footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; }
-        /* 📱 FLUID MOBILE LOGIC MAPPING - COMPLETE RESPONSIVE COLOR & CONTACT FLOW */
+        /* 📱 TOTAL STRICT CONTROL BREAKPOINTS FOR SMARTPHONES VIEWPORT */
         @media (max-width: 968px) {
-            html, body { background-color: #f8fafc !important; color: #0f172a !important; }
-            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; background-color: rgba(255, 255, 255, 0.98) !important; border-bottom: 1px solid #cbd5e1 !important; width: 100%; }
-            .logo-box { color: #0f172a !important; margin: 0 auto; display: block; }
-            nav { margin-top: 5px; justify-content: center; width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
-            nav a { color: #64748b !important; margin: 0; font-size: 13px; font-weight: 700; }
-            nav a:hover { color: #0284c7 !important; }
-            .section-viewport { padding: 40px 15px; width: 100%; max-width: 100%; }
-            .center-heading h2 { font-size: 26px; color: #0f172a !important; text-align: center; }
-            .hero-layout { flex-direction: column-reverse; text-align: center; gap: 30px; width: 100%; }
-            .hero-text { text-align: center; width: 100%; padding: 0; }
-            h1 { font-size: 28px; color: #0f172a !important; text-align: center; } 
+            html, body { background-color: #f8fafc !important; color: #0f172a !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
+            header { flex-direction: column; gap: 12px; text-align: center; padding: 15px 10px; background-color: rgba(255, 255, 255, 0.98) !important; width: 100% !important; }
+            .logo-box { color: #0f172a !important; margin: 0 auto !important; display: block !important; }
+            nav { margin-top: 5px; justify-content: center; width: 100% !important; display: flex; flex-wrap: wrap; gap: 8px; }
+            nav a { color: #64748b !important; margin: 0 4px; font-size: 13px; }
+            .section-viewport { padding: 40px 10px !important; width: 100% !important; max-width: 100% !important; overflow: hidden !important; }
+            .center-heading h2 { font-size: 24px; color: #0f172a !important; text-align: center; }
+            .hero-layout { flex-direction: column-reverse; text-align: center; gap: 25px; width: 100% !important; }
+            .hero-text { text-align: center; width: 100% !important; padding: 0 !important; }
+            h1 { font-size: 26px !important; color: #0f172a !important; text-align: center; width: 100% !important; } 
             .hero-text p { font-size: 14px; color: #475569 !important; text-align: center; }
-            .btn-gradient, .btn-outline { width: 100%; margin-left: 0 !important; margin-bottom: 12px; padding: 14px; display: block; }
-            .portal-frame-wrapper { width: 250px; height: 270px; margin: 0 auto; }
-            .metrics-bar { padding: 25px 15px; background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; border-bottom: 1px solid #cbd5e1 !important; width: 100%; }
-            .metrics-layout { grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; }
-            .metric-item h3 { font-size: 26px; color: #0f172a !important; } .metric-item p { color: #64748b !important; font-size: 11px; }
-            .services-layout-grid, .project-matrix-grid, .contact-inner-wrapper, .grid-split-2 { grid-template-columns: 1fr; gap: 15px; width: 100%; }
-            .service-node, .matrix-blueprint-box { background-color: #ffffff !important; border: 2px solid rgba(2,132,199,0.15) !important; padding: 20px; }
-            .service-node h3, .matrix-blueprint-box h3 { color: #0f172a !important; font-size: 18px; } 
-            .service-node p, .matrix-blueprint-box p { color: #475569 !important; font-size: 13px; }
-            .about-master-layout { flex-direction: column; padding: 25px 15px; gap: 20px; background-color: #ffffff !important; border: 2px solid rgba(2,132,199,0.15) !important; width: 100%; }
-            .about-numerical-box { width: 100%; padding: 20px; background-color: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
-            .about-numerical-box h4 { font-size: 38px; color: #0f172a !important; }
+            .btn-gradient, .btn-outline { width: 100% !important; margin-left: 0 !important; margin-bottom: 10px; padding: 12px; display: block !important; }
+            .portal-frame-wrapper { width: 240px; height: 260px; margin: 0 auto !important; }
+            .metrics-bar { padding: 20px 10px !important; background-color: #ffffff !important; width: 100% !important; }
+            .metrics-layout { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; width: 100% !important; }
+            .metric-item h3 { font-size: 24px; color: #0f172a !important; }
+            .services-layout-grid, .project-matrix-grid, .grid-split-2 { grid-template-columns: 1fr !important; gap: 15px; width: 100% !important; }
+            .service-node, .matrix-blueprint-box { background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; padding: 15px !important; width: 100% !important; }
+            .about-master-layout { flex-direction: column !important; padding: 20px 15px !important; gap: 15px; background-color: #ffffff !important; width: 100% !important; }
+            .about-numerical-box { width: 100% !important; padding: 15px; background-color: #f8fafc !important; }
             
-            /* FIXED: HARD BOUNDARIES LOCKED FOR CONTACT INTERFACES OVER SMARTPHONES */
-            .contact-card-box { border-radius: 16px; width: 100%; max-width: 100%; overflow: hidden; display: block; border: 2px solid #0284c7; }
-            .contact-inner-wrapper { display: block; width: 100%; }
-            .contact-sidebar { padding: 30px 15px; text-align: center; gap: 20px; background-color: #0f172a !important; width: 100%; display: block; }
-            .communication-nodes { align-items: center; width: 100%; }
-            .node-row { font-size: 13px; max-width: 100%; word-wrap: break-word; white-space: normal; }
-            .contact-form-side { padding: 30px 15px; background-color: #ffffff !important; width: 100%; }
-            .input-block label { color: #0284c7 !important; } 
-            .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc !important; border-color: #cbd5e1 !important; color: #0f172a !important; padding: 12px; }
-            footer { background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; color: #64748b !important; padding: 25px 15px; width: 100%; font-size: 14px; }
+            /* CONTACT MODULE OVERRIDE - FORCE WRAPS INLINE CONTENT */
+            .contact-card-box { border-radius: 12px; width: 100% !important; max-width: 100% !important; display: block !important; border: 1px solid #cbd5e1 !important; overflow: hidden !important; }
+            .contact-inner-wrapper { display: block !important; width: 100% !important; padding: 0 !important; }
+            .contact-sidebar { padding: 25px 15px !important; text-align: center !important; background-color: #0f172a !important; width: 100% !important; display: block !important; }
+            .communication-nodes { align-items: center !important; width: 100% !important; display: flex !important; flex-direction: column !important; }
+            .node-row { font-size: 13px !important; width: 100% !important; word-wrap: break-word !important; white-space: normal !important; text-align: center !important; margin-bottom: 5px; }
+            .contact-form-side { padding: 25px 15px !important; background-color: #ffffff !important; width: 100% !important; display: block !important; }
+            .input-block input, .input-block select, .input-block textarea { padding: 10px !important; font-size: 13px !important; width: 100% !important; }
+            footer { background-color: #ffffff !important; color: #64748b !important; padding: 20px 10px !important; width: 100% !important; }
         }
     </style>
 </head>
@@ -207,3 +202,5 @@
     </section>
 
     <section class="section-viewport" id="about-view">
+        <div class="center-heading"><h2>Who We Are</h2></div>
+        <div class="about-master-layout">
