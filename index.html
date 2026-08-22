@@ -32,13 +32,13 @@
         .btn-gradient { background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:#ffffff; padding:14px 32px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; box-shadow:0 6px 15px rgba(2,132,199,0.2); border:none; cursor:pointer; }
         .btn-outline { border:2px solid #cbd5e1; background-color:#ffffff; color:#334155; padding:12px 30px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; }
         .btn-outline:hover { border-color:#0284c7; color:#0284c7; }
-        
         /* 3D ROTATING TECH DIAGRAM PORTAL */
         .portal-frame-wrapper { width:300px; height:320px; position:relative; perspective:1000px; cursor:grab; }
         .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #00f3ff; box-shadow:0 0 30px #0284c7, inset 0 0 20px rgba(0,243,255,0.4); transform-style:preserve-3d; transition:transform 0.1s ease; }
         .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; transform:translateZ(30px); }
         .portal-nodes span { color:#00f3ff; font-size:28px; font-weight:bold; }
         .portal-tag { margin-top:20px; font-size:14px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; transform:translateZ(20px); text-shadow:0 0 8px #00f3ff; }
+        
         .metrics-bar { background-color:#ffffff; border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:50px 40px; position:relative; z-index:5; }
         .metrics-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center; }
         .metric-item h3 { font-size:40px; font-weight:800; color:#0f172a; }
@@ -55,7 +55,7 @@
         .service-how { background-color:#f8fafc; padding:15px; border-radius:8px; font-size:14px; color:#64748b; border:1px dashed #cbd5e1; margin-top:10px; }
         .service-how strong { color:#0284c7; display:block; margin-bottom:4px; }
         
-        /* 🛠️ TECH BLUEPRINT PROJECT MATRICES DISPLAY BOARDS */
+        /* TECH BLUEPRINT PROJECT MATRICES DISPLAY BOARDS */
         .project-matrix-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; margin-top:40px; text-align:left; }
         .matrix-blueprint-box { background:#ffffff; border-radius:24px; padding:45px; border:2px solid rgba(2,132,199,0.3); animation:neonPulseGlow 4s infinite ease-in-out; }
         .matrix-blueprint-box h3 { font-size:24px; color:#0f172a; margin-bottom:15px; border-left:4px solid #0284c7; padding-left:12px; }
@@ -84,7 +84,7 @@
         @media (max-width: 968px) {
             body { background-color:#0b0f19; color:#cbd5e1; } header { background-color:rgba(11, 15, 25, 0.95); border-bottom:1px solid #1e293b; padding:15px 20px; flex-direction:column; gap:15px; text-align:center; }
             .logo-box .dark { color:#ffffff; } nav a { color:#94a3b8; } .section-viewport { padding:60px 15px; } .center-heading h2 { color:#ffffff; font-size:32px; }
-            h1 { color:#ffffff; font-size:34px; text-align:center; } h1 span { color:#38bdf8; } .hero-text p { color:#cbd5e1; font-size:16px; }
+            h1 { color:#ffffff; font-size:34px; text-align:center; } h1 span { color:#38bdf8; } .hero-text p { color:#cbd5e1; font-size:16px; text-align:center; }
             .btn-gradient, .btn-outline { width:100%; text-align:center; margin-left:0 !important; margin-bottom:12px; } .btn-outline { background-color:transparent; color:#ffffff; border-color:#334155; }
             .portal-frame-wrapper { width:260px; height:280px; } .metrics-bar { background-color:#090d16; border-y:1px solid #1e293b; padding:30px 15px; } .metrics-layout { grid-template-columns:repeat(2, 1fr); gap:15px; } .metric-item h3 { color:#ffffff; }
             .services-layout-grid, .project-matrix-grid { grid-template-columns:1fr; gap:20px; } .service-node, .matrix-blueprint-box { background-color:#111827; }
@@ -101,11 +101,10 @@
         <a href="#" class="logo-box"><span>THEA</span>.TECH</a>
         <nav>
             <a href="#home-view">Home</a>
-            <a href="#services-view">Solutions</a>
+            <a href="#services-view">Services</a>
             <a href="#projects-view">Projects Matrix</a>
             <a href="#about-view">About</a>
             <a href="#contact-view">Contact</a>
-            <!-- LINK HUB DIRECTION LINK FOR INDEPENDENT CYBER PORTAL MODULE -->
             <a href="portal.html" style="border:1px solid #0284c7; padding:6px 14px; border-radius:6px; background: rgba(2,132,199,0.05); font-weight: bold; color:#0284c7; text-decoration: none;">Portal Access</a>
         </nav>
     </header>
@@ -114,9 +113,9 @@
         <div class="hero-layout">
             <div class="hero-text">
                 <span class="badge">National High-Tech Network</span>
-                <h1>We organize High Tech <span>AI Boot camps & Classes</span> Nationwide</h1>
+                <h1>Welcome to <span>TheA.Tech.</span><br>A tech organization for your modern tech solution</h1>
                 <p>Empowering progressive global operations with scalable enterprise software house solutions and elite auto-adaptive responsive frameworks [3.1].</p>
-                <a href="#services-view" class="btn-gradient">Explore Solutions</a>
+                <a href="#services-view" class="btn-gradient">Explore Services</a>
                 <a href="https://whatsapp.com" target="_blank" class="btn-outline">WhatsApp Chat</a>
             </div>
             <div class="hero-graphic">
@@ -142,26 +141,46 @@
     <section class="section-viewport" id="services-view">
         <div class="center-heading"><h2>Our Architectural Expertise</h2></div>
         <div class="services-layout-grid">
-            <div class="service-node"><h3>AI Boot Camps & Trainings</h3><p>Specialized capacity building training modules, institutional workshops, and advanced AI systems orientation for teams [3.1].</p><div class="service-how"><strong>Mechanism:</strong> Live deployment modules [3.1].</div></div>
-            <div class="service-node"><h3>Cloud Applications</h3><p>Engineering customized multi-cloud setups, secure data warehouses, enterprise API controls, and automated processing [3.1].</p><div class="service-how"><strong>Mechanism:</strong> AWS & Azure microservices.</div></div>
-            <div class="service-node"><h3>Mobile UX & Dashboards</h3><p>High-fidelity responsive UI/UX application layouts engineered entirely around advanced corporate interaction design analytics.</p><div class="service-how"><strong>Mechanism:</strong> Auto-thematic design system [3.1].</div></div>
-            <div class="service-node"><h3>Domain Provisioning</h3><p>Complete domain registry services management combined with built-in advanced WHOIS privacy parameters and secure DNS servers.</p><div class="service-how"><strong>Mechanism:</strong> Instant TLD lock integration.</div></div>
-            <div class="service-node"><h3>Cloud Hosting Shells</h3><p>Ultra-fast NVMe SSD enterprise web servers equipped with free dynamic SSL architecture and global CDN injection filters.</p><div class="service-how"><strong>Mechanism:</strong> Dynamic isolated firewalls [3.1].</div></div>
-            <div class="service-node"><h3>Web Design & Development</h3><p>Designing modern full-stack web platforms to upscale client retention, visibility pipelines, and transaction metrics natively [3.1].</p><div class="service-how"><strong>Mechanism:</strong> Clean semantic script paradigms.</div></div>
+            <div class="service-node">
+                <h3>Web & App Development</h3>
+                <p>We design and engineer premium full-stack responsive corporate websites, E-commerce digital stores, and high-performance native mobile ecosystems [3.1].</p>
+                <div class="service-how"><strong>Mechanism:</strong> We execute agile development models using secure framework clean code script [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Graphic Designing</h3>
+                <p>Complete multi-vector corporate asset identity kits creation. Custom high-fidelity business layouts, digital marketing banners, and artwork packages.</p>
+                <div class="service-how"><strong>Mechanism:</strong> We construct customized asset profiles matching your exact corporate brand guidelines [3.1].</div>
+            </div>
+            <div class="service-node">
+                <h3>Cloud Computing</h3>
+                <p>Enterprise multi-cloud system provisioning across standard platforms like AWS and Microsoft Azure orchestration [3.1].</p>
+                <div class="service-how"><strong>Mechanism:</strong> We setup dynamic microservices keeping your platform latency-free during traffic surges.</div>
+            </div>
+            <div class="service-node">
+                <h3>Cybersecurity</h3>
+                <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
+                <div class="service-how"><strong>Mechanism:</strong> Our team runs strategic ethical audits across all processing nodes to shield data [3.1].</div>
+            </div>
+            <div class="service-node" style="grid-column: span 2; width: 100%;">
+                <h3>UI/UX Designing</h3>
+                <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
+                <div class="service-how"><strong>Mechanism:</strong> We map layout structures based on clickable operational prototypes before final production codes.</div>
+            </div>
         </div>
     </section>
     <section class="section-viewport" id="projects-view">
         <div class="center-heading"><h2>Live High-Tech Deployments</h2></div>
         <div class="project-matrix-grid">
+            <!-- RECONFIGURED EXCLUSIVELY WITH A-TECH REGISTERED PRODUCTS -->
             <div class="matrix-blueprint-box">
-                <h3>Kashmir CareU OnGo (KCUOG)</h3>
-                <p style="color:#475569;">A flagship native full-stack medical dispatch dynamic prototype ecosystem engineered to automate ambulance routing logs and regional hospital database synchronization parameters seamlessly [3.1].</p>
-                <div class="matrix-tags"><span class="matrix-tag-node">Healthcare IT</span><span class="matrix-tag-node">Live App</span></div>
+                <h3>A-TECH Systems ERP Engine</h3>
+                <p style="color:#475569;">An integrated enterprise-scale cloud workspace custom-designed by A TECH to streamline supply chains, automated auditing logs, and resource asset monitoring protocols natively [3.1].</p>
+                <div class="matrix-tags"><span class="matrix-tag-node">Cloud Architecture</span><span class="matrix-tag-node">ERP Matrix</span></div>
             </div>
             <div class="matrix-blueprint-box">
-                <h3>Thea Startup Network Matrix</h3>
-                <p style="color:#475569;">A central cloud-native portal orchestration workspace configured to host, profile, and scale technical products and microservices natively across national incubation centers [3.1].</p>
-                <div class="matrix-tags"><span class="matrix-tag-node">Cloud SaaS</span><span class="matrix-tag-node">Core Node</span></div>
+                <h3>THEA Intelligent API Gateway</h3>
+                <p style="color:#475569;">A high-velocity microservices traffic broker engineered by A TECH to route asynchronous transaction tokens and encrypt deep pipeline database queries instantly [3.1].</p>
+                <div class="matrix-tags"><span class="matrix-tag-node">Data Infrastructure</span><span class="matrix-tag-node">Security Node</span></div>
             </div>
         </div>
     </section>
@@ -200,7 +219,9 @@
                             </select>
                         </div>
                         <div class="input-block"><label>Project Guidelines Scope</label><textarea id="formMessage" rows="4" placeholder="Brief requirements natively..." required></textarea></div>
-                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                        <div class="button-wrapper" style="position: relative; z-index: 500;">
+                            <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -220,10 +241,7 @@
             ctx.clearRect(0, 0, width, height);
             particles.forEach((p, idx) => {
                 p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > width) p.vx *= -1; if (p.y < 0 || p.y > height * 1.5) p.vy *= -1;
-                
-                // FIXED NATIVE CSS COLOR DECLARATION LOOP
                 ctx.fillStyle = window.innerWidth < 768 ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
-                
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
                 for (let j = idx + 1; j < particles.length; j++) {
                     let other = particles[j]; let dist = Math.hypot(p.x - other.x, p.y - other.y);
