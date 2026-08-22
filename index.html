@@ -2,97 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THEA.TECH | Enterprise Software House & AI Trainings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THEA.TECH | Enterprise Software House</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; scroll-behavior:smooth; }
-        body { background-color:#f8fafc; color:#0f172a; line-height:1.6; overflow-x:hidden; position:relative; }
+        html, body { width: 100%; overflow-x: hidden; background-color:#f8fafc; color:#0f172a; line-height:1.6; }
         
-        /* 🌌 HIGH-BRIGHTNESS GLOWING TECH PARTICLES DISPLAY BACKGROUND */
         #bgCanvasAnimation { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
         
-        header { background-color:rgba(255, 255, 255, 0.95); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
-        .logo-box { font-size:24px; font-weight:900; text-decoration:none; color:#0f172a; }
+        header { background-color:rgba(255, 255, 255, 0.95); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; width: 100%; }
+        .logo-box { font-size:22px; font-weight:900; text-decoration:none; color:#0f172a; }
         .logo-box span { color:#0284c7; }
         nav { display:flex; align-items:center; }
-        nav a { color:#64748b; text-decoration:none; margin-left:25px; font-weight:700; font-size:15px; cursor:pointer; }
+        nav a { color:#64748b; text-decoration:none; margin-left:20px; font-weight:700; font-size:14px; cursor:pointer; }
         nav a:hover { color:#0284c7; }
 
-        .section-viewport { padding:100px 40px; max-width:1200px; margin:0 auto; border-bottom:1px solid #e2e8f0; text-align:center; position:relative; z-index:5; }
-        .center-heading { margin-bottom:60px; }
-        .center-heading h2 { font-size:40px; font-weight:800; color:#0f172a; letter-spacing:-1px; }
+        .section-viewport { padding:80px 20px; max-width:1200px; margin:0 auto; border-bottom:1px solid #e2e8f0; text-align:center; width:100%; overflow:hidden; }
+        .center-heading { margin-bottom:40px; width: 100%; }
+        .center-heading h2 { font-size:36px; font-weight:800; color:#0f172a; letter-spacing:-1px; }
         
-        .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:60vh; position:relative; z-index:5; }
-        .hero-text { flex:1.2; position:relative; z-index:10; text-align:left; } .hero-graphic { flex:0.8; display:flex; justify-content:center; position:relative; z-index:10; }
+        .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:60vh; width:100%; }
+        .hero-text { flex:1.2; text-align:left; } .hero-graphic { flex:0.8; display:flex; justify-content:center; }
         
         .badge { background-color:rgba(2,132,199,0.06); color:#0284c7; border:1px solid rgba(2,132,199,0.2); padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; display:inline-block; margin-bottom:20px; }
-        h1 { font-size:52px; font-weight:900; color:#0f172a; line-height:1.15; margin-bottom:20px; }
-        h1 span { color:#0284c7; } .hero-text p { font-size:19px; color:#475569; margin-bottom:35px; }
+        h1 { font-size:46px; font-weight:900; color:#0f172a; line-height:1.2; margin-bottom:20px; }
+        h1 span { color:#0284c7; } .hero-text p { font-size:18px; color:#475569; margin-bottom:30px; }
         
-        .btn-gradient { background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:#ffffff; padding:14px 32px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; box-shadow:0 6px 15px rgba(2,132,199,0.2); border:none; cursor:pointer; }
-        .btn-outline { border:2px solid #cbd5e1; background-color:#ffffff; color:#334155; padding:12px 30px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; }
+        .btn-gradient { background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:#ffffff; padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; box-shadow:0 6px 15px rgba(2,132,199,0.2); border:none; cursor:pointer; text-align:center; }
+        .btn-outline { border:2px solid #cbd5e1; background-color:#ffffff; color:#334155; padding:12px 26px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; text-align:center; }
         .btn-outline:hover { border-color:#0284c7; color:#0284c7; }
-        /* 3D ROTATING TECH DIAGRAM PORTAL */
-        .portal-frame-wrapper { width:300px; height:320px; position:relative; perspective:1000px; cursor:grab; }
-        .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #00f3ff; box-shadow:0 0 30px #0284c7, inset 0 0 20px rgba(0,243,255,0.4); transform-style:preserve-3d; transition:transform 0.1s ease; }
-        .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; transform:translateZ(30px); }
-        .portal-nodes span { color:#00f3ff; font-size:28px; font-weight:bold; }
-        .portal-tag { margin-top:20px; font-size:14px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; transform:translateZ(20px); text-shadow:0 0 8px #00f3ff; }
+        .portal-frame-wrapper { width:300px; height:320px; position:relative; perspective:1000px; }
+        .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #00f3ff; box-shadow:0 0 30px #0284c7; }
+        .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; }
+        .portal-nodes span { color:#00f3ff; font-size:26px; font-weight:bold; }
+        .portal-tag { margin-top:20px; font-size:13px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-shadow:0 0 8px #00f3ff; }
         
-        .metrics-bar { background-color:#ffffff; border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:50px 40px; position:relative; z-index:5; }
+        .metrics-bar { background-color:#ffffff; border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:40px 20px; width:100%; }
         .metrics-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center; }
-        .metric-item h3 { font-size:40px; font-weight:800; color:#0f172a; }
-        .metric-item p { font-size:13px; color:#64748b; text-transform:uppercase; margin-top:5px; font-weight:700; }
+        .metric-item h3 { font-size:36px; font-weight:800; color:#0f172a; }
+        .metric-item p { font-size:12px; color:#64748b; text-transform:uppercase; margin-top:5px; font-weight:700; }
         
         @keyframes rotateNeon { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
-        @keyframes neonPulseGlow { 0% { border-color:rgba(2,132,199,0.3); box-shadow:0 0 10px rgba(2,132,199,0.1); } 50% { border-color:#00f3ff; box-shadow:0 0 25px rgba(0,243,255,0.4); } 100% { border-color:rgba(2,132,199,0.3); box-shadow:0 0 10px rgba(2,132,199,0.1); } }
+        @keyframes neonPulseGlow { 0% { border-color:rgba(2,132,199,0.3); } 50% { border-color:#00f3ff; } 100% { border-color:rgba(2,132,199,0.3); } }
         
-        .services-layout-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:30px; text-align:left; }
-        .service-node { background-color:#ffffff; border:2px solid rgba(2,132,199,0.3); padding:40px; border-radius:20px; animation:neonPulseGlow 3.5s infinite ease-in-out; transition:0.3s; }
-        .service-node:hover { transform:translateY(-5px); border-color:#00f3ff; }
-        .service-node h3 { color:#0f172a; font-size:22px; margin-bottom:12px; font-weight:700; border-left:4px solid #0284c7; padding-left:12px; }
-        .service-node p { font-size:15px; color:#475569; margin-bottom:15px; }
-        .service-how { background-color:#f8fafc; padding:15px; border-radius:8px; font-size:14px; color:#64748b; border:1px dashed #cbd5e1; margin-top:10px; }
-        .service-how strong { color:#0284c7; display:block; margin-bottom:4px; }
+        .services-layout-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:25px; text-align:left; width: 100%; }
+        .service-node { background-color:#ffffff; border:2px solid rgba(2,132,199,0.3); padding:30px; border-radius:20px; animation:neonPulseGlow 3.5s infinite ease-in-out; }
+        .service-node h3 { color:#0f172a; font-size:20px; margin-bottom:10px; font-weight:700; border-left:4px solid #0284c7; padding-left:12px; }
+        .service-node p { font-size:14px; color:#475569; margin-bottom:12px; }
+        .service-how { background-color:#f8fafc; padding:12px; border-radius:8px; font-size:13px; color:#64748b; border:1px dashed #cbd5e1; }
+        .service-how strong { color:#0284c7; display:block; }
         
-        .project-matrix-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; margin-top:40px; text-align:left; }
-        .matrix-blueprint-box { background:#ffffff; border-radius:24px; padding:45px; border:2px solid rgba(2,132,199,0.3); animation:neonPulseGlow 4s infinite ease-in-out; }
-        .matrix-blueprint-box h3 { font-size:24px; color:#0f172a; margin-bottom:15px; border-left:4px solid #0284c7; padding-left:12px; }
+        .project-matrix-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:25px; margin-top:30px; text-align:left; width: 100%; }
+        .matrix-blueprint-box { background:#ffffff; border-radius:24px; padding:35px; border:2px solid rgba(2,132,199,0.3); animation:neonPulseGlow 4s infinite ease-in-out; }
+        .matrix-blueprint-box h3 { font-size:22px; color:#0f172a; margin-bottom:10px; border-left:4px solid #0284c7; padding-left:12px; }
+        .matrix-blueprint-box p { font-size: 14px; }
         .matrix-tags { display:flex; gap:10px; margin-top:15px; }
-        .matrix-tag-node { background:rgba(2,132,199,0.06); color:#0284c7; font-size:12px; font-weight:700; padding:6px 14px; border-radius:12px; text-transform:uppercase; border:1px solid rgba(2,132,199,0.15); }
+        .matrix-tag-node { background:rgba(2,132,199,0.06); color:#0284c7; font-size:11px; font-weight:700; padding:4px 12px; border-radius:12px; text-transform:uppercase; border:1px solid rgba(2,132,199,0.15); }
         
-        .about-master-layout { display:flex; gap:50px; align-items:center; text-align:left; background-color:#ffffff; padding:50px; border-radius:24px; border:2px solid rgba(2,132,199,0.3); animation:neonPulseGlow 4s infinite ease-in-out; }
-        .about-narrative { flex:1.3; } .about-numerical-box { flex:0.7; background:#f8fafc; padding:40px; border-radius:16px; border:1px solid #cbd5e1; text-align:center; }
-        .about-numerical-box h4 { font-size:56px; font-weight:900; color:#0f172a; }
+        .about-master-layout { display:flex; gap:40px; align-items:center; text-align:left; background-color:#ffffff; padding:40px; border-radius:24px; border:2px solid rgba(2,132,199,0.3); width: 100%; }
+        .about-narrative { flex:1.3; } .about-numerical-box { flex:0.7; background:#f8fafc; padding:30px; border-radius:16px; border:1px solid #cbd5e1; text-align:center; }
+        .about-numerical-box h4 { font-size:48px; font-weight:900; color:#0f172a; }
         
-        @keyframes rgbBorder { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
-        .contact-card-box { display:flex; background-color:#ffffff; border-radius:24px; overflow:hidden; margin-top:40px; text-align:left; position:relative; padding:4px; background:linear-gradient(45deg, #0284c7, #ff007f, #00ffd5, #7a00ff, #0284c7); background-size:400%; animation:rgbBorder 6s linear infinite; box-shadow:0 0 25px rgba(2,132,199,0.25); }
-        .contact-inner-wrapper { display:flex; background:#ffffff; border-radius:20px; overflow:hidden; width:100%; }
-        .contact-sidebar { flex:0.8; background:#0f172a; padding:50px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; }
-        .contact-form-side { flex:1.2; padding:50px; background:#ffffff; }
-        .communication-nodes { margin:30px 0; display:flex; flex-direction:column; gap:20px; }
-        .node-row { color:#38bdf8; text-decoration:none; font-size:15px; font-weight:600; display:block; }
-        .node-row.wp { color:#22c55e; } .social-matrix-row a { color:#cbd5e1; text-decoration:none; margin-right:20px; font-weight:bold; }
-        .grid-split-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-        .input-block { display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
-        .input-block label { font-size:12px; font-weight:700; color:#0284c7; text-transform:uppercase; }
-        .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:14px; outline:none; width:100%; color:#0f172a; font-size:14px; }
-        .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:16px; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; }
-        footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:40px; text-align:center; color:#64748b; font-size:14px; position:relative; z-index:5; }
+        .contact-card-box { display:flex; background-color:#ffffff; border-radius:24px; overflow:hidden; margin-top:30px; text-align:left; width: 100%; border: 3px solid #0284c7; }
+        .contact-inner-wrapper { display:flex; background:#ffffff; width:100%; }
+        .contact-sidebar { flex:0.8; background:#0f172a; padding:40px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; }
+        .contact-form-side { flex:1.2; padding:40px; background:#ffffff; }
+        .communication-nodes { margin:20px 0; display:flex; flex-direction:column; gap:15px; }
+        .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; }
+        .node-row.wp { color:#22c55e; }
+        .grid-split-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+        .input-block { display:flex; flex-direction:column; gap:6px; margin-bottom:15px; }
+        .input-block label { font-size:11px; font-weight:700; color:#0284c7; text-transform:uppercase; }
+        .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
+        .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
+        footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:30px; text-align:center; color:#64748b; font-size:13px; width: 100%; }
 
-        /* 📱 UNIVERSAL MOBILE LAYOUT FIX FOR MAIN INDEX PAGE */
+        /* 📱 MOBILE RESPONSIVE WRAPPERS AND FIXED MARGIN STACKS */
         @media (max-width: 968px) {
-            body { background-color:#0b0f19; color:#cbd5e1; } header { background-color:rgba(11, 15, 25, 0.95); border-bottom:1px solid #1e293b; padding:15px 20px; flex-direction:column; gap:15px; text-align:center; }
-            .logo-box .dark { color:#ffffff; } nav a { color:#94a3b8; margin: 0 10px; } .section-viewport { padding:60px 15px; } .center-heading h2 { color:#ffffff; font-size:32px; }
-            h1 { color:#ffffff; font-size:34px; text-align:center; } h1 span { color:#38bdf8; } .hero-text p { color:#cbd5e1; font-size:16px; text-align:center; }
-            .btn-gradient, .btn-outline { width:100%; text-align:center; margin-left:0 !important; margin-bottom:12px; } .btn-outline { background-color:transparent; color:#ffffff; border-color:#334155; }
-            .portal-frame-wrapper { width:260px; height:280px; margin: 0 auto; } .metrics-bar { background-color:#090d16; border-y:1px solid #1e293b; padding:30px 15px; } .metrics-layout { grid-template-columns:repeat(2, 1fr); gap:15px; } .metric-item h3 { color:#ffffff; }
-            .services-layout-grid, .project-matrix-grid { grid-template-columns:1fr; gap:20px; } .service-node, .matrix-blueprint-box { background-color:#111827; }
-            .service-node h3, .matrix-blueprint-box h3 { color:#ffffff; } .service-node p { color:#cbd5e1; } .service-how { background-color:rgba(30,41,59,0.5); border-color:#334155; }
-            .about-master-layout { background-color:#111827; flex-direction:column; padding:30px 20px; } .about-numerical-box { background:#0f172a; border-color:#1e293b; width:100%; } .about-numerical-box h4 { color:#ffffff; }
-            .contact-inner-wrapper { flex-direction:column; background:#111827; } .contact-form-side { background:#111827; padding:30px 15px; } .contact-sidebar { padding:40px; border-bottom:1px solid #1e293b; text-align:center; }
-            .input-block label { color:#38bdf8; } .input-block input, .input-block select, .input-block textarea { background-color:#1f2937; border-color:#374151; color:#ffffff; } footer { background-color:#090d16; border-color:#1e293b; }
-            .hero-layout { flex-direction: column-reverse; text-align: center; }
+            header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; }
+            nav { margin-top: 5px; justify-content: center; width: 100%; }
+            nav a { margin: 0 8px; font-size: 13px; }
+            .section-viewport { padding: 40px 15px; }
+            .center-heading h2 { font-size: 28px; }
+            .hero-layout { flex-direction: column-reverse; text-align: center; gap: 30px; }
+            .hero-text { text-align: center; width: 100%; }
+            h1 { font-size: 30px; } .hero-text p { font-size: 15px; }
+            .btn-gradient, .btn-outline { width: 100%; margin-left: 0 !important; margin-bottom: 12px; padding: 12px; }
+            .portal-frame-wrapper { width: 250px; height: 270px; margin: 0 auto; }
+            .metrics-bar { padding: 25px 15px; }
+            .metrics-layout { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .metric-item h3 { font-size: 28px; }
+            .services-layout-grid, .project-matrix-grid, .contact-inner-wrapper, .grid-split-2 { grid-template-columns: 1fr; gap: 15px; }
+            .about-master-layout { flex-direction: column; padding: 25px 15px; gap: 20px; }
+            .about-numerical-box { width: 100%; padding: 20px; }
+            .contact-card-box { border-radius: 16px; }
+            .contact-sidebar { padding: 30px 20px; text-align: center; gap: 20px; }
+            .communication-nodes { align-items: center; }
+            .contact-form-side { padding: 30px 15px; }
         }
     </style>
 </head>
@@ -106,11 +112,11 @@
             <a href="#projects-view">Projects Matrix</a>
             <a href="#about-view">About</a>
             <a href="#contact-view">Contact</a>
-            <a href="portal.html" style="border:1px solid #0284c7; padding:6px 14px; border-radius:6px; background: rgba(2,132,199,0.05); font-weight: bold; color:#0284c7; text-decoration: none;">Portal Access</a>
+            <a href="portal.html" style="border:1px solid #0284c7; padding:6px 12px; border-radius:6px; background: rgba(2,132,199,0.05); font-weight: bold; color:#0284c7; text-decoration: none;">Portal Access</a>
         </nav>
     </header>
 
-    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 40px;">
+    <section class="section-viewport" id="home-view" style="border-bottom: none; padding-top: 20px;">
         <div class="hero-layout">
             <div class="hero-text">
                 <span class="badge">National High-Tech Network</span>
@@ -162,13 +168,14 @@
                 <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
                 <div class="service-how"><strong>Mechanism:</strong> Our team runs strategic ethical audits across all processing nodes to shield data.</div>
             </div>
-            <div class="service-node" style="grid-column: span 2; width: 100%;">
+            <div class="service-node">
                 <h3>UI/UX Designing</h3>
                 <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
                 <div class="service-how"><strong>Mechanism:</strong> We map layout structures based on clickable operational prototypes before final production codes.</div>
             </div>
         </div>
     </section>
+
     <section class="section-viewport" id="projects-view">
         <div class="center-heading"><h2>Live High-Tech Deployments</h2></div>
         <div class="project-matrix-grid">
@@ -219,9 +226,7 @@
                             </select>
                         </div>
                         <div class="input-block"><label>Project Guidelines Scope</label><textarea id="formMessage" rows="4" placeholder="Brief requirements natively..." required></textarea></div>
-                        <div class="button-wrapper" style="position: relative; z-index: 500;">
-                            <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
-                        </div>
+                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
                     </form>
                 </div>
             </div>
@@ -234,7 +239,7 @@
         const canvas = document.getElementById('bgCanvasAnimation'); const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
         window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
-        let particles = []; let numParticles = window.innerWidth < 768 ? 20 : 55;
+        let particles = []; let numParticles = window.innerWidth < 768 ? 15 : 55;
         for (let i = 0; i < numParticles; i++) { particles.push({ x: Math.random() * width, y: Math.random() * (height * 1.5), vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2, radius: Math.random() * 3 + 2 }); }
         
         function animateBgMesh() {
@@ -244,27 +249,3 @@
                 ctx.fillStyle = window.innerWidth < 768 ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
                 for (let j = idx + 1; j < particles.length; j++) {
-                    let other = particles[j]; let dist = Math.hypot(p.x - other.x, p.y - other.y);
-                    if (dist < 130) { ctx.strokeStyle = window.innerWidth < 768 ? `rgba(56, 189, 248, ${0.35 - dist/130})` : `rgba(2, 132, 199, 0.15)`; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke(); }
-                }
-            });
-            requestAnimationFrame(animateBgMesh);
-        }
-        animateBgMesh();
-        
-        const container = document.getElementById('portalContainer'); const shield = document.getElementById('portalShield');
-        if(window.innerWidth > 968) { container.addEventListener('mousemove', (e) => { let ax = -(container.offsetWidth / 2 - e.offsetX) / 10; let ay = (container.offsetHeight / 2 - e.offsetY) / 10; shield.style.transform = `rotateY(${ax}deg) rotateX(${ay}deg) scale(1.03)`; }); container.addEventListener('mouseleave', () => { shield.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)'; }); }
-
-        document.getElementById('theaNativeForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const payload = { name: document.getElementById('formName').value, email: document.getElementById('formEmail').value, service: document.getElementById('formService').value, message: document.getElementById('formMessage').value };
-            fetch('https://web3forms.com', {
-                method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ access_key: '7e178ff0-23fe-4b10-8b10-6644f1e402a7', subject: 'New Local Lead: ' + payload.name, name: payload.name, email: payload.email, message: `Service Requested: ${payload.service}\\n\\nMessage Details:\\n${payload.message}` })
-            })
-            .then(() => { alert('Success! Blueprint transmitted to thea.tech2@gmail.com'); document.getElementById('theaNativeForm').reset(); })
-            .catch(() => { alert('Data processed.'); });
-        });
-    </script>
-</body>
-</html>
