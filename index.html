@@ -8,7 +8,7 @@
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; scroll-behavior:smooth; }
         html, body { width: 100%; max-width: 100%; overflow-x: hidden; background-color:#f8fafc; color:#0f172a; line-height:1.6; }
         
-        /* 🌌 FIXED TRANSPARENT POSITION CANVAS FOR ACTIVE DESKTOP/MOBILE RGB PARTICLES */
+        /* THE GENUINE DYNAMIC FIXED BACKGROUND CANVAS FOR RGB PARTICLE BEAMS */
         #bgCanvasAnimation { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
         
         header { background-color:rgba(255, 255, 255, 0.85); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; width: 100%; }
@@ -44,7 +44,6 @@
         
         @keyframes rotateNeon { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
         @keyframes neonPulseGlow { 0% { border-color:rgba(2,132,199,0.3); } 50% { border-color:#00f3ff; } 100% { border-color:rgba(2,132,199,0.3); } }
-        
         .services-layout-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:25px; text-align:left; width: 100%; }
         .service-node { background-color:rgba(255,255,255,0.75); backdrop-filter: blur(8px); border:2px solid rgba(2,132,199,0.25); padding:30px; border-radius:20px; animation:neonPulseGlow 3.5s infinite ease-in-out; width: 100%; }
         .service-node h3 { color:#0f172a; font-size:20px; margin-bottom:10px; font-weight:700; border-left:4px solid #0284c7; padding-left:12px; }
@@ -76,7 +75,7 @@
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
         footer { background-color:rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; position: relative; z-index: 20; }
 
-        /* 📱 MOBILE RESPONSIVE QUERY OVERRIDES - PITCH BLACK DESIGN MECHANISMS WITH CLEAR VISIBILITY */
+        /* 📱 MOBILE RESPONSIVE ENGINE - DYNAMIC BLACK LAYOUT ON SMARTPHONES WITH RE-RESTORED SPECTRUM NEONS */
         @media (max-width: 968px) {
             html, body { background-color: #090d16 !important; color: #ffffff !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
             header { flex-direction: column; gap: 12px; text-align: center; padding: 15px 10px; background-color: rgba(15, 23, 42, 0.75) !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
@@ -103,7 +102,6 @@
             .about-numerical-box { width: 100% !important; padding: 15px; background-color: rgba(9,13,22,0.8) !important; border: 1px solid #1e293b !important; }
             .about-numerical-box h4 { font-size: 38px; color: #ffffff !important; }
             
-            /* FIXED FORM BOX OVERRIDE FOR FULL MOBILE RENDERING AT CENTER */
             .contact-card-box { border-radius: 12px; width: 100% !important; max-width: 100% !important; display: block !important; border: 2px solid #0284c7 !important; overflow: hidden !important; background-color: rgba(17,24,39,0.7) !important; }
             .contact-inner-wrapper { display: block !important; width: 100% !important; padding: 0 !important; }
             .contact-sidebar { padding: 30px 15px !important; text-align: center !important; background-color: #0f172a !important; width: 100% !important; display: block !important; }
@@ -119,9 +117,7 @@
     </style>
 </head>
 <body>
-    <!-- THE NATIVE TRANSLUCENT MESH CANVAS FOR STABLE FLOATING DYNAMIC PARTICLES -->
     <canvas id="bgCanvasAnimation"></canvas>
-    
     <header>
         <a href="#" class="logo-box"><span>THEA</span>.TECH</a>
         <nav>
@@ -254,21 +250,27 @@
     <footer><p>2026 thea.tech all right reserved</p></footer>
 
     <script>
+        /* 🌌 HIGH-BRIGHTNESS CONNECTIONS ENGINE SPECIFIED FOR CLASSIC RGB MESH MATRIX */
         const canvas = document.getElementById('bgCanvasAnimation'); const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
         
         function resizeEngine() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
         window.addEventListener('resize', resizeEngine);
         
-        let particles = []; let numParticles = window.innerWidth < 768 ? 25 : 65;
+        let particles = []; let numParticles = window.innerWidth < 768 ? 35 : 85;
+        
+        // Custom neon spectrum color sets
+        const rainbowColors = ['#00f3ff', '#ff007f', '#7a00ff', '#00ffd5'];
+
         for (let i = 0; i < numParticles; i++) { 
-            particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.9, vy: (Math.random() - 0.5) * 0.9, radius: Math.random() * 2.5 + 1.2 }); 
+            particles.push({ 
+                x: Math.random() * width, 
+                y: Math.random() * height, 
+                vx: (Math.random() - 0.5) * 1.4, 
+                vy: (Math.random() - 0.5) * 1.4, 
+                radius: Math.random() * 2.5 + 1.5,
+                color: rainbowColors[Math.floor(Math.random() * rainbowColors.length)]
+            }); 
         }
         
         function animateBgMesh() {
-            ctx.clearRect(0, 0, width, height);
-            const isMobile = window.innerWidth < 768;
-            
-            // Neon glowing nodes matching the template theme
-            ctx.fillStyle = isMobile ? 'rgba(56, 189, 248, 0.6)' : 'rgba(2, 132, 199, 0.22)';
-            
