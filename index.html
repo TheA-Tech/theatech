@@ -6,7 +6,7 @@
     <title>THEA.TECH | Enterprise Software House</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; scroll-behavior:smooth; }
-        html, body { width: 100%; max-width: 100%; overflow-x: hidden; background-color:#f8fafc; color:#0f172a; line-height:1.6; }
+        html, body { width: 100%; max-width: 100%; overflow-x: hidden; background-color:#f8fafc !important; color:#0f172a; line-height:1.6; }
         
         #bgCanvasAnimation { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
         
@@ -68,7 +68,7 @@
         .contact-sidebar { flex:0.8; background:#0f172a; padding:40px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; width: 100%; }
         .contact-form-side { flex:1.2; padding:40px; background:#ffffff; width: 100%; }
         .communication-nodes { margin:20px 0; display:flex; flex-direction:column; gap:15px; }
-        .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; }
+        .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; word-break: break-all; word-wrap: break-word; }
         .node-row.wp { color:#22c55e; }
         .grid-split-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; width: 100%; }
         .input-block { display:flex; flex-direction:column; gap:6px; margin-bottom:15px; width: 100%; }
@@ -76,8 +76,7 @@
         .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
         footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; }
-
-        /* 📱 FLUID MOBILE ALIGNMENT LOGIC - KILLS ALL EDGES SCROLLING */
+        /* 📱 FLUID MOBILE LOGIC MAPPING - COMPLETE RESPONSIVE COLOR & CONTACT FLOW */
         @media (max-width: 968px) {
             html, body { background-color: #f8fafc !important; color: #0f172a !important; }
             header { flex-direction: column; gap: 15px; text-align: center; padding: 15px; background-color: rgba(255, 255, 255, 0.98) !important; border-bottom: 1px solid #cbd5e1 !important; width: 100%; }
@@ -103,13 +102,17 @@
             .about-master-layout { flex-direction: column; padding: 25px 15px; gap: 20px; background-color: #ffffff !important; border: 2px solid rgba(2,132,199,0.15) !important; width: 100%; }
             .about-numerical-box { width: 100%; padding: 20px; background-color: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
             .about-numerical-box h4 { font-size: 38px; color: #0f172a !important; }
-            .contact-card-box { border-radius: 16px; background-color: #ffffff !important; width: 100%; }
-            .contact-sidebar { padding: 30px 15px; text-align: center; gap: 20px; background-color: #0f172a !important; width: 100%; }
+            
+            /* FIXED: HARD BOUNDARIES LOCKED FOR CONTACT INTERFACES OVER SMARTPHONES */
+            .contact-card-box { border-radius: 16px; width: 100%; max-width: 100%; overflow: hidden; display: block; border: 2px solid #0284c7; }
+            .contact-inner-wrapper { display: block; width: 100%; }
+            .contact-sidebar { padding: 30px 15px; text-align: center; gap: 20px; background-color: #0f172a !important; width: 100%; display: block; }
             .communication-nodes { align-items: center; width: 100%; }
+            .node-row { font-size: 13px; max-width: 100%; word-wrap: break-word; white-space: normal; }
             .contact-form-side { padding: 30px 15px; background-color: #ffffff !important; width: 100%; }
             .input-block label { color: #0284c7 !important; } 
             .input-block input, .input-block select, .input-block textarea { background-color: #f8fafc !important; border-color: #cbd5e1 !important; color: #0f172a !important; padding: 12px; }
-            footer { background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; color: #64748b !important; padding: 25px 15px; width: 100%; font-size: 13px; }
+            footer { background-color: #ffffff !important; border-top: 1px solid #cbd5e1 !important; color: #64748b !important; padding: 25px 15px; width: 100%; font-size: 14px; }
         }
     </style>
 </head>
@@ -186,6 +189,7 @@
             </div>
         </div>
     </section>
+
     <section class="section-viewport" id="projects-view">
         <div class="center-heading"><h2>Live High-Tech Deployments</h2></div>
         <div class="project-matrix-grid">
@@ -203,84 +207,3 @@
     </section>
 
     <section class="section-viewport" id="about-view">
-        <div class="center-heading"><h2>Who We Are</h2></div>
-        <div class="about-master-layout">
-            <div class="about-narrative"><p>We unify advanced technical engineering with absolute deployment reliability. At THEA.TECH, our operational mandates ensure that corporate networks load instantly across global targets without encountering database anomalies.</p></div>
-            <div class="about-numerical-box"><h4>99.99%</h4><p style="color:#0284c7; font-weight:bold; font-size:12px; margin-top:5px; text-transform:uppercase;">Server Uptime</p></div>
-        </div>
-    </section>
-
-    <section class="section-viewport" id="contact-view" style="border-bottom: none;">
-        <div class="contact-card-box">
-            <div class="contact-inner-wrapper">
-                <div class="contact-sidebar">
-                    <div><h3>Get In Touch</h3><p style="color: #cbd5e1; font-size: 14px; margin-top: 5px;">Direct active customer communication channels.</p></div>
-                    <div class="communication-nodes">
-                        <a href="https://whatsapp.com" target="_blank" class="node-row wp">WhatsApp: +92 325 5411451</a>
-                        <a href="mailto:thea.tech2@gmail.com" class="node-row">Email: thea.tech2@gmail.com</a>
-                    </div>
-                </div>
-                <div class="contact-form-side">
-                    <form id="theaNativeForm">
-                        <div class="grid-split-2">
-                            <div class="input-block"><label>Full Name</label><input type="text" id="formName" placeholder="Enter name" required></div>
-                            <div class="input-block"><label>Email Address</label><input type="email" id="formEmail" placeholder="Enter email" required></div>
-                        </div>
-                        <div class="input-block">
-                            <label>Service Portfolio Spectrum</label>
-                            <select id="formService" required>
-                                <option>Boot Camps & AI Trainings</option>
-                                <option>Cloud Apps Development</option>
-                                <option>Website Design & Development</option>
-                                <option>Cybersecurity Solutions</option>
-                            </select>
-                        </div>
-                        <div class="input-block"><label>Project Guidelines Scope</label><textarea id="formMessage" rows="4" placeholder="Brief requirements natively..." required></textarea></div>
-                        <button type="submit" class="submit-blueprint-btn">Transmit Project Blueprint</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REQUESTED MODIFIED FOOTER TEXT INJECTED NATIVELY -->
-    <footer><p>2026 thea.tech all right reserved</p></footer>
-
-    <script>
-        const canvas = document.getElementById('bgCanvasAnimation'); const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
-        window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
-        let particles = []; let numParticles = window.innerWidth < 768 ? 15 : 55;
-        for (let i = 0; i < numParticles; i++) { particles.push({ x: Math.random() * width, y: Math.random() * (height * 1.5), vx: (Math.random() - 0.5) * 1.2, vy: (Math.random() - 0.5) * 1.2, radius: Math.random() * 3 + 2 }); }
-        
-        function animateBgMesh() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach((p, idx) => {
-                p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > width) p.vx *= -1; if (p.y < 0 || p.y > height * 1.5) p.vy *= -1;
-                ctx.fillStyle = window.innerWidth < 768 ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
-                for (let j = idx + 1; j < particles.length; j++) {
-                    let other = particles[j]; let dist = Math.hypot(p.x - other.x, p.y - other.y);
-                    if (dist < 130) { ctx.strokeStyle = window.innerWidth < 768 ? `rgba(56, 189, 248, ${0.35 - dist/130})` : `rgba(2, 132, 199, 0.15)`; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(other.x, other.y); ctx.stroke(); }
-                }
-            });
-            requestAnimationFrame(animateBgMesh);
-        }
-        animateBgMesh();
-        
-        const container = document.getElementById('portalContainer'); const shield = document.getElementById('portalShield');
-        if(window.innerWidth > 968) { container.addEventListener('mousemove', (e) => { let ax = -(container.offsetWidth / 2 - e.offsetX) / 10; let ay = (container.offsetHeight / 2 - e.offsetY) / 10; shield.style.transform = `rotateY(${ax}deg) rotateX(${ay}deg) scale(1.03)`; }); container.addEventListener('mouseleave', () => { shield.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)'; }); }
-
-        document.getElementById('theaNativeForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const payload = { name: document.getElementById('formName').value, email: document.getElementById('formEmail').value, service: document.getElementById('formService').value, message: document.getElementById('formMessage').value };
-            fetch('https://web3forms.com', {
-                method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({ access_key: '7e178ff0-23fe-4b10-8b10-6644f1e402a7', subject: 'New Local Lead: ' + payload.name, name: payload.name, email: payload.email, message: `Service Requested: ${payload.service}\n\nMessage Details:\n${payload.message}` })
-            })
-            .then(() => { alert('Success! Blueprint transmitted to thea.tech2@gmail.com'); document.getElementById('theaNativeForm').reset(); })
-            .catch(() => { alert('Data processed.'); });
-        });
-    </script>
-</body>
-</html>
