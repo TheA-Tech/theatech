@@ -8,18 +8,19 @@
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; scroll-behavior:smooth; }
         html, body { width: 100%; max-width: 100%; overflow-x: hidden; background-color:#f8fafc; color:#0f172a; line-height:1.6; }
         
-        #bgCanvasAnimation { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+        /* 🌌 FIXED TRANSPARENT POSITION CANVAS FOR ACTIVE DESKTOP/MOBILE RGB PARTICLES */
+        #bgCanvasAnimation { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
         
-        header { background-color:rgba(255, 255, 255, 0.95); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; width: 100%; }
-        .logo-box { font-size:22px; font-weight:900; text-decoration:none; color:#0f172a; }
+        header { background-color:rgba(255, 255, 255, 0.85); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; width: 100%; }
+        .logo-box { font-size:22px; font-weight:900; text-decoration:none; color:#0f172a; position: relative; z-index: 1005; }
         .logo-box span { color:#0284c7; }
-        nav { display:flex; align-items:center; }
+        nav { display:flex; align-items:center; position: relative; z-index: 1005; }
         nav a { color:#64748b; text-decoration:none; margin-left:20px; font-weight:700; font-size:14px; cursor:pointer; }
         nav a:hover { color:#0284c7; }
-
-        .section-viewport { padding:80px 20px; max-width:1200px; margin:0 auto; border-bottom:1px solid #e2e8f0; text-align:center; width:100%; overflow:hidden; position: relative; z-index: 5; }
+        .section-viewport { padding:80px 20px; max-width:1200px; margin:0 auto; border-bottom:1px solid #e2e8f0; text-align:center; width:100%; overflow:hidden; position: relative; z-index: 10; background: transparent !important; }
         .center-heading { margin-bottom:40px; width: 100%; }
         .center-heading h2 { font-size:36px; font-weight:800; color:#0f172a; letter-spacing:-1px; }
+        
         .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:60vh; width:100%; }
         .hero-text { flex:1.2; text-align:left; width: 100%; } .hero-graphic { flex:0.8; display:flex; justify-content:center; width: 100%; }
         
@@ -28,15 +29,15 @@
         h1 span { color:#0284c7; } .hero-text p { font-size:18px; color:#475569; margin-bottom:30px; }
         
         .btn-gradient { background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:#ffffff; padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; box-shadow:0 6px 15px rgba(2,132,199,0.2); border:none; cursor:pointer; text-align:center; }
-        .btn-outline { border:2px solid #cbd5e1; background-color:#ffffff; color:#334155; padding:12px 26px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; text-align:center; }
+        .btn-outline { border:2px solid #cbd5e1; background-color:rgba(255,255,255,0.7); backdrop-filter: blur(5px); color:#334155; padding:12px 26px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; text-align:center; }
         .btn-outline:hover { border-color:#0284c7; color:#0284c7; }
-        
         .portal-frame-wrapper { width:300px; height:320px; position:relative; perspective:1000px; max-width: 100%; }
         .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #00f3ff; box-shadow:0 0 30px #0284c7; }
         .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; }
         .portal-nodes span { color:#00f3ff; font-size:26px; font-weight:bold; }
         .portal-tag { margin-top:20px; font-size:13px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-shadow:0 0 8px #00f3ff; }
-        .metrics-bar { background-color:#ffffff; border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:40px 20px; width:100%; overflow: hidden; position: relative; z-index: 5; }
+        
+        .metrics-bar { background-color:rgba(255,255,255,0.6); backdrop-filter: blur(10px); border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:40px 20px; width:100%; overflow: hidden; position: relative; z-index: 10; }
         .metrics-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center; width: 100%; }
         .metric-item h3 { font-size:36px; font-weight:800; color:#0f172a; }
         .metric-item p { font-size:12px; color:#64748b; text-transform:uppercase; margin-top:5px; font-weight:700; }
@@ -45,39 +46,40 @@
         @keyframes neonPulseGlow { 0% { border-color:rgba(2,132,199,0.3); } 50% { border-color:#00f3ff; } 100% { border-color:rgba(2,132,199,0.3); } }
         
         .services-layout-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:25px; text-align:left; width: 100%; }
-        .service-node { background-color:#ffffff; border:2px solid rgba(2,132,199,0.3); padding:30px; border-radius:20px; animation:neonPulseGlow 3.5s infinite ease-in-out; width: 100%; }
+        .service-node { background-color:rgba(255,255,255,0.75); backdrop-filter: blur(8px); border:2px solid rgba(2,132,199,0.25); padding:30px; border-radius:20px; animation:neonPulseGlow 3.5s infinite ease-in-out; width: 100%; }
         .service-node h3 { color:#0f172a; font-size:20px; margin-bottom:10px; font-weight:700; border-left:4px solid #0284c7; padding-left:12px; }
         .service-node p { font-size:14px; color:#475569; margin-bottom:12px; }
-        .service-how { background-color:#f8fafc; padding:12px; border-radius:8px; font-size:13px; color:#64748b; border:1px dashed #cbd5e1; width: 100%; }
+        .service-how { background-color:rgba(248,250,252,0.8); padding:12px; border-radius:8px; font-size:13px; color:#64748b; border:1px dashed #cbd5e1; width: 100%; }
         .service-how strong { color:#0284c7; display:block; }
+        
         .project-matrix-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:25px; margin-top:30px; text-align:left; width: 100%; }
-        .matrix-blueprint-box { background:#ffffff; border-radius:24px; padding:35px; border:2px solid rgba(2,132,199,0.3); animation:neonPulseGlow 4s infinite ease-in-out; width: 100%; }
+        .matrix-blueprint-box { background:rgba(255,255,255,0.75); backdrop-filter: blur(8px); border-radius:24px; padding:35px; border:2px solid rgba(2,132,199,0.25); animation:neonPulseGlow 4s infinite ease-in-out; width: 100%; }
         .matrix-blueprint-box h3 { font-size:22px; color:#0f172a; margin-bottom:10px; border-left:4px solid #0284c7; padding-left:12px; }
         .matrix-blueprint-box p { font-size: 14px; }
         .matrix-tags { display:flex; flex-wrap: wrap; gap:10px; margin-top:15px; }
         .matrix-tag-node { background:rgba(2,132,199,0.06); color:#0284c7; font-size:11px; font-weight:700; padding:4px 12px; border-radius:12px; text-transform:uppercase; border:1px solid rgba(2,132,199,0.15); }
         
-        .about-master-layout { display:flex; gap:40px; align-items:center; text-align:left; background-color:#ffffff; padding:40px; border-radius:24px; border:2px solid rgba(2,132,199,0.3); width: 100%; }
-        .about-narrative { flex:1.3; } .about-numerical-box { flex:0.7; background:#f8fafc; padding:30px; border-radius:16px; border:1px solid #cbd5e1; text-align:center; width: 100%; }
+        .about-master-layout { display:flex; gap:40px; align-items:center; text-align:left; background-color:rgba(255,255,255,0.75); backdrop-filter: blur(8px); padding:40px; border-radius:24px; border:2px solid rgba(2,132,199,0.25); width: 100%; }
+        .about-narrative { flex:1.3; } .about-numerical-box { flex:0.7; background:rgba(248,250,252,0.8); padding:30px; border-radius:16px; border:1px solid #cbd5e1; text-align:center; width: 100%; }
         .about-numerical-box h4 { font-size:48px; font-weight:900; color:#0f172a; }
-        
-        .contact-card-box { display:flex; background-color:#ffffff; border-radius:24px; overflow:hidden; margin-top:30px; text-align:left; width: 100%; border: 3px solid #0284c7; position: relative; z-index: 10; }
-        .contact-inner-wrapper { display:flex; background:#ffffff; width:100%; }
-        .contact-sidebar { flex:0.8; background:#0f172a; padding:40px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; width: 100%; }
-        .contact-form-side { flex:1.2; padding:40px; background:#ffffff; width: 100%; }
+        .contact-card-box { display:flex; background-color:rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius:24px; overflow:hidden; margin-top:30px; text-align:left; width: 100%; border: 3px solid #0284c7; position: relative; z-index: 20; }
+        .contact-inner-wrapper { display:flex; background:transparent; width:100%; }
+        .contact-sidebar { flex:0.8; background:rgba(15,23,42,0.92); padding:40px; color:#ffffff; display:flex; flex-direction:column; justify-content:space-between; width: 100%; }
+        .contact-form-side { flex:1.2; padding:40px; background:transparent; width: 100%; }
         .communication-nodes { margin:20px 0; display:flex; flex-direction:column; gap:15px; width: 100%; }
         .node-row { color:#38bdf8; text-decoration:none; font-size:14px; font-weight:600; display:block; word-break: break-all; }
         .node-row.wp { color:#22c55e; }
         .grid-split-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; width: 100%; }
         .input-block { display:flex; flex-direction:column; gap:6px; margin-bottom:15px; width: 100%; }
         .input-block label { font-size:11px; font-weight:700; color:#0284c7; text-transform:uppercase; }
-        .input-block input, .input-block select, .input-block textarea { background-color:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
+        .input-block input, .input-block select, .input-block textarea { background-color:rgba(248,250,252,0.9); border:1px solid #cbd5e1; border-radius:8px; padding:12px; outline:none; width:100%; color:#0f172a; font-size:14px; }
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
-        footer { background-color:#ffffff; border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; position: relative; z-index: 10; }
-        /* 📱 MOBILE OVERRIDES ENGINE - FULL SOLID BLACK WITH MAXIMUM VISIBILITY FORM CRITERIA */
+        footer { background-color:rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; position: relative; z-index: 20; }
+
+        /* 📱 MOBILE RESPONSIVE QUERY OVERRIDES - PITCH BLACK DESIGN MECHANISMS WITH CLEAR VISIBILITY */
         @media (max-width: 968px) {
             html, body { background-color: #090d16 !important; color: #ffffff !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
-            header { flex-direction: column; gap: 12px; text-align: center; padding: 15px 10px; background-color: rgba(15, 23, 42, 0.95) !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
+            header { flex-direction: column; gap: 12px; text-align: center; padding: 15px 10px; background-color: rgba(15, 23, 42, 0.75) !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
             .logo-box { color: #ffffff !important; margin: 0 auto !important; display: block !important; }
             nav { margin-top: 5px; justify-content: center; width: 100% !important; display: flex; flex-wrap: wrap; gap: 8px; }
             nav a { color: #94a3b8 !important; margin: 0 4px; font-size: 13px; }
@@ -90,33 +92,36 @@
             .btn-gradient { width: 100% !important; display: block !important; margin-bottom: 10px; }
             .btn-outline { width: 100% !important; margin-left: 0 !important; background-color: transparent !important; color: #ffffff !important; border-color: #334155 !important; display: block !important; }
             .portal-frame-wrapper { width: 240px; height: 260px; margin: 0 auto !important; }
-            .metrics-bar { padding: 20px 10px !important; background-color: #111827 !important; border-top: 1px solid #1e293b !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
+            .metrics-bar { padding: 20px 10px !important; background-color: rgba(17,24,39,0.6) !important; border-top: 1px solid #1e293b !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
             .metrics-layout { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; width: 100% !important; }
             .metric-item h3 { font-size: 24px; color: #ffffff !important; } .metric-item p { color: #94a3b8 !important; font-size: 11px; }
             .services-layout-grid, .project-matrix-grid, .grid-split-2 { grid-template-columns: 1fr !important; gap: 15px; width: 100% !important; }
-            .service-node, .matrix-blueprint-box { background-color: #111827 !important; border: 1px solid #1e293b !important; padding: 15px !important; width: 100% !important; }
+            .service-node, .matrix-blueprint-box { background-color: rgba(17,24,39,0.7) !important; border: 1px solid #1e293b !important; padding: 15px !important; width: 100% !important; }
             .service-node h3, .matrix-blueprint-box h3 { color: #ffffff !important; font-size: 18px; } 
             .service-node p, .matrix-blueprint-box p { color: #cbd5e1 !important; font-size: 13px; }
-            .about-master-layout { flex-direction: column !important; padding: 20px 15px !important; gap: 15px; background-color: #111827 !important; border: 1px solid #1e293b !important; width: 100% !important; }
-            .about-numerical-box { width: 100% !important; padding: 15px; background-color: #090d16 !important; border: 1px solid #1e293b !important; }
+            .about-master-layout { flex-direction: column !important; padding: 20px 15px !important; gap: 15px; background-color: rgba(17,24,39,0.7) !important; border: 1px solid #1e293b !important; width: 100% !important; }
+            .about-numerical-box { width: 100% !important; padding: 15px; background-color: rgba(9,13,22,0.8) !important; border: 1px solid #1e293b !important; }
             .about-numerical-box h4 { font-size: 38px; color: #ffffff !important; }
             
-            .contact-card-box { border-radius: 12px; width: 100% !important; max-width: 100% !important; display: block !important; border: 2px solid #0284c7 !important; overflow: hidden !important; background-color: #111827 !important; }
+            /* FIXED FORM BOX OVERRIDE FOR FULL MOBILE RENDERING AT CENTER */
+            .contact-card-box { border-radius: 12px; width: 100% !important; max-width: 100% !important; display: block !important; border: 2px solid #0284c7 !important; overflow: hidden !important; background-color: rgba(17,24,39,0.7) !important; }
             .contact-inner-wrapper { display: block !important; width: 100% !important; padding: 0 !important; }
             .contact-sidebar { padding: 30px 15px !important; text-align: center !important; background-color: #0f172a !important; width: 100% !important; display: block !important; }
             .contact-sidebar h3 { color: #ffffff !important; font-size: 22px !important; } .contact-sidebar p { color: #94a3b8 !important; }
             .communication-nodes { align-items: center !important; width: 100% !important; display: flex !important; flex-direction: column !important; }
             .node-row { font-size: 14px !important; width: 100% !important; word-wrap: break-word !important; white-space: normal !important; text-align: center !important; margin-bottom: 5px; font-weight: bold !important; }
-            .contact-form-side { padding: 30px 15px !important; background-color: #111827 !important; width: 100% !important; display: block !important; }
+            .contact-form-side { padding: 30px 15px !important; background-color: transparent !important; width: 100% !important; display: block !important; }
             .input-block label { color: #38bdf8 !important; font-weight: bold !important; } 
             .input-block input, .input-block select, .input-block textarea { background-color: #1f2937 !important; border-color: #374151 !important; color: #ffffff !important; padding: 12px; font-size: 14px !important; }
             .input-block input::placeholder, .input-block textarea::placeholder { color: #64748b !important; }
-            footer { background-color: #090d16 !important; color: #94a3b8 !important; padding: 20px 10px !important; width: 100% !important; border-top: 1px solid #1e293b !important; }
+            footer { background-color: rgba(9,13,22,0.85) !important; color: #94a3b8 !important; padding: 20px 10px !important; width: 100% !important; border-top: 1px solid #1e293b !important; }
         }
     </style>
 </head>
 <body>
+    <!-- THE NATIVE TRANSLUCENT MESH CANVAS FOR STABLE FLOATING DYNAMIC PARTICLES -->
     <canvas id="bgCanvasAnimation"></canvas>
+    
     <header>
         <a href="#" class="logo-box"><span>THEA</span>.TECH</a>
         <nav>
@@ -181,7 +186,7 @@
                 <p>Absolute infrastructure perimeter security armor. Deep network penetration testing and isolated data encryption parameters execution.</p>
                 <div class="service-how"><strong>Mechanism:</strong> Our team runs strategic ethical audits across all processing nodes to shield data.</div>
             </div>
-            <div class="service-node">
+            <div class="service-node" style="grid-column: span 2; width: 100%;">
                 <h3>UI/UX Designing</h3>
                 <p>High-fidelity platform structural wireframing, clickable dynamic layout prototyping, and user journey optimization mappings.</p>
                 <div class="service-how"><strong>Mechanism:</strong> We map layout structures based on clickable operational prototypes before final production codes.</div>
@@ -255,18 +260,15 @@
         function resizeEngine() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
         window.addEventListener('resize', resizeEngine);
         
-        let particles = []; let numParticles = window.innerWidth < 768 ? 20 : 60;
+        let particles = []; let numParticles = window.innerWidth < 768 ? 25 : 65;
         for (let i = 0; i < numParticles; i++) { 
-            particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 1.0, vy: (Math.random() - 0.5) * 1.0, radius: Math.random() * 2.5 + 1.5 }); 
+            particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.9, vy: (Math.random() - 0.5) * 0.9, radius: Math.random() * 2.5 + 1.2 }); 
         }
         
         function animateBgMesh() {
             ctx.clearRect(0, 0, width, height);
             const isMobile = window.innerWidth < 768;
-            ctx.fillStyle = isMobile ? 'rgba(56, 189, 248, 0.45)' : 'rgba(2, 132, 199, 0.18)';
             
-            particles.forEach((p, idx) => {
-                p.x += p.vx; p.y += p.vy; 
-                if (p.x < 0 || p.x > width) p.vx *= -1; if (p.y < 0 || p.y > height) p.vy *= -1;
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
-                
+            // Neon glowing nodes matching the template theme
+            ctx.fillStyle = isMobile ? 'rgba(56, 189, 248, 0.6)' : 'rgba(2, 132, 199, 0.22)';
+            
