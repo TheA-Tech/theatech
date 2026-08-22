@@ -8,8 +8,8 @@
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; scroll-behavior:smooth; }
         html, body { width: 100%; max-width: 100%; overflow-x: hidden; background-color:#f8fafc; color:#0f172a; line-height:1.6; }
         
-        /* THE GENUINE DYNAMIC FIXED BACKGROUND CANVAS FOR RGB PARTICLE BEAMS */
-        #bgCanvasAnimation { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
+        /* 🌌 FORCE TOP LEVEL LAYER FOR ACTIVE INTERCONNECTED RGB PARTICLES */
+        #bgCanvasAnimation { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 2000; pointer-events: none; }
         
         header { background-color:rgba(255, 255, 255, 0.85); backdrop-filter:blur(12px); border-bottom:1px solid #cbd5e1; padding:20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; width: 100%; }
         .logo-box { font-size:22px; font-weight:900; text-decoration:none; color:#0f172a; position: relative; z-index: 1005; }
@@ -22,7 +22,8 @@
         .center-heading h2 { font-size:36px; font-weight:800; color:#0f172a; letter-spacing:-1px; }
         
         .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; min-height:60vh; width:100%; }
-        .hero-text { flex:1.2; text-align:left; width: 100%; } .hero-graphic { flex:0.8; display:flex; justify-content:center; width: 100%; }
+        .hero-text { flex:1.2; text-align:left; width: 100%; position: relative; z-index: 15; } 
+        .hero-graphic { flex:0.8; display:flex; justify-content:center; width: 100%; position: relative; z-index: 15; }
         
         .badge { background-color:rgba(2,132,199,0.06); color:#0284c7; border:1px solid rgba(2,132,199,0.2); padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-transform:uppercase; display:inline-block; margin-bottom:20px; }
         h1 { font-size:46px; font-weight:900; color:#0f172a; line-height:1.2; margin-bottom:20px; width: 100%; }
@@ -31,11 +32,18 @@
         .btn-gradient { background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:#ffffff; padding:14px 28px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; box-shadow:0 6px 15px rgba(2,132,199,0.2); border:none; cursor:pointer; text-align:center; }
         .btn-outline { border:2px solid #cbd5e1; background-color:rgba(255,255,255,0.7); backdrop-filter: blur(5px); color:#334155; padding:12px 26px; border-radius:8px; font-weight:700; text-decoration:none; display:inline-block; margin-left:15px; text-align:center; }
         .btn-outline:hover { border-color:#0284c7; color:#0284c7; }
+        /* 🚀 RUNNING CONTINUOUS RGB MATRIX FLASH BORDERS AROUND THE PORTAL BOX */
+        @keyframes rgbNeonCircuit {
+            0% { border-color: #0284c7; box-shadow: 0 0 25px rgba(2, 132, 199, 0.6), inset 0 0 15px rgba(2, 132, 199, 0.3); }
+            50% { border-color: #ff007f; box-shadow: 0 0 35px rgba(255, 0, 127, 0.7), inset 0 0 15px rgba(255, 0, 127, 0.3); }
+            100% { border-color: #7a00ff; box-shadow: 0 0 25px rgba(122, 0, 255, 0.6), inset 0 0 15px rgba(122, 0, 255, 0.3); }
+        }
+
         .portal-frame-wrapper { width:300px; height:320px; position:relative; perspective:1000px; max-width: 100%; }
-        .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:3px solid #00f3ff; box-shadow:0 0 30px #0284c7; }
-        .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; }
+        .cyber-shield-portal { width:100%; height:100%; background:radial-gradient(circle,#0f172a 40%,#0284c7 100%); border-radius:36px; display:flex; flex-direction:column; align-items:center; justify-content:center; border: 4px solid #0284c7; animation: rgbNeonCircuit 5s linear infinite; transform-style:preserve-3d; transition:transform 0.1s ease; }
+        .portal-nodes { width:80px; height:80px; border:4px dotted #00f3ff; border-radius:50%; display:flex; align-items:center; justify-content:center; animation:rotateNeon 8s linear infinite; transform:translateZ(30px); }
         .portal-nodes span { color:#00f3ff; font-size:26px; font-weight:bold; }
-        .portal-tag { margin-top:20px; font-size:13px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-shadow:0 0 8px #00f3ff; }
+        .portal-tag { margin-top:20px; font-size:13px; color:#00f3ff; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-shadow:0 0 8px #00f3ff; transform:translateZ(20px); }
         
         .metrics-bar { background-color:rgba(255,255,255,0.6); backdrop-filter: blur(10px); border-top:1px solid #cbd5e1; border-bottom:1px solid #cbd5e1; padding:40px 20px; width:100%; overflow: hidden; position: relative; z-index: 10; }
         .metrics-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center; width: 100%; }
@@ -75,7 +83,7 @@
         .submit-blueprint-btn { width:100%; background:linear-gradient(135deg,#0284c7 0%,#1d4ed8 100%); color:white; border:none; padding:14px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; }
         footer { background-color:rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-top:1px solid #cbd5e1; padding:30px 20px; text-align:center; color:#64748b; font-size:14px; width: 100%; position: relative; z-index: 20; }
 
-        /* 📱 MOBILE RESPONSIVE ENGINE - DYNAMIC BLACK LAYOUT ON SMARTPHONES WITH RE-RESTORED SPECTRUM NEONS */
+        /* 📱 FLUID MOBILE RESPONSIVE ENGINE - DYNAMIC BLACK CONFIGS */
         @media (max-width: 968px) {
             html, body { background-color: #090d16 !important; color: #ffffff !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
             header { flex-direction: column; gap: 12px; text-align: center; padding: 15px 10px; background-color: rgba(15, 23, 42, 0.75) !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
@@ -90,7 +98,11 @@
             .hero-text p { font-size: 14px; color: #cbd5e1 !important; text-align: center; }
             .btn-gradient { width: 100% !important; display: block !important; margin-bottom: 10px; }
             .btn-outline { width: 100% !important; margin-left: 0 !important; background-color: transparent !important; color: #ffffff !important; border-color: #334155 !important; display: block !important; }
+            
+            /* MOBILE RGB CONTRAST INJECTED NATIVELY FOR PORTAL BOXES */
             .portal-frame-wrapper { width: 240px; height: 260px; margin: 0 auto !important; }
+            .cyber-shield-portal { border: 3px solid #ff007f !important; animation: rgbNeonCircuit 4s linear infinite !important; }
+            
             .metrics-bar { padding: 20px 10px !important; background-color: rgba(17,24,39,0.6) !important; border-top: 1px solid #1e293b !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; }
             .metrics-layout { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; width: 100% !important; }
             .metric-item h3 { font-size: 24px; color: #ffffff !important; } .metric-item p { color: #94a3b8 !important; font-size: 11px; }
@@ -250,7 +262,7 @@
     <footer><p>2026 thea.tech all right reserved</p></footer>
 
     <script>
-        /* 🌌 HIGH-BRIGHTNESS CONNECTIONS ENGINE SPECIFIED FOR CLASSIC RGB MESH MATRIX */
+        /* 🌌 GENUINE MESH ENGINE: OVERRIDES TOP LAYERS TO FORCE INTERCONNECTED BEAMS GRAPHICS */
         const canvas = document.getElementById('bgCanvasAnimation'); const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth; let height = canvas.height = window.innerHeight;
         
@@ -258,19 +270,18 @@
         window.addEventListener('resize', resizeEngine);
         
         let particles = []; let numParticles = window.innerWidth < 768 ? 35 : 85;
-        
-        // Custom neon spectrum color sets
         const rainbowColors = ['#00f3ff', '#ff007f', '#7a00ff', '#00ffd5'];
 
         for (let i = 0; i < numParticles; i++) { 
             particles.push({ 
                 x: Math.random() * width, 
                 y: Math.random() * height, 
-                vx: (Math.random() - 0.5) * 1.4, 
-                vy: (Math.random() - 0.5) * 1.4, 
+                vx: (Math.random() - 0.5) * 1.5, 
+                vy: (Math.random() - 0.5) * 1.5, 
                 radius: Math.random() * 2.5 + 1.5,
                 color: rainbowColors[Math.floor(Math.random() * rainbowColors.length)]
             }); 
         }
         
         function animateBgMesh() {
+            ctx.clearRect(0, 0, width, height);
