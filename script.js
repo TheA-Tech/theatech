@@ -1,580 +1,800 @@
-/* =====================================================
+/* =========================================================
    THEA.TECH
-   MAIN WEBSITE SCRIPT
-===================================================== */
+   INTERACTIONS
+========================================================= */
 
 
-/* =====================================================
-   DOM READY
-===================================================== */
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+const menuToggle =
+    document.getElementById("menuToggle");
 
-        initHeader();
-        initMobileMenu();
-        initParticles();
-        initHeroParallax();
-        initReveal();
-        initProjects();
-        initActiveNavigation();
-        initYear();
-
-    }
-);
+const mainNav =
+    document.getElementById("mainNav");
 
 
-/* =====================================================
-   HEADER SCROLL
-===================================================== */
+if (menuToggle && mainNav) {
 
-function initHeader() {
-
-    const header =
-        document.getElementById("siteHeader");
-
-    if (!header) return;
-
-
-    function updateHeader() {
-
-        if (window.scrollY > 35) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    }
-
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-function initMobileMenu() {
-
-    const toggle =
-        document.getElementById("menuToggle");
-
-    const nav =
-        document.getElementById("mainNav");
-
-    if (!toggle || !nav) return;
-
-
-    toggle.addEventListener(
+    menuToggle.addEventListener(
         "click",
         () => {
 
-            nav.classList.toggle("open");
+            mainNav.classList.toggle("open");
 
         }
     );
 
 
-    nav.querySelectorAll("a").forEach(
-        link => {
+    mainNav
+        .querySelectorAll("a")
+        .forEach(link => {
 
             link.addEventListener(
                 "click",
                 () => {
 
-                    nav.classList.remove("open");
+                    mainNav.classList.remove("open");
 
                 }
             );
 
-        }
-    );
+        });
 
 }
 
 
-/* =====================================================
-   PARTICLES
-===================================================== */
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
 
-function initParticles() {
-
-    const container =
-        document.getElementById("heroParticles");
-
-    if (!container) return;
+const siteHeader =
+    document.getElementById("siteHeader");
 
 
-    const isMobile =
-        window.innerWidth <= 600;
+function updateHeader() {
 
+    if (!siteHeader) return;
 
-    const particleCount =
-        isMobile ? 38 : 85;
+    if (window.scrollY > 30) {
 
+        siteHeader.classList.add("scrolled");
 
-    for (
-        let i = 0;
-        i < particleCount;
-        i++
-    ) {
+    } else {
 
-        const particle =
-            document.createElement("span");
-
-        particle.className =
-            "hero-particle";
-
-
-        const size =
-            Math.random() > .88
-                ? 3
-                : 1 + Math.random() * 1.4;
-
-
-        particle.style.width =
-            `${size}px`;
-
-        particle.style.height =
-            `${size}px`;
-
-
-        particle.style.left =
-            `${Math.random() * 100}%`;
-
-        particle.style.top =
-            `${Math.random() * 100}%`;
-
-
-        particle.style.opacity =
-            `${.25 + Math.random() * .6}`;
-
-
-        particle.style.animationDuration =
-            `${7 + Math.random() * 13}s`;
-
-
-        particle.style.animationDelay =
-            `${Math.random() * -20}s`;
-
-
-        container.appendChild(
-            particle
-        );
+        siteHeader.classList.remove("scrolled");
 
     }
 
 }
 
 
-/* =====================================================
-   HERO PARALLAX
-===================================================== */
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+);
 
-function initHeroParallax() {
-
-    const visual =
-        document.getElementById(
-            "technologyVisual"
-        );
-
-    const hero =
-        document.querySelector(".hero");
+updateHeader();
 
 
-    if (!visual || !hero) return;
-
-
-    if (window.innerWidth <= 900) {
-        return;
-    }
-
-
-    hero.addEventListener(
-        "mousemove",
-        event => {
-
-            const rect =
-                hero.getBoundingClientRect();
-
-
-            const x =
-                (
-                    event.clientX -
-                    rect.left
-                ) /
-                rect.width -
-                .5;
-
-
-            const y =
-                (
-                    event.clientY -
-                    rect.top
-                ) /
-                rect.height -
-                .5;
-
-
-            visual.style.transform =
-                `
-                perspective(1500px)
-                rotateY(${x * 5}deg)
-                rotateX(${y * -5}deg)
-                `;
-
-        }
-    );
-
-
-    hero.addEventListener(
-        "mouseleave",
-        () => {
-
-            visual.style.transform =
-                `
-                perspective(1500px)
-                rotateY(0deg)
-                rotateX(0deg)
-                `;
-
-        }
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    SCROLL REVEAL
-===================================================== */
+========================================================= */
 
-function initReveal() {
-
-    const elements =
-        document.querySelectorAll(
-            ".reveal"
-        );
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-    if (!elements.length) return;
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
 
+            entries.forEach(entry => {
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
+                if (entry.isIntersecting) {
 
-                entries.forEach(
-                    entry => {
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
-                            entry.target
-                                .classList
-                                .add("visible");
+                }
 
-                            observer.unobserve(
-                                entry.target
-                            );
+            });
 
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: .12
-            }
-        );
-
-
-    elements.forEach(
-        element => {
-
-            observer.observe(
-                element
-            );
-
+        },
+        {
+            threshold: 0.12
         }
     );
 
-}
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
 
 
-/* =====================================================
+/* =========================================================
    PROJECT DATA
-===================================================== */
+========================================================= */
 
 const projects = [
 
     {
         title: "THEA Books",
-
         category: "Business Software",
-
         description:
-            "A business management and accounting platform designed to bring operational information into one practical software environment.",
-
-        icon: "TB"
+            "A business management and accounting platform bringing sales, purchases, expenses, inventory, accounting and reporting into one organized environment.",
+        type: "software"
     }
 
 ];
 
 
-/* =====================================================
-   PROJECT RENDER
-===================================================== */
+/* =========================================================
+   PROJECT RENDERING
+========================================================= */
 
-function initProjects() {
-
-    const container =
-        document.getElementById(
-            "projectsGrid"
-        );
+const projectGrid =
+    document.getElementById("projectGrid");
 
 
-    if (!container) return;
+function createProjectVisual() {
 
+    return `
 
-    container.innerHTML = "";
+        <div class="project-visual">
 
+            <div class="project-visual-top">
 
-    projects.forEach(
-        project => {
+                <i></i>
+                <i></i>
+                <i></i>
 
-            const card =
-                document.createElement(
-                    "article"
-                );
+            </div>
 
+            <div class="project-visual-body">
 
-            card.className =
-                "project-card reveal";
+                <div class="project-visual-row">
 
-
-            card.innerHTML = `
-
-                <div class="project-visual">
-
-                    <div class="project-core">
-                        ${project.icon}
-                    </div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
                 </div>
 
+                <div class="project-visual-chart">
 
-                <span class="project-category">
+                    <span style="height:35%"></span>
+                    <span style="height:55%"></span>
+                    <span style="height:42%"></span>
+                    <span style="height:73%"></span>
+                    <span style="height:63%"></span>
+                    <span style="height:84%"></span>
+                    <span style="height:70%"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+function renderProjects() {
+
+    if (!projectGrid) return;
+
+    projectGrid.innerHTML = "";
+
+    projects.forEach(
+        (project, index) => {
+
+            const article =
+                document.createElement("article");
+
+            article.className =
+                "project-card reveal";
+
+            article.style.transitionDelay =
+                `${index * 80}ms`;
+
+            article.innerHTML = `
+
+                <div class="project-category">
                     ${project.category}
-                </span>
-
+                </div>
 
                 <h3>
                     ${project.title}
                 </h3>
 
-
                 <p>
                     ${project.description}
                 </p>
 
+                ${createProjectVisual()}
+
             `;
 
+            projectGrid.appendChild(article);
 
-            container.appendChild(
-                card
-            );
+        }
+    );
 
 
-            requestAnimationFrame(
-                () => {
+    const newRevealElements =
+        projectGrid.querySelectorAll(".reveal");
+
+
+    newRevealElements.forEach(
+        element => {
+
+            revealObserver.observe(element);
+
+        }
+    );
+
+}
+
+
+renderProjects();
+
+
+/* =========================================================
+   CONTACT FORM MESSAGE
+========================================================= */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        () => {
+
+            if (formMessage) {
+
+                formMessage.textContent =
+                    "Sending your inquiry...";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+const currentYear =
+    document.getElementById("currentYear");
+
+
+if (currentYear) {
+
+    currentYear.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   HERO MOUSE DEPTH
+========================================================= */
+
+const heroVisual =
+    document.querySelector(".hero-visual");
+
+
+const canUseHover =
+    window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+
+if (
+    heroVisual &&
+    canUseHover
+) {
+
+    heroVisual.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                heroVisual.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left)
+                / rect.width
+                - 0.5;
+
+            const y =
+                (event.clientY - rect.top)
+                / rect.height
+                - 0.5;
+
+
+            heroVisual.style.transform =
+                `
+                perspective(1000px)
+                rotateY(${x * 3}deg)
+                rotateX(${y * -3}deg)
+                `;
+        }
+    );
+
+
+    heroVisual.addEventListener(
+        "mouseleave",
+        () => {
+
+            heroVisual.style.transform =
+                "";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const navLinks =
+    document.querySelectorAll(
+        '.main-nav a[href^="#"]'
+    );
+
+
+const pageSections =
+    document.querySelectorAll(
+        "main section[id]"
+    );
+
+
+const sectionObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const id =
+                    entry.target.getAttribute("id");
+
+
+                navLinks.forEach(link => {
+
+                    link.classList.remove(
+                        "active"
+                    );
 
                     if (
-                        "IntersectionObserver"
-                        in window
+                        link.getAttribute("href")
+                        === `#${id}`
                     ) {
 
-                        const observer =
-                            new IntersectionObserver(
-                                entries => {
-
-                                    entries.forEach(
-                                        entry => {
-
-                                            if (
-                                                entry.isIntersecting
-                                            ) {
-
-                                                entry.target
-                                                    .classList
-                                                    .add("visible");
-
-                                                observer
-                                                    .unobserve(
-                                                        entry.target
-                                                    );
-
-                                            }
-
-                                        }
-                                    );
-
-                                },
-                                {
-                                    threshold: .12
-                                }
-                            );
-
-
-                        observer.observe(
-                            card
+                        link.classList.add(
+                            "active"
                         );
 
-                    } else {
-
-                        card.classList
-                            .add("visible");
-
                     }
 
-                }
-            );
+                });
 
+            });
+
+        },
+        {
+            rootMargin:
+                "-35% 0px -55% 0px"
         }
     );
+
+
+pageSections.forEach(section => {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   PARTICLE SYSTEM
+========================================================= */
+
+const canvas =
+    document.getElementById(
+        "particleCanvas"
+    );
+
+
+const ctx =
+    canvas ?
+        canvas.getContext("2d") :
+        null;
+
+
+let particles = [];
+
+let animationFrame;
+
+
+/* Keep particles lighter on smaller screens */
+
+function getParticleCount() {
+
+    if (
+        window.matchMedia(
+            "(max-width: 600px)"
+        ).matches
+    ) {
+
+        return 28;
+
+    }
+
+    if (
+        window.matchMedia(
+            "(max-width: 1000px)"
+        ).matches
+    ) {
+
+        return 45;
+
+    }
+
+    return 70;
 
 }
 
 
-/* =====================================================
-   ACTIVE NAVIGATION
-===================================================== */
+function resizeCanvas() {
 
-function initActiveNavigation() {
+    if (!canvas || !ctx) return;
 
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
+    const pixelRatio =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
         );
 
 
-    const links =
-        document.querySelectorAll(
-            ".nav-link"
-        );
+    canvas.width =
+        window.innerWidth * pixelRatio;
+
+    canvas.height =
+        window.innerHeight * pixelRatio;
+
+    canvas.style.width =
+        `${window.innerWidth}px`;
+
+    canvas.style.height =
+        `${window.innerHeight}px`;
+
+    ctx.setTransform(
+        pixelRatio,
+        0,
+        0,
+        pixelRatio,
+        0,
+        0
+    );
 
 
-    if (!sections.length || !links.length) {
-        return;
+    createParticles();
+
+}
+
+
+function createParticles() {
+
+    if (!canvas || !ctx) return;
+
+    const count =
+        getParticleCount();
+
+
+    particles = [];
+
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        particles.push({
+
+            x:
+                Math.random()
+                * window.innerWidth,
+
+            y:
+                Math.random()
+                * window.innerHeight,
+
+            vx:
+                (Math.random() - 0.5)
+                * 0.22,
+
+            vy:
+                (Math.random() - 0.5)
+                * 0.22,
+
+            size:
+                Math.random() * 1.7
+                + 0.7,
+
+            alpha:
+                Math.random() * 0.35
+                + 0.18,
+
+            phase:
+                Math.random()
+                * Math.PI
+                * 2
+
+        });
+
     }
 
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            const id =
-                                entry.target.id;
+}
 
 
-                            links.forEach(
-                                link => {
+function drawParticles(time) {
 
-                                    link.classList
-                                        .remove(
-                                            "active"
-                                        );
+    if (!canvas || !ctx) return;
 
 
-                                    if (
-                                        link.getAttribute(
-                                            "href"
-                                        ) ===
-                                        `#${id}`
-                                    ) {
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
 
-                                        link.classList
-                                            .add(
-                                                "active"
-                                            );
 
-                                    }
+    const width =
+        window.innerWidth;
 
-                                }
-                            );
+    const height =
+        window.innerHeight;
 
-                        }
 
-                    }
+    particles.forEach(
+        particle => {
+
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            particle.phase += 0.008;
+
+
+            if (particle.x < -20)
+                particle.x = width + 20;
+
+            if (particle.x > width + 20)
+                particle.x = -20;
+
+            if (particle.y < -20)
+                particle.y = height + 20;
+
+            if (particle.y > height + 20)
+                particle.y = -20;
+
+
+            const pulse =
+                (
+                    Math.sin(
+                        particle.phase
+                    ) + 1
+                ) / 2;
+
+
+            const alpha =
+                particle.alpha
+                * (0.72 + pulse * 0.28);
+
+
+            /*
+             * THEA.TECH palette:
+             * blue / cyan / violet
+             */
+
+            const palette =
+                particle.x % 3;
+
+
+            if (palette < 1) {
+
+                ctx.fillStyle =
+                    `rgba(37,99,235,${alpha})`;
+
+            } else if (palette < 2) {
+
+                ctx.fillStyle =
+                    `rgba(6,182,212,${alpha})`;
+
+            } else {
+
+                ctx.fillStyle =
+                    `rgba(124,58,237,${alpha})`;
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.size,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+        }
+    );
+
+
+    /*
+     * Connect only nearby particles.
+     * This gives the background a real
+     * digital-network feel.
+     */
+
+    for (
+        let i = 0;
+        i < particles.length;
+        i++
+    ) {
+
+        for (
+            let j = i + 1;
+            j < particles.length;
+            j++
+        ) {
+
+            const a =
+                particles[i];
+
+            const b =
+                particles[j];
+
+
+            const dx =
+                a.x - b.x;
+
+            const dy =
+                a.y - b.y;
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
                 );
 
-            },
-            {
-                rootMargin:
-                    "-35% 0px -55% 0px"
+
+            if (distance < 125) {
+
+                const opacity =
+                    (
+                        1 -
+                        distance / 125
+                    ) * 0.09;
+
+
+                ctx.strokeStyle =
+                    `rgba(37,99,235,${opacity})`;
+
+                ctx.lineWidth = 0.7;
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    a.x,
+                    a.y
+                );
+
+                ctx.lineTo(
+                    b.x,
+                    b.y
+                );
+
+                ctx.stroke();
+
             }
-        );
-
-
-    sections.forEach(
-        section => {
-
-            observer.observe(
-                section
-            );
 
         }
-    );
-
-}
-
-
-/* =====================================================
-   CURRENT YEAR
-===================================================== */
-
-function initYear() {
-
-    const year =
-        document.getElementById(
-            "currentYear"
-        );
-
-
-    if (year) {
-
-        year.textContent =
-            new Date().getFullYear();
 
     }
 
+
+    animationFrame =
+        requestAnimationFrame(
+            drawParticles
+        );
+
 }
 
 
-/* =====================================================
-   CONTACT FORM STATUS
-===================================================== */
+function startParticles() {
+
+    if (!canvas || !ctx) return;
+
+    resizeCanvas();
+
+    cancelAnimationFrame(
+        animationFrame
+    );
+
+    animationFrame =
+        requestAnimationFrame(
+            drawParticles
+        );
+
+}
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        clearTimeout(
+            window.__theaResizeTimer
+        );
+
+        window.__theaResizeTimer =
+            setTimeout(
+                resizeCanvas,
+                180
+            );
+
+    }
+);
+
+
+if (
+    !window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+) {
+
+    startParticles();
+
+}
+
+
+/* =========================================================
+   SENT MESSAGE CHECK
+========================================================= */
 
 const urlParams =
     new URLSearchParams(
@@ -583,87 +803,11 @@ const urlParams =
 
 
 if (
-    urlParams.get("sent") === "1"
+    urlParams.get("sent") === "1" &&
+    formMessage
 ) {
 
-    setTimeout(
-        () => {
-
-            const contact =
-                document.getElementById(
-                    "contact"
-                );
-
-
-            if (contact) {
-
-                contact.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
-        },
-        400
-    );
+    formMessage.textContent =
+        "Your inquiry has been sent successfully.";
 
 }
-
-
-/* =====================================================
-   CURSOR DEPTH FOR TECHNOLOGY NODES
-===================================================== */
-
-document.addEventListener(
-    "mousemove",
-    event => {
-
-        const nodes =
-            document.querySelectorAll(
-                ".tech-node"
-            );
-
-
-        if (
-            window.innerWidth <= 900
-        ) {
-            return;
-        }
-
-
-        const x =
-            (
-                event.clientX /
-                window.innerWidth -
-                .5
-            );
-
-
-        const y =
-            (
-                event.clientY /
-                window.innerHeight -
-                .5
-            );
-
-
-        nodes.forEach(
-            (node, index) => {
-
-                const strength =
-                    4 +
-                    index * .7;
-
-
-                node.style.marginLeft =
-                    `${x * strength}px`;
-
-
-                node.style.marginTop =
-                    `${y * strength}px`;
-
-            }
-        );
-
-    }
-);
