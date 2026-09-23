@@ -1,390 +1,34 @@
 /* =========================================================
    THEA.TECH
-   INTERACTIONS + PARTICLES
+   WEBSITE INTERACTIONS
 ========================================================= */
 
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE NAVIGATION
 ========================================================= */
 
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const mainNav =
-    document.getElementById("mainNav");
-
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
 if (menuToggle && mainNav) {
 
-    menuToggle.addEventListener(
-        "click",
-        () => {
+    menuToggle.addEventListener("click", () => {
 
-            mainNav.classList.toggle("open");
+        mainNav.classList.toggle("open");
 
-        }
-    );
+    });
 
 
-    mainNav
-        .querySelectorAll("a")
-        .forEach(link => {
+    mainNav.querySelectorAll("a").forEach(link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+        link.addEventListener("click", () => {
 
-                    mainNav.classList.remove("open");
-
-                }
-            );
+            mainNav.classList.remove("open");
 
         });
 
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(element);
-
-    }
-);
-
-
-/* =========================================================
-   CONTACT FORM MESSAGE
-========================================================= */
-
-const contactForm =
-    document.getElementById("contactForm");
-
-const formMessage =
-    document.getElementById("formMessage");
-
-
-if (contactForm && formMessage) {
-
-    contactForm.addEventListener(
-        "submit",
-        () => {
-
-            formMessage.textContent =
-                "Sending your inquiry...";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SENT MESSAGE
-========================================================= */
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-
-if (params.get("sent") === "1") {
-
-    const message =
-        document.getElementById(
-            "formMessage"
-        );
-
-    if (message) {
-
-        message.textContent =
-            "Your inquiry has been submitted successfully.";
-
-    }
-
-}
-
-
-/* =========================================================
-   PARTICLE SYSTEM
-========================================================= */
-
-const canvas =
-    document.getElementById(
-        "techParticles"
-    );
-
-
-if (canvas) {
-
-    const ctx =
-        canvas.getContext("2d");
-
-    let particles = [];
-
-    let width = 0;
-    let height = 0;
-
-
-    function resizeCanvas() {
-
-        width =
-            canvas.width =
-            window.innerWidth *
-            window.devicePixelRatio;
-
-        height =
-            canvas.height =
-            window.innerHeight *
-            window.devicePixelRatio;
-
-        canvas.style.width =
-            window.innerWidth + "px";
-
-        canvas.style.height =
-            window.innerHeight + "px";
-
-        ctx.setTransform(
-            window.devicePixelRatio,
-            0,
-            0,
-            window.devicePixelRatio,
-            0,
-            0
-        );
-
-        createParticles();
-
-    }
-
-
-    function createParticles() {
-
-        particles = [];
-
-        const amount =
-            Math.min(
-                115,
-                Math.floor(
-                    window.innerWidth / 11
-                )
-            );
-
-
-        for (
-            let i = 0;
-            i < amount;
-            i++
-        ) {
-
-            particles.push({
-
-                x:
-                    Math.random() *
-                    window.innerWidth,
-
-                y:
-                    Math.random() *
-                    window.innerHeight,
-
-                vx:
-                    (Math.random() - .5) *
-                    .25,
-
-                vy:
-                    (Math.random() - .5) *
-                    .25,
-
-                size:
-                    Math.random() *
-                    1.7 +
-                    .5,
-
-                alpha:
-                    Math.random() *
-                    .45 +
-                    .15
-
-            });
-
-        }
-
-    }
-
-
-    function drawParticles() {
-
-        ctx.clearRect(
-            0,
-            0,
-            window.innerWidth,
-            window.innerHeight
-        );
-
-
-        for (
-            let i = 0;
-            i < particles.length;
-            i++
-        ) {
-
-            const p =
-                particles[i];
-
-
-            p.x += p.vx;
-            p.y += p.vy;
-
-
-            if (
-                p.x < -20 ||
-                p.x >
-                window.innerWidth + 20
-            ) {
-
-                p.vx *= -1;
-
-            }
-
-
-            if (
-                p.y < -20 ||
-                p.y >
-                window.innerHeight + 20
-            ) {
-
-                p.vy *= -1;
-
-            }
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                p.x,
-                p.y,
-                p.size,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.fillStyle =
-                `rgba(36,124,255,${p.alpha})`;
-
-            ctx.fill();
-
-
-            for (
-                let j = i + 1;
-                j < particles.length;
-                j++
-            ) {
-
-                const q =
-                    particles[j];
-
-
-                const dx =
-                    p.x - q.x;
-
-                const dy =
-                    p.y - q.y;
-
-                const distance =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
-
-
-                if (distance < 125) {
-
-                    const opacity =
-                        (1 -
-                            distance / 125) *
-                        .08;
-
-
-                    ctx.beginPath();
-
-                    ctx.moveTo(
-                        p.x,
-                        p.y
-                    );
-
-                    ctx.lineTo(
-                        q.x,
-                        q.y
-                    );
-
-                    ctx.strokeStyle =
-                        `rgba(139,92,246,${opacity})`;
-
-                    ctx.lineWidth = .7;
-
-                    ctx.stroke();
-
-                }
-
-            }
-
-        }
-
-
-        requestAnimationFrame(
-            drawParticles
-        );
-
-    }
-
-
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-
-    resizeCanvas();
-
-    drawParticles();
+    });
 
 }
 
@@ -393,164 +37,387 @@ if (canvas) {
    HEADER SCROLL EFFECT
 ========================================================= */
 
-const header =
-    document.querySelector(
-        ".site-header"
-    );
+const siteHeader = document.getElementById("siteHeader");
 
+function updateHeader() {
+
+    if (!siteHeader) return;
+
+    if (window.scrollY > 30) {
+
+        siteHeader.classList.add("scrolled");
+
+    } else {
+
+        siteHeader.classList.remove("scrolled");
+
+    }
+
+}
 
 window.addEventListener(
     "scroll",
-    () => {
+    updateHeader,
+    { passive: true }
+);
 
-        if (!header) return;
+updateHeader();
 
 
-        if (window.scrollY > 30) {
+/* =========================================================
+   PROJECT DATA
+=========================================================
 
-            header.style.boxShadow =
-                "0 10px 35px rgba(16,24,40,.08)";
+   IMPORTANT:
 
-        } else {
+   Only completed / publicly presentable projects should
+   be added here.
 
-            header.style.boxShadow =
-                "none";
+   Future projects are NOT displayed.
+
+   When a real project is completed, simply add another
+   object to this array.
+
+========================================================= */
+
+const projects = [
+
+    {
+        title: "THEA Books",
+        category: "Business Software",
+        description:
+            "A business management and accounting platform developed to organize sales, purchases, expenses, customers, vendors, inventory and reporting.",
+        type: "software"
+    }
+
+];
+
+
+/* =========================================================
+   PROJECT RENDERER
+========================================================= */
+
+const projectList = document.getElementById("projectList");
+
+
+function renderProjects() {
+
+    if (!projectList) return;
+
+    projectList.innerHTML = "";
+
+    projects.forEach((project, index) => {
+
+        const card = document.createElement("article");
+
+        card.className = "project-card";
+
+        card.innerHTML = `
+
+            <div class="project-content">
+
+                <div class="project-index">
+                    ${String(index + 1).padStart(2, "0")}
+                </div>
+
+                <span class="project-category">
+                    ${project.category}
+                </span>
+
+                <h3>
+                    ${project.title}
+                </h3>
+
+                <p>
+                    ${project.description}
+                </p>
+
+                <a href="#products" class="project-link">
+                    View project
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="project-visual">
+
+                <div class="project-screen"></div>
+
+            </div>
+
+        `;
+
+        projectList.appendChild(card);
+
+    });
+
+}
+
+renderProjects();
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+const revealItems = document.querySelectorAll(
+    ".solution-card, " +
+    ".service-item, " +
+    ".process-step, " +
+    ".project-card, " +
+    ".feature-list div, " +
+    ".architecture, " +
+    ".product-showcase"
+);
+
+
+const revealObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("revealed");
+
+                revealObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .12
+    }
+
+);
+
+
+revealItems.forEach(item => {
+
+    item.classList.add("reveal-item");
+
+    revealObserver.observe(item);
+
+});
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+const urlParams = new URLSearchParams(
+    window.location.search
+);
+
+const formMessage = document.getElementById(
+    "formMessage"
+);
+
+if (
+    formMessage &&
+    urlParams.get("sent") === "1"
+) {
+
+    formMessage.textContent =
+        "Your inquiry has been submitted successfully.";
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        () => {
+
+            const submitButton =
+                contactForm.querySelector(
+                    ".form-submit"
+                );
+
+            if (!submitButton) return;
+
+            submitButton.disabled = true;
+
+            submitButton.innerHTML =
+                "Sending...";
 
         }
+    );
 
-    }
-);
+}
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+const currentYear =
+    document.getElementById("currentYear");
+
+if (currentYear) {
+
+    currentYear.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   SUBTLE MOUSE DEPTH EFFECT
+=========================================================
+
+   Very subtle only.
+   This keeps the website professional instead of
+   making it look like a gaming / anime website.
+
+========================================================= */
+
+const heroVisual =
+    document.querySelector(".hero-visual");
+
+
+if (
+    heroVisual &&
+    window.matchMedia("(min-width: 900px)").matches
+) {
+
+    heroVisual.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                heroVisual.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left)
+                / rect.width;
+
+            const y =
+                (event.clientY - rect.top)
+                / rect.height;
+
+            const rotateY =
+                (x - .5) * 4;
+
+            const rotateX =
+                (y - .5) * -2;
+
+            const systemWindow =
+                heroVisual.querySelector(
+                    ".system-window"
+                );
+
+            if (!systemWindow) return;
+
+            systemWindow.style.transform =
+                `
+                perspective(1400px)
+                rotateY(${rotateY - 3}deg)
+                rotateX(${rotateX}deg)
+                `;
+
+        }
+    );
+
+
+    heroVisual.addEventListener(
+        "mouseleave",
+        () => {
+
+            const systemWindow =
+                heroVisual.querySelector(
+                    ".system-window"
+                );
+
+            if (!systemWindow) return;
+
+            systemWindow.style.transform =
+                `
+                perspective(1400px)
+                rotateY(-5deg)
+                rotateX(2deg)
+                `;
+
+        }
+    );
+
+}
 
 
 /* =========================================================
    ACTIVE NAVIGATION
 ========================================================= */
 
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
 const navLinks =
     document.querySelectorAll(
-        ".main-nav a[href^='#']"
+        '.main-nav a[href^="#"]'
+    );
+
+const sections =
+    document.querySelectorAll(
+        "main section[id]"
     );
 
 
-const activeObserver =
+const sectionObserver =
     new IntersectionObserver(
+
         entries => {
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                if (!entry.isIntersecting)
+                    return;
 
-                    navLinks.forEach(
-                        link => {
+                navLinks.forEach(link => {
 
-                            link.classList.remove(
-                                "active"
-                            );
-
-                            if (
-                                link.getAttribute(
-                                    "href"
-                                ) ===
-                                "#" +
-                                entry.target.id
-                            ) {
-
-                                link.classList.add(
-                                    "active"
-                                );
-
-                            }
-
-                        }
+                    link.classList.remove(
+                        "active"
                     );
 
-                }
+                    if (
+                        link.getAttribute("href") ===
+                        `#${entry.target.id}`
+                    ) {
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
 
             });
 
         },
+
         {
             rootMargin:
-                "-30% 0px -60% 0px"
+                "-35% 0px -55% 0px"
         }
+
     );
 
 
-sections.forEach(
-    section => {
+sections.forEach(section => {
 
-        activeObserver.observe(
-            section
-        );
+    sectionObserver.observe(section);
 
-    }
-);
-
-
-/* =========================================================
-   3D CARD MOUSE EFFECT
-========================================================= */
-
-const systemCard =
-    document.querySelector(
-        ".system-card"
-    );
-
-
-if (
-    systemCard &&
-    window.innerWidth > 850
-) {
-
-    systemCard.addEventListener(
-        "mousemove",
-        event => {
-
-            const rect =
-                systemCard.getBoundingClientRect();
-
-
-            const x =
-                event.clientX -
-                rect.left;
-
-            const y =
-                event.clientY -
-                rect.top;
-
-
-            const rotateY =
-                ((x / rect.width) - .5) *
-                8;
-
-            const rotateX =
-                ((y / rect.height) - .5) *
-                -8;
-
-
-            systemCard.style.transform =
-                `perspective(1000px)
-                 rotateY(${rotateY}deg)
-                 rotateX(${rotateX}deg)
-                 translateY(-5px)`;
-
-        }
-    );
-
-
-    systemCard.addEventListener(
-        "mouseleave",
-        () => {
-
-            systemCard.style.transform =
-                "perspective(1000px) rotateY(-7deg) rotateX(4deg)";
-
-        }
-    );
-
-}
+});
