@@ -1,59 +1,43 @@
 /* =========================================================
-   THEA.TECH
-   Website JavaScript
+   THEA.TECH — MAIN JAVASCRIPT
    ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-
         /* =========================================
            MOBILE MENU
         ========================================== */
 
         const menuToggle =
-            document.getElementById(
-                "menuToggle"
-            );
+            document.getElementById("menuToggle");
 
         const mainNav =
-            document.getElementById(
-                "mainNav"
-            );
+            document.getElementById("mainNav");
 
 
-        if (
-            menuToggle &&
-            mainNav
-        ) {
+        if (menuToggle && mainNav) {
 
             menuToggle.addEventListener(
                 "click",
                 function () {
 
-                    const isOpen =
-                        mainNav.classList.toggle(
-                            "active"
-                        );
+                    const opened =
+                        mainNav.classList.toggle("active");
 
                     menuToggle.setAttribute(
                         "aria-expanded",
-                        isOpen
+                        opened
                     );
 
                 }
             );
 
 
-            const navLinks =
-                mainNav.querySelectorAll(
-                    "a"
-                );
-
-
-            navLinks.forEach(
-                function (link) {
+            mainNav
+                .querySelectorAll("a")
+                .forEach(function (link) {
 
                     link.addEventListener(
                         "click",
@@ -71,30 +55,26 @@ document.addEventListener(
                         }
                     );
 
-                }
-            );
+                });
 
         }
 
 
-
         /* =========================================
-           CURRENT YEAR
+           YEAR
         ========================================== */
 
-        const year =
+        const currentYear =
             document.getElementById(
                 "currentYear"
             );
 
+        if (currentYear) {
 
-        if (year) {
-
-            year.textContent =
+            currentYear.textContent =
                 new Date().getFullYear();
 
         }
-
 
 
         /* =========================================
@@ -115,9 +95,9 @@ document.addEventListener(
 
 
         revealItems.forEach(
-            function (element) {
+            function (item) {
 
-                element.classList.add(
+                item.classList.add(
                     "reveal"
                 );
 
@@ -125,10 +105,7 @@ document.addEventListener(
         );
 
 
-        if (
-            "IntersectionObserver"
-            in window
-        ) {
+        if ("IntersectionObserver" in window) {
 
             const observer =
                 new IntersectionObserver(
@@ -156,17 +133,15 @@ document.addEventListener(
 
                     },
                     {
-                        threshold: 0.12
+                        threshold: 0.10
                     }
                 );
 
 
             revealItems.forEach(
-                function (element) {
+                function (item) {
 
-                    observer.observe(
-                        element
-                    );
+                    observer.observe(item);
 
                 }
             );
@@ -174,9 +149,9 @@ document.addEventListener(
         } else {
 
             revealItems.forEach(
-                function (element) {
+                function (item) {
 
-                    element.classList.add(
+                    item.classList.add(
                         "visible"
                     );
 
@@ -186,9 +161,8 @@ document.addEventListener(
         }
 
 
-
         /* =========================================
-           FORM SUCCESS MESSAGE
+           FORM SUCCESS
         ========================================== */
 
         const params =
@@ -201,36 +175,35 @@ document.addEventListener(
             params.get("sent") === "1"
         ) {
 
-            const note =
-                document.createElement(
-                    "div"
-                );
+            const message =
+                document.createElement("div");
 
 
-            note.className =
+            message.className =
                 "success-notification";
 
 
-            note.textContent =
+            message.textContent =
                 "Your message has been sent successfully.";
 
 
             document.body.appendChild(
-                note
+                message
             );
 
 
             setTimeout(
                 function () {
 
-                    note.classList.add(
+                    message.classList.add(
                         "hide"
                     );
+
 
                     setTimeout(
                         function () {
 
-                            note.remove();
+                            message.remove();
 
                         },
                         400
@@ -243,24 +216,21 @@ document.addEventListener(
         }
 
 
-
         /* =========================================
-           PARTICLE SYSTEM
+           START PARTICLES
         ========================================== */
 
-        createParticles();
+        startParticles();
 
     }
 );
 
 
-
 /* =========================================================
-   PARTICLE SYSTEM
+   PREMIUM TECH PARTICLES
    ========================================================= */
 
-function createParticles() {
-
+function startParticles() {
 
     const canvas =
         document.getElementById(
@@ -273,28 +243,28 @@ function createParticles() {
     }
 
 
-    const context =
+    const ctx =
         canvas.getContext("2d");
 
 
-    if (!context) {
+    if (!ctx) {
         return;
     }
 
 
-    if (
+    const reducedMotion =
         window.matchMedia(
             "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
+        ).matches;
 
+
+    if (reducedMotion) {
         return;
     }
 
 
     let width =
         window.innerWidth;
-
 
     let height =
         window.innerHeight;
@@ -304,22 +274,16 @@ function createParticles() {
 
 
     const mouse = {
-
         x: null,
-
-        y: null,
-
-        radius: 130
-
+        y: null
     };
-
 
 
     /* =========================================
        RESIZE
     ========================================== */
 
-    function resize() {
+    function resizeCanvas() {
 
         width =
             window.innerWidth;
@@ -349,7 +313,7 @@ function createParticles() {
             height + "px";
 
 
-        context.setTransform(
+        ctx.setTransform(
             ratio,
             0,
             0,
@@ -359,30 +323,29 @@ function createParticles() {
         );
 
 
-        generateParticles();
+        createParticles();
 
     }
 
 
-
     /* =========================================
-       CREATE PARTICLES
+       CREATE
     ========================================== */
 
-    function generateParticles() {
+    function createParticles() {
 
         particles = [];
 
 
-        const count =
+        const amount =
             width < 600
-                ? 45
-                : 85;
+                ? 65
+                : 125;
 
 
         for (
             let i = 0;
-            i < count;
+            i < amount;
             i++
         ) {
 
@@ -398,25 +361,25 @@ function createParticles() {
 
                 radius:
                     Math.random()
-                    * 1.5
-                    + .5,
+                    * 2
+                    + 1,
 
-                speedX:
+                vx:
                     (
                         Math.random()
-                        - .5
-                    ) * .25,
+                        - 0.5
+                    ) * 0.42,
 
-                speedY:
+                vy:
                     (
                         Math.random()
-                        - .5
-                    ) * .25,
+                        - 0.5
+                    ) * 0.42,
 
-                opacity:
+                alpha:
                     Math.random()
-                    * .45
-                    + .15
+                    * 0.45
+                    + 0.35
 
             });
 
@@ -425,15 +388,13 @@ function createParticles() {
     }
 
 
-
     /* =========================================
        DRAW
     ========================================== */
 
-    function draw() {
+    function drawParticles() {
 
-
-        context.clearRect(
+        ctx.clearRect(
             0,
             0,
             width,
@@ -441,68 +402,191 @@ function createParticles() {
         );
 
 
-        /* DOTS */
+        /* -------------------------------------
+           PARTICLES
+        -------------------------------------- */
 
         particles.forEach(
             function (particle) {
 
-
                 particle.x +=
-                    particle.speedX;
-
+                    particle.vx;
 
                 particle.y +=
-                    particle.speedY;
+                    particle.vy;
 
 
-                /* WRAP */
+                /* LOOP AROUND */
 
                 if (
-                    particle.x < -10
+                    particle.x < -20
                 ) {
 
                     particle.x =
-                        width + 10;
+                        width + 20;
 
                 }
-
 
                 if (
                     particle.x >
-                    width + 10
+                    width + 20
                 ) {
 
-                    particle.x = -10;
+                    particle.x = -20;
 
                 }
 
-
                 if (
-                    particle.y < -10
+                    particle.y < -20
                 ) {
 
                     particle.y =
-                        height + 10;
+                        height + 20;
 
                 }
-
 
                 if (
                     particle.y >
-                    height + 10
+                    height + 20
                 ) {
 
-                    particle.y = -10;
+                    particle.y = -20;
 
                 }
 
 
-                /* MOUSE */
+                /* GLOW */
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    particle.x,
+                    particle.y,
+                    particle.radius * 4,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    "rgba(0,140,255,0.08)";
+
+                ctx.fill();
+
+
+                /* MAIN DOT */
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    particle.x,
+                    particle.y,
+                    particle.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    "rgba(0,105,220," +
+                    particle.alpha +
+                    ")";
+
+                ctx.fill();
+
+            }
+        );
+
+
+        /* -------------------------------------
+           CONNECTION LINES
+        -------------------------------------- */
+
+        for (
+            let i = 0;
+            i < particles.length;
+            i++
+        ) {
+
+            for (
+                let j = i + 1;
+                j < particles.length;
+                j++
+            ) {
+
+                const a =
+                    particles[i];
+
+                const b =
+                    particles[j];
+
+
+                const dx =
+                    a.x - b.x;
+
+                const dy =
+                    a.y - b.y;
+
+
+                const distance =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    );
+
 
                 if (
-                    mouse.x !== null &&
-                    mouse.y !== null
+                    distance < 145
                 ) {
+
+                    const opacity =
+                        (
+                            1 -
+                            distance / 145
+                        ) * 0.30;
+
+
+                    ctx.beginPath();
+
+                    ctx.moveTo(
+                        a.x,
+                        a.y
+                    );
+
+                    ctx.lineTo(
+                        b.x,
+                        b.y
+                    );
+
+
+                    ctx.strokeStyle =
+                        "rgba(8,105,217," +
+                        opacity +
+                        ")";
+
+
+                    ctx.lineWidth =
+                        0.8;
+
+
+                    ctx.stroke();
+
+                }
+
+            }
+
+        }
+
+
+        /* -------------------------------------
+           MOUSE CONNECTION
+        -------------------------------------- */
+
+        if (
+            mouse.x !== null &&
+            mouse.y !== null
+        ) {
+
+            particles.forEach(
+                function (particle) {
 
                     const dx =
                         particle.x -
@@ -521,154 +605,54 @@ function createParticles() {
 
 
                     if (
-                        distance <
-                        mouse.radius
+                        distance < 170
                     ) {
 
-                        const force =
+                        const opacity =
                             (
-                                mouse.radius -
-                                distance
-                            ) /
-                            mouse.radius;
+                                1 -
+                                distance / 170
+                            ) * 0.45;
 
 
-                        particle.x +=
-                            dx *
-                            force *
-                            .006;
+                        ctx.beginPath();
+
+                        ctx.moveTo(
+                            particle.x,
+                            particle.y
+                        );
+
+                        ctx.lineTo(
+                            mouse.x,
+                            mouse.y
+                        );
 
 
-                        particle.y +=
-                            dy *
-                            force *
-                            .006;
+                        ctx.strokeStyle =
+                            "rgba(0,140,255," +
+                            opacity +
+                            ")";
+
+
+                        ctx.lineWidth =
+                            1;
+
+
+                        ctx.stroke();
 
                     }
 
                 }
-
-
-                /* DRAW DOT */
-
-                context.beginPath();
-
-
-                context.arc(
-                    particle.x,
-                    particle.y,
-                    particle.radius,
-                    0,
-                    Math.PI * 2
-                );
-
-
-                context.fillStyle =
-                    "rgba(95,180,255," +
-                    particle.opacity +
-                    ")";
-
-
-                context.fill();
-
-            }
-        );
-
-
-
-        /* CONNECTIONS */
-
-        for (
-            let i = 0;
-            i < particles.length;
-            i++
-        ) {
-
-
-            for (
-                let j = i + 1;
-                j < particles.length;
-                j++
-            ) {
-
-
-                const first =
-                    particles[i];
-
-
-                const second =
-                    particles[j];
-
-
-                const dx =
-                    first.x -
-                    second.x;
-
-
-                const dy =
-                    first.y -
-                    second.y;
-
-
-                const distance =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
-
-
-                if (
-                    distance < 115
-                ) {
-
-
-                    const opacity =
-                        (
-                            1 -
-                            distance / 115
-                        ) * .13;
-
-
-                    context.beginPath();
-
-
-                    context.moveTo(
-                        first.x,
-                        first.y
-                    );
-
-
-                    context.lineTo(
-                        second.x,
-                        second.y
-                    );
-
-
-                    context.strokeStyle =
-                        "rgba(75,155,220," +
-                        opacity +
-                        ")";
-
-
-                    context.lineWidth =
-                        .6;
-
-
-                    context.stroke();
-
-                }
-
-            }
+            );
 
         }
 
 
         requestAnimationFrame(
-            draw
+            drawParticles
         );
 
     }
-
 
 
     /* =========================================
@@ -702,19 +686,19 @@ function createParticles() {
 
 
     /* =========================================
-       WINDOW RESIZE
+       RESIZE
     ========================================== */
 
     window.addEventListener(
         "resize",
-        resize
+        resizeCanvas
     );
 
 
     /* START */
 
-    resize();
+    resizeCanvas();
 
-    draw();
+    drawParticles();
 
 }
