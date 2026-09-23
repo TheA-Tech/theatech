@@ -1,5 +1,11 @@
 /* =========================================================
-   MOBILE MENU
+   THEA.TECH
+   Interactive Experience
+========================================================= */
+
+
+/* =========================================================
+   MOBILE NAVIGATION
 ========================================================= */
 
 const menuToggle =
@@ -21,9 +27,8 @@ if (menuToggle && mainNav) {
     );
 
 
-    mainNav
-        .querySelectorAll("a")
-        .forEach(link => {
+    mainNav.querySelectorAll("a").forEach(
+        link => {
 
             link.addEventListener(
                 "click",
@@ -34,14 +39,14 @@ if (menuToggle && mainNav) {
                 }
             );
 
-        });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   REPEATING SCROLL REVEAL
-   Animation returns every time section enters viewport.
+   REPEATING SCROLL ANIMATIONS
 ========================================================= */
 
 const revealElements =
@@ -63,10 +68,12 @@ const revealObserver =
                 } else {
 
                     /*
-                       Important:
-                       Remove class when element leaves
-                       viewport so animation can happen again.
-                    */
+                     * Remove the class when the element
+                     * leaves the screen.
+                     *
+                     * This makes the animation run again
+                     * whenever the user comes back.
+                     */
 
                     entry.target.classList.remove(
                         "visible"
@@ -78,65 +85,76 @@ const revealObserver =
 
         },
         {
-            threshold: 0.12
+            threshold: 0.14
         }
     );
 
 
-revealElements.forEach(element => {
+revealElements.forEach(
+    element => {
 
-    revealObserver.observe(element);
+        revealObserver.observe(element);
 
-});
+    }
+);
 
 
 /* =========================================================
-   HERO MOUSE PARALLAX
+   HERO PARALLAX
 ========================================================= */
+
+const hero =
+    document.querySelector(".hero");
 
 const heroVisual =
     document.querySelector(".hero-visual");
 
 
-if (
-    heroVisual &&
+const supportsHover =
     window.matchMedia(
-        "(pointer: fine)"
-    ).matches
+        "(hover: hover)"
+    ).matches;
+
+
+if (
+    hero &&
+    heroVisual &&
+    supportsHover
 ) {
 
-    document.addEventListener(
+    hero.addEventListener(
         "mousemove",
         event => {
 
+            const rect =
+                hero.getBoundingClientRect();
+
             const x =
-                (event.clientX /
-                    window.innerWidth -
-                    .5);
+                (event.clientX - rect.left)
+                / rect.width
+                - .5;
 
             const y =
-                (event.clientY /
-                    window.innerHeight -
-                    .5);
+                (event.clientY - rect.top)
+                / rect.height
+                - .5;
 
 
             heroVisual.style.transform =
-                `translate3d(
-                    ${x * 18}px,
-                    ${y * 18}px,
-                    0
-                )`;
-
+                `
+                rotateY(${x * 5}deg)
+                rotateX(${y * -5}deg)
+                `;
         }
     );
 
 
-    document.addEventListener(
+    hero.addEventListener(
         "mouseleave",
         () => {
 
             heroVisual.style.transform =
-                "translate3d(0,0,0)";
+                "rotateY(0deg) rotateX(0deg)";
 
         }
     );
@@ -149,9 +167,7 @@ if (
 ========================================================= */
 
 const canvas =
-    document.getElementById(
-        "particleCanvas"
-    );
+    document.getElementById("particles");
 
 const ctx =
     canvas.getContext("2d");
@@ -159,97 +175,87 @@ const ctx =
 
 let particles = [];
 
-let particleCount =
-    window.innerWidth < 700
-        ? 45
-        : 90;
+let mouse = {
+    x: null,
+    y: null,
+    radius: 130
+};
 
 
 function resizeCanvas() {
 
     canvas.width =
-        window.innerWidth *
-        window.devicePixelRatio;
+        window.innerWidth;
 
     canvas.height =
-        window.innerHeight *
-        window.devicePixelRatio;
+        window.innerHeight;
 
-    canvas.style.width =
-        window.innerWidth + "px";
-
-    canvas.style.height =
-        window.innerHeight + "px";
-
-    ctx.setTransform(
-        window.devicePixelRatio,
-        0,
-        0,
-        window.devicePixelRatio,
-        0,
-        0
-    );
+    createParticles();
 
 }
-
-
-resizeCanvas();
-
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        resizeCanvas();
-
-        particleCount =
-            window.innerWidth < 700
-                ? 45
-                : 90;
-
-        createParticles();
-
-    }
-);
 
 
 function createParticles() {
 
     particles = [];
 
+
+    const area =
+        window.innerWidth *
+        window.innerHeight;
+
+
+    let amount =
+        Math.floor(area / 13000);
+
+
+    amount =
+        Math.max(
+            35,
+            Math.min(amount, 105)
+        );
+
+
+    if (window.innerWidth < 600) {
+
+        amount = 35;
+
+    }
+
+
     for (
         let i = 0;
-        i < particleCount;
+        i < amount;
         i++
     ) {
 
         particles.push({
 
             x:
-                Math.random() *
-                window.innerWidth,
+                Math.random()
+                * canvas.width,
 
             y:
-                Math.random() *
-                window.innerHeight,
+                Math.random()
+                * canvas.height,
+
+            vx:
+                (Math.random() - .5)
+                * .22,
+
+            vy:
+                (Math.random() - .5)
+                * .22,
 
             size:
-                Math.random() *
-                1.8 +
-                .5,
-
-            speedX:
-                (Math.random() - .5)
-                * .25,
-
-            speedY:
-                (Math.random() - .5)
-                * .25,
+                Math.random()
+                * 1.5
+                + .4,
 
             alpha:
-                Math.random() *
-                .45 +
-                .1
+                Math.random()
+                * .45
+                + .15
 
         });
 
@@ -258,18 +264,19 @@ function createParticles() {
 }
 
 
-createParticles();
-
-
 function drawParticles() {
 
     ctx.clearRect(
         0,
         0,
-        window.innerWidth,
-        window.innerHeight
+        canvas.width,
+        canvas.height
     );
 
+
+    /*
+     * Draw connections first.
+     */
 
     for (
         let i = 0;
@@ -277,84 +284,24 @@ function drawParticles() {
         i++
     ) {
 
-        const particle =
-            particles[i];
-
-
-        particle.x +=
-            particle.speedX;
-
-        particle.y +=
-            particle.speedY;
-
-
-        if (
-            particle.x < -20 ||
-            particle.x >
-            window.innerWidth + 20
-        ) {
-
-            particle.x =
-                Math.random() *
-                window.innerWidth;
-
-        }
-
-
-        if (
-            particle.y < -20 ||
-            particle.y >
-            window.innerHeight + 20
-        ) {
-
-            particle.y =
-                Math.random() *
-                window.innerHeight;
-
-        }
-
-
-        ctx.beginPath();
-
-        ctx.arc(
-            particle.x,
-            particle.y,
-            particle.size,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fillStyle =
-            `rgba(
-                103,
-                232,
-                249,
-                ${particle.alpha}
-            )`;
-
-        ctx.fill();
-
-
-        /*
-           Connect nearby particles.
-        */
-
         for (
             let j = i + 1;
             j < particles.length;
             j++
         ) {
 
-            const other =
+            const a =
+                particles[i];
+
+            const b =
                 particles[j];
 
+
             const dx =
-                particle.x -
-                other.x;
+                a.x - b.x;
 
             const dy =
-                particle.y -
-                other.y;
+                a.y - b.y;
 
             const distance =
                 Math.sqrt(
@@ -365,28 +312,25 @@ function drawParticles() {
 
             if (distance < 120) {
 
+                const opacity =
+                    (1 - distance / 120)
+                    * .12;
+
+
                 ctx.beginPath();
 
                 ctx.moveTo(
-                    particle.x,
-                    particle.y
+                    a.x,
+                    a.y
                 );
 
                 ctx.lineTo(
-                    other.x,
-                    other.y
+                    b.x,
+                    b.y
                 );
 
                 ctx.strokeStyle =
-                    `rgba(
-                        103,
-                        232,
-                        249,
-                        ${(
-                            1 -
-                            distance / 120
-                        ) * .10}
-                    )`;
+                    `rgba(96,165,250,${opacity})`;
 
                 ctx.lineWidth = .5;
 
@@ -399,6 +343,135 @@ function drawParticles() {
     }
 
 
+    /*
+     * Draw particles.
+     */
+
+    particles.forEach(
+        particle => {
+
+            particle.x +=
+                particle.vx;
+
+            particle.y +=
+                particle.vy;
+
+
+            /*
+             * Wrap around screen.
+             */
+
+            if (
+                particle.x < -10
+            ) {
+                particle.x =
+                    canvas.width + 10;
+            }
+
+            if (
+                particle.x >
+                canvas.width + 10
+            ) {
+                particle.x = -10;
+            }
+
+            if (
+                particle.y < -10
+            ) {
+                particle.y =
+                    canvas.height + 10;
+            }
+
+            if (
+                particle.y >
+                canvas.height + 10
+            ) {
+                particle.y = -10;
+            }
+
+
+            /*
+             * Mouse interaction.
+             */
+
+            if (
+                mouse.x !== null &&
+                mouse.y !== null
+            ) {
+
+                const dx =
+                    particle.x -
+                    mouse.x;
+
+                const dy =
+                    particle.y -
+                    mouse.y;
+
+                const distance =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    );
+
+
+                if (
+                    distance <
+                    mouse.radius
+                ) {
+
+                    const force =
+                        (
+                            mouse.radius -
+                            distance
+                        )
+                        / mouse.radius;
+
+
+                    particle.x +=
+                        (dx / distance)
+                        * force
+                        * .8;
+
+                    particle.y +=
+                        (dy / distance)
+                        * force
+                        * .8;
+
+                }
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.size,
+                0,
+                Math.PI * 2
+            );
+
+
+            /*
+             * RGB-style technology colors.
+             */
+
+            const color =
+                Math.random() > .5
+                    ? "96,165,250"
+                    : "34,211,238";
+
+
+            ctx.fillStyle =
+                `rgba(${color},${particle.alpha})`;
+
+            ctx.fill();
+
+        }
+    );
+
+
     requestAnimationFrame(
         drawParticles
     );
@@ -406,132 +479,181 @@ function drawParticles() {
 }
 
 
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+window.addEventListener(
+    "mousemove",
+    event => {
+
+        mouse.x =
+            event.clientX;
+
+        mouse.y =
+            event.clientY;
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseleave",
+    () => {
+
+        mouse.x = null;
+        mouse.y = null;
+
+    }
+);
+
+
+resizeCanvas();
+
 drawParticles();
 
 
 /* =========================================================
-   SMOOTH INTERNAL NAVIGATION
+   HERO VISUAL MOVEMENT
 ========================================================= */
 
-document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(link => {
+const floatingNodes =
+    document.querySelectorAll(
+        ".floating-node"
+    );
 
-        link.addEventListener(
-            "click",
-            event => {
 
-                const targetId =
-                    link.getAttribute(
-                        "href"
-                    );
+if (supportsHover) {
 
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            const x =
+                (
+                    event.clientX /
+                    window.innerWidth
+                ) - .5;
+
+            const y =
+                (
+                    event.clientY /
+                    window.innerHeight
+                ) - .5;
+
+
+            floatingNodes.forEach(
+                (node, index) => {
+
+                    const depth =
+                        (index + 1) * 4;
+
+
+                    node.style.transform =
+                        `
+                        translate(
+                            ${x * depth}px,
+                            ${y * depth}px
+                        )
+                        `;
+
                 }
+            );
 
+        }
+    );
 
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-
-                if (!target) {
-                    return;
-                }
-
-
-                event.preventDefault();
-
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-        );
-
-    });
+}
 
 
 /* =========================================================
-   CONTACT FORM SUCCESS MESSAGE
+   CONTACT SUCCESS MESSAGE
 ========================================================= */
 
-const urlParams =
+const params =
     new URLSearchParams(
         window.location.search
     );
 
 
 if (
-    urlParams.get("sent") === "1"
+    params.get("sent") === "1"
 ) {
 
-    const message =
-        document.createElement("div");
+    const form =
+        document.querySelector(
+            ".contact-form"
+        );
 
 
-    message.textContent =
-        "Your inquiry has been submitted successfully.";
+    if (form) {
 
-
-    message.style.position =
-        "fixed";
-
-    message.style.right =
-        "20px";
-
-    message.style.bottom =
-        "20px";
-
-    message.style.zIndex =
-        "9999";
-
-    message.style.padding =
-        "15px 18px";
-
-    message.style.borderRadius =
-        "12px";
-
-    message.style.background =
-        "#0f172a";
-
-    message.style.color =
-        "white";
-
-    message.style.boxShadow =
-        "0 20px 50px rgba(0,0,0,.25)";
-
-    message.style.fontSize =
-        "13px";
-
-
-    document.body.appendChild(
-        message
-    );
-
-
-    setTimeout(
-        () => {
-
-            message.remove();
-
-            history.replaceState(
-                {},
-                document.title,
-                window.location.pathname
+        const message =
+            document.createElement(
+                "div"
             );
 
-        },
-        4500
-    );
+
+        message.textContent =
+            "Your inquiry has been submitted successfully.";
+
+
+        message.style.cssText = `
+            margin-bottom:20px;
+            padding:12px 14px;
+            border:1px solid rgba(34,211,238,.25);
+            border-radius:8px;
+            background:rgba(34,211,238,.08);
+            color:#a5f3fc;
+            font-size:.75rem;
+        `;
+
+
+        form.prepend(message);
+
+    }
 
 }
+
+
+/* =========================================================
+   HEADER SCROLL EFFECT
+========================================================= */
+
+const header =
+    document.querySelector(
+        ".site-header"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 30
+        ) {
+
+            header.style.background =
+                "rgba(3,6,17,.91)";
+
+            header.style.borderBottomColor =
+                "rgba(255,255,255,.12)";
+
+        } else {
+
+            header.style.background =
+                "rgba(4,8,22,.72)";
+
+            header.style.borderBottomColor =
+                "rgba(255,255,255,.08)";
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
