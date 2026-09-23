@@ -1,214 +1,141 @@
 /* =========================================================
-   THEA.TECH MAIN WEBSITE
-   ========================================================= */
+   THEA.TECH
+   INTERACTIONS + PARTICLES
+========================================================= */
 
 
 /* =========================================================
    MOBILE MENU
-   ========================================================= */
+========================================================= */
 
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mainNav =
+    document.getElementById("mainNav");
 
 
 if (menuToggle && mainNav) {
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-        mainNav.classList.toggle("open");
-
-        const icon = menuToggle.querySelector("i");
-
-        if (mainNav.classList.contains("open")) {
-
-            icon.className = "fa-solid fa-xmark";
-
-        } else {
-
-            icon.className = "fa-solid fa-bars";
+            mainNav.classList.toggle("open");
 
         }
+    );
 
-    });
 
+    mainNav
+        .querySelectorAll("a")
+        .forEach(link => {
 
-    document.querySelectorAll("#mainNav a").forEach(link => {
+            link.addEventListener(
+                "click",
+                () => {
 
-        link.addEventListener("click", () => {
+                    mainNav.classList.remove("open");
 
-            mainNav.classList.remove("open");
-
-            const icon = menuToggle.querySelector("i");
-
-            if (icon) {
-
-                icon.className = "fa-solid fa-bars";
-
-            }
+                }
+            );
 
         });
-
-    });
 
 }
 
 
 /* =========================================================
-   CURRENT YEAR
-   ========================================================= */
+   SCROLL REVEAL
+========================================================= */
 
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-
-    currentYear.textContent = new Date().getFullYear();
-
-}
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-/* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
 
-const sectionObserver = new IntersectionObserver(
+revealElements.forEach(
+    element => {
 
-    entries => {
+        revealObserver.observe(element);
 
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                navLinks.forEach(link => {
-
-                    link.classList.remove("active");
-
-                    if (
-                        link.getAttribute("href") ===
-                        "#" + entry.target.id
-                    ) {
-
-                        link.classList.add("active");
-
-                    }
-
-                });
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.35
     }
-
 );
 
 
-sections.forEach(section => {
-
-    sectionObserver.observe(section);
-
-});
-
-
 /* =========================================================
-   REVEAL ANIMATIONS
-   ========================================================= */
+   CONTACT FORM MESSAGE
+========================================================= */
 
-const revealItems = document.querySelectorAll(".reveal");
+const contactForm =
+    document.getElementById("contactForm");
 
-
-const revealObserver = new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                revealObserver.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.12
-    }
-
-);
+const formMessage =
+    document.getElementById("formMessage");
 
 
-revealItems.forEach(item => {
+if (contactForm && formMessage) {
 
-    revealObserver.observe(item);
-
-});
-
-
-/* =========================================================
-   FORM
-   ========================================================= */
-
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
-
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", () => {
-
-        if (formMessage) {
+    contactForm.addEventListener(
+        "submit",
+        () => {
 
             formMessage.textContent =
-                "Preparing your inquiry...";
+                "Sending your inquiry...";
 
         }
-
-    });
+    );
 
 }
 
 
 /* =========================================================
-   FORM SUCCESS MESSAGE
-   ========================================================= */
+   SENT MESSAGE
+========================================================= */
 
-const params = new URLSearchParams(
-    window.location.search
-);
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
 
 if (params.get("sent") === "1") {
 
-    if (formMessage) {
+    const message =
+        document.getElementById(
+            "formMessage"
+        );
 
-        formMessage.textContent =
-            "Your inquiry was submitted successfully.";
+    if (message) {
 
-    }
-
-    const contact = document.getElementById("contact");
-
-    if (contact) {
-
-        setTimeout(() => {
-
-            contact.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }, 300);
+        message.textContent =
+            "Your inquiry has been submitted successfully.";
 
     }
 
@@ -217,181 +144,53 @@ if (params.get("sent") === "1") {
 
 /* =========================================================
    PARTICLE SYSTEM
-   ========================================================= */
+========================================================= */
 
-const canvas = document.getElementById("techParticles");
+const canvas =
+    document.getElementById(
+        "techParticles"
+    );
 
 
 if (canvas) {
 
-    const ctx = canvas.getContext("2d");
+    const ctx =
+        canvas.getContext("2d");
 
     let particles = [];
 
     let width = 0;
     let height = 0;
 
-    let mouse = {
-        x: null,
-        y: null,
-        radius: 130
-    };
-
 
     function resizeCanvas() {
 
-        const pixelRatio =
-            Math.min(window.devicePixelRatio || 1, 2);
+        width =
+            canvas.width =
+            window.innerWidth *
+            window.devicePixelRatio;
 
-        width = window.innerWidth;
-        height = window.innerHeight;
+        height =
+            canvas.height =
+            window.innerHeight *
+            window.devicePixelRatio;
 
-        canvas.width = width * pixelRatio;
-        canvas.height = height * pixelRatio;
+        canvas.style.width =
+            window.innerWidth + "px";
 
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
+        canvas.style.height =
+            window.innerHeight + "px";
 
         ctx.setTransform(
-            pixelRatio,
+            window.devicePixelRatio,
             0,
             0,
-            pixelRatio,
+            window.devicePixelRatio,
             0,
             0
         );
 
-    }
-
-
-    class Particle {
-
-        constructor() {
-
-            this.reset();
-
-        }
-
-
-        reset() {
-
-            this.x =
-                Math.random() * width;
-
-            this.y =
-                Math.random() * height;
-
-            this.size =
-                Math.random() * 2.4 + 0.8;
-
-            this.speedX =
-                (Math.random() - 0.5) * 0.32;
-
-            this.speedY =
-                (Math.random() - 0.5) * 0.32;
-
-            const colors = [
-                "8,124,255",
-                "0,198,255",
-                "124,77,255",
-                "55,110,210"
-            ];
-
-            this.color =
-                colors[
-                    Math.floor(
-                        Math.random() * colors.length
-                    )
-                ];
-
-            this.alpha =
-                Math.random() * 0.38 + 0.14;
-
-        }
-
-
-        update() {
-
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-
-            if (this.x < -20) {
-                this.x = width + 20;
-            }
-
-            if (this.x > width + 20) {
-                this.x = -20;
-            }
-
-            if (this.y < -20) {
-                this.y = height + 20;
-            }
-
-            if (this.y > height + 20) {
-                this.y = -20;
-            }
-
-
-            if (mouse.x !== null) {
-
-                const dx = this.x - mouse.x;
-                const dy = this.y - mouse.y;
-
-                const distance =
-                    Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < mouse.radius) {
-
-                    const force =
-                        (mouse.radius - distance)
-                        / mouse.radius;
-
-                    const angle =
-                        Math.atan2(dy, dx);
-
-                    this.x +=
-                        Math.cos(angle) *
-                        force *
-                        0.8;
-
-                    this.y +=
-                        Math.sin(angle) *
-                        force *
-                        0.8;
-
-                }
-
-            }
-
-        }
-
-
-        draw() {
-
-            ctx.beginPath();
-
-            ctx.arc(
-                this.x,
-                this.y,
-                this.size,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fillStyle =
-                `rgba(${this.color},${this.alpha})`;
-
-            ctx.shadowBlur = 10;
-
-            ctx.shadowColor =
-                `rgba(${this.color},0.35)`;
-
-            ctx.fill();
-
-            ctx.shadowBlur = 0;
-
-        }
+        createParticles();
 
     }
 
@@ -400,28 +199,64 @@ if (canvas) {
 
         particles = [];
 
-        const density =
-            window.innerWidth < 650
-                ? 45
-                : 85;
-
-        for (let i = 0; i < density; i++) {
-
-            particles.push(
-                new Particle()
+        const amount =
+            Math.min(
+                115,
+                Math.floor(
+                    window.innerWidth / 11
+                )
             );
+
+
+        for (
+            let i = 0;
+            i < amount;
+            i++
+        ) {
+
+            particles.push({
+
+                x:
+                    Math.random() *
+                    window.innerWidth,
+
+                y:
+                    Math.random() *
+                    window.innerHeight,
+
+                vx:
+                    (Math.random() - .5) *
+                    .25,
+
+                vy:
+                    (Math.random() - .5) *
+                    .25,
+
+                size:
+                    Math.random() *
+                    1.7 +
+                    .5,
+
+                alpha:
+                    Math.random() *
+                    .45 +
+                    .15
+
+            });
 
         }
 
     }
 
 
-    function connectParticles() {
+    function drawParticles() {
 
-        const maxDistance =
-            window.innerWidth < 650
-                ? 105
-                : 130;
+        ctx.clearRect(
+            0,
+            0,
+            window.innerWidth,
+            window.innerHeight
+        );
 
 
         for (
@@ -430,19 +265,68 @@ if (canvas) {
             i++
         ) {
 
+            const p =
+                particles[i];
+
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+
+            if (
+                p.x < -20 ||
+                p.x >
+                window.innerWidth + 20
+            ) {
+
+                p.vx *= -1;
+
+            }
+
+
+            if (
+                p.y < -20 ||
+                p.y >
+                window.innerHeight + 20
+            ) {
+
+                p.vy *= -1;
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                p.x,
+                p.y,
+                p.size,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(36,124,255,${p.alpha})`;
+
+            ctx.fill();
+
+
             for (
                 let j = i + 1;
                 j < particles.length;
                 j++
             ) {
 
+                const q =
+                    particles[j];
+
+
                 const dx =
-                    particles[i].x -
-                    particles[j].x;
+                    p.x - q.x;
 
                 const dy =
-                    particles[i].y -
-                    particles[j].y;
+                    p.y - q.y;
 
                 const distance =
                     Math.sqrt(
@@ -451,28 +335,28 @@ if (canvas) {
                     );
 
 
-                if (distance < maxDistance) {
+                if (distance < 125) {
 
                     const opacity =
-                        (1 - distance / maxDistance)
-                        * 0.13;
+                        (1 -
+                            distance / 125) *
+                        .08;
 
 
                     ctx.beginPath();
 
                     ctx.moveTo(
-                        particles[i].x,
-                        particles[i].y
+                        p.x,
+                        p.y
                     );
 
                     ctx.lineTo(
-                        particles[j].x,
-                        particles[j].y
+                        q.x,
+                        q.y
                     );
 
-
                     ctx.strokeStyle =
-                        `rgba(8,124,255,${opacity})`;
+                        `rgba(139,92,246,${opacity})`;
 
                     ctx.lineWidth = .7;
 
@@ -484,33 +368,9 @@ if (canvas) {
 
         }
 
-    }
-
-
-    function animateParticles() {
-
-        ctx.clearRect(
-            0,
-            0,
-            width,
-            height
-        );
-
-
-        particles.forEach(particle => {
-
-            particle.update();
-
-            particle.draw();
-
-        });
-
-
-        connectParticles();
-
 
         requestAnimationFrame(
-            animateParticles
+            drawParticles
         );
 
     }
@@ -518,99 +378,179 @@ if (canvas) {
 
     window.addEventListener(
         "resize",
-        () => {
-
-            resizeCanvas();
-
-            createParticles();
-
-        }
-    );
-
-
-    window.addEventListener(
-        "mousemove",
-        event => {
-
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
-
-        }
-    );
-
-
-    window.addEventListener(
-        "mouseleave",
-        () => {
-
-            mouse.x = null;
-            mouse.y = null;
-
-        }
+        resizeCanvas
     );
 
 
     resizeCanvas();
 
-    createParticles();
-
-    animateParticles();
+    drawParticles();
 
 }
 
 
 /* =========================================================
-   SMOOTH ANCHOR OFFSET
-   ========================================================= */
+   HEADER SCROLL EFFECT
+========================================================= */
 
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(anchor => {
-
-    anchor.addEventListener(
-        "click",
-        function (event) {
-
-            const targetId =
-                this.getAttribute("href");
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
+const header =
+    document.querySelector(
+        ".site-header"
+    );
 
 
-            const target =
-                document.querySelector(targetId);
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!header) return;
 
 
-            if (!target) {
-                return;
-            }
+        if (window.scrollY > 30) {
+
+            header.style.boxShadow =
+                "0 10px 35px rgba(16,24,40,.08)";
+
+        } else {
+
+            header.style.boxShadow =
+                "none";
+
+        }
+
+    }
+);
 
 
-            event.preventDefault();
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        ".main-nav a[href^='#']"
+    );
 
 
-            const headerOffset = 85;
+const activeObserver =
+    new IntersectionObserver(
+        entries => {
 
-            const position =
-                target.getBoundingClientRect().top
-                + window.scrollY
-                - headerOffset;
+            entries.forEach(entry => {
 
+                if (entry.isIntersecting) {
 
-            window.scrollTo({
+                    navLinks.forEach(
+                        link => {
 
-                top: position,
+                            link.classList.remove(
+                                "active"
+                            );
 
-                behavior: "smooth"
+                            if (
+                                link.getAttribute(
+                                    "href"
+                                ) ===
+                                "#" +
+                                entry.target.id
+                            ) {
+
+                                link.classList.add(
+                                    "active"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
 
             });
+
+        },
+        {
+            rootMargin:
+                "-30% 0px -60% 0px"
+        }
+    );
+
+
+sections.forEach(
+    section => {
+
+        activeObserver.observe(
+            section
+        );
+
+    }
+);
+
+
+/* =========================================================
+   3D CARD MOUSE EFFECT
+========================================================= */
+
+const systemCard =
+    document.querySelector(
+        ".system-card"
+    );
+
+
+if (
+    systemCard &&
+    window.innerWidth > 850
+) {
+
+    systemCard.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                systemCard.getBoundingClientRect();
+
+
+            const x =
+                event.clientX -
+                rect.left;
+
+            const y =
+                event.clientY -
+                rect.top;
+
+
+            const rotateY =
+                ((x / rect.width) - .5) *
+                8;
+
+            const rotateX =
+                ((y / rect.height) - .5) *
+                -8;
+
+
+            systemCard.style.transform =
+                `perspective(1000px)
+                 rotateY(${rotateY}deg)
+                 rotateX(${rotateX}deg)
+                 translateY(-5px)`;
 
         }
     );
 
-});
+
+    systemCard.addEventListener(
+        "mouseleave",
+        () => {
+
+            systemCard.style.transform =
+                "perspective(1000px) rotateY(-7deg) rotateX(4deg)";
+
+        }
+    );
+
+}
