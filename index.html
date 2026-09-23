@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,104 +10,1556 @@
 
     <meta
         name="description"
-        content="THEA.TECH — Digital technology, business software, web development and custom digital solutions."
+        content="THEA.TECH — Digital solutions, business software, web development and technology services."
     >
 
-    <title>THEA.TECH | Technology & Digital Solutions</title>
+    <title>THEA.TECH | Digital Solutions & Business Technology</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-    <!-- =========================================
-         PARTICLE BACKGROUND
-    ========================================== -->
+<!-- =====================================================
+     PARTICLE BACKGROUND
+===================================================== -->
 
-    <canvas
-        id="techParticles"
-        aria-hidden="true"
-    ></canvas>
+<canvas id="techParticles"></canvas>
 
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <header class="site-header">
+<header class="site-header">
 
-        <div class="container header-inner">
+    <div class="container header-inner">
 
-            <a
-                href="#home"
-                class="brand"
-            >
+        <a href="#home" class="brand">
 
-                <img
-                    src="logo.png"
-                    alt="THEA.TECH Logo"
-                >
+            <div class="brand-logo-wrap">
+                <img src="logo.png" alt="THEA.TECH">
+            </div>
 
-                <span>THEA.TECH</span>
+            <div class="brand-text">
+                <strong>THEA</strong>
+                <span>.TECH</span>
+            </div>
 
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <nav class="main-nav" id="mainNav">
+
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#solutions" class="nav-link">Solutions</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#contact" class="nav-link">Contact</a>
+
+            <a href="portal.html" class="portal-link">
+                Client Portal
             </a>
 
+        </nav>
 
-            <nav
-                class="main-nav"
-                id="mainNav"
+
+        <div class="header-socials">
+
+            <a
+                href="https://wa.me/923255411451"
+                target="_blank"
+                aria-label="WhatsApp"
             >
+                WA
+            </a>
 
-                <a href="#home">Home</a>
+            <a
+                href="mailto:thea.tech2@gmail.com"
+                aria-label="Email"
+            >
+                @
+            </a>
 
-                <a href="#services">Services</a>
+            <a
+                href="https://www.facebook.com/61558368271727"
+                target="_blank"
+                aria-label="Facebook"
+            >
+                f
+            </a>
 
-                <a href="#projects">Projects</a>
+            <a
+                href="https://www.instagram.com/the_a_tech?stkn=MWs2cXd6ZGh5bnhmNw=="
+                target="_blank"
+                aria-label="Instagram"
+            >
+                ◎
+            </a>
 
-                <a href="#about">About</a>
+        </div>
 
-                <a href="#process">Process</a>
+    </div>
 
-                <a href="#contact">Contact</a>
+</header>
+
+
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-orb orb-one"></div>
+    <div class="hero-orb orb-two"></div>
+    <div class="hero-orb orb-three"></div>
+
+
+    <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                DIGITAL SOLUTIONS • BUSINESS TECHNOLOGY
+            </div>
+
+
+            <h1>
+
+                Build smarter.
+                <span>Work better.</span>
+                Grow with technology.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                THEA.TECH helps businesses turn ideas, manual processes
+                and everyday problems into modern digital systems,
+                websites, software and practical technology solutions.
+
+            </p>
+
+
+            <div class="hero-buttons">
 
                 <a
-                    href="portal.html"
-                    class="nav-portal"
+                    href="#services"
+                    class="btn btn-primary"
                 >
-                    Client Portal
+                    Explore Services
+                    <span>→</span>
                 </a>
 
-            </nav>
+
+                <a
+                    href="#contact"
+                    class="btn btn-secondary"
+                >
+                    Start a Project
+                </a>
+
+            </div>
 
 
-            <div class="header-socials">
+            <div class="hero-mini-stats">
+
+                <div>
+                    <strong>WEB</strong>
+                    <span>Development</span>
+                </div>
+
+                <div>
+                    <strong>ERP</strong>
+                    <span>Business Systems</span>
+                </div>
+
+                <div>
+                    <strong>DATA</strong>
+                    <span>Digital Insights</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 3D HERO VISUAL -->
+
+        <div class="hero-visual reveal">
+
+            <div class="visual-glow"></div>
+
+            <div class="cube-scene">
+
+                <div class="cube">
+
+                    <div class="cube-face front">
+                        THEA
+                    </div>
+
+                    <div class="cube-face back">
+                        .TECH
+                    </div>
+
+                    <div class="cube-face right">
+                        DATA
+                    </div>
+
+                    <div class="cube-face left">
+                        WEB
+                    </div>
+
+                    <div class="cube-face top">
+                        ERP
+                    </div>
+
+                    <div class="cube-face bottom">
+                        AI
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-top">
+
+                <span class="floating-icon">✦</span>
+
+                <div>
+                    <strong>Digital Systems</strong>
+                    <small>Built around your workflow</small>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-bottom">
+
+                <div class="mini-bars">
+
+                    <i style="height:35%"></i>
+                    <i style="height:55%"></i>
+                    <i style="height:45%"></i>
+                    <i style="height:75%"></i>
+                    <i style="height:90%"></i>
+
+                </div>
+
+                <div>
+                    <strong>Business Insights</strong>
+                    <small>Data → Decisions</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-scroll">
+        <span></span>
+        Scroll to explore
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="section services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-kicker">
+                WHAT WE DO
+            </div>
+
+            <h2>
+                Technology that solves
+                <span>real business problems.</span>
+            </h2>
+
+            <p>
+                Our services are designed around practical business needs —
+                from creating your online presence to building systems that
+                organize operations, information and workflows.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <!-- SERVICE 1 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-number">01</div>
+
+                <div class="service-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    We build professional websites that explain your business
+                    clearly, build trust with visitors and give customers a
+                    simple way to contact or interact with you.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>Business websites</span>
+                    <span>Landing pages</span>
+                    <span>Responsive design</span>
+                    <span>Interactive interfaces</span>
+
+                </div>
+
+                <a href="#contact" class="service-link">
+                    Discuss a website →
+                </a>
+
+            </article>
+
+
+
+            <!-- SERVICE 2 -->
+
+            <article class="service-card featured reveal">
+
+                <div class="service-number">02</div>
+
+                <div class="service-icon">
+                    ◈
+                </div>
+
+                <h3>Business Software</h3>
+
+                <p>
+                    We design software around how a business actually works.
+                    This can include customer records, invoices, inventory,
+                    expenses, reporting and other repetitive workflows.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>ERP concepts</span>
+                    <span>Business dashboards</span>
+                    <span>Data management</span>
+                    <span>Workflow systems</span>
+
+                </div>
+
+                <a href="#solutions" class="service-link">
+                    Explore systems →
+                </a>
+
+            </article>
+
+
+
+            <!-- SERVICE 3 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-number">03</div>
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>UI / UX Design</h3>
+
+                <p>
+                    Good software should not feel complicated. We create
+                    interfaces that organize information logically so users
+                    can understand what to do without unnecessary confusion.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>Interface design</span>
+                    <span>Mobile layouts</span>
+                    <span>User flows</span>
+                    <span>Design systems</span>
+
+                </div>
+
+                <a href="#contact" class="service-link">
+                    Design an interface →
+                </a>
+
+            </article>
+
+
+
+            <!-- SERVICE 4 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-number">04</div>
+
+                <div class="service-icon">
+                    ◌
+                </div>
+
+                <h3>Digital Solutions</h3>
+
+                <p>
+                    Sometimes the problem is not one piece of software.
+                    We can help map the problem, organize the workflow and
+                    create a digital solution around the actual requirement.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>Process improvement</span>
+                    <span>Digital workflows</span>
+                    <span>Business tools</span>
+                    <span>Custom solutions</span>
+
+                </div>
+
+                <a href="#contact" class="service-link">
+                    Discuss a problem →
+                </a>
+
+            </article>
+
+
+
+            <!-- SERVICE 5 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-number">05</div>
+
+                <div class="service-icon">
+                    ☁
+                </div>
+
+                <h3>Cloud & Deployment</h3>
+
+                <p>
+                    We help move digital projects from development into a
+                    usable online environment, including hosting, deployment,
+                    domains and practical maintenance considerations.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>Web deployment</span>
+                    <span>Hosting setup</span>
+                    <span>Domain connection</span>
+                    <span>Maintenance planning</span>
+
+                </div>
+
+                <a href="#contact" class="service-link">
+                    Plan deployment →
+                </a>
+
+            </article>
+
+
+
+            <!-- SERVICE 6 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-number">06</div>
+
+                <div class="service-icon">
+                    ⌘
+                </div>
+
+                <h3>Custom Projects</h3>
+
+                <p>
+                    Have a specific idea that does not fit into a standard
+                    service? We can break the requirement into smaller
+                    components and develop a practical project around it.
+                </p>
+
+                <div class="service-detail">
+
+                    <span>Custom applications</span>
+                    <span>Automation concepts</span>
+                    <span>Internal tools</span>
+                    <span>Prototypes</span>
+
+                </div>
+
+                <a href="#contact" class="service-link">
+                    Tell us your idea →
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOLUTIONS / GRAPHICS
+===================================================== -->
+
+<section class="section solutions-section" id="solutions">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-kicker">
+                DIGITAL THINKING
+            </div>
+
+            <h2>
+                From scattered information
+                <span>to useful insight.</span>
+            </h2>
+
+            <p>
+                A modern business system should do more than store information.
+                It should help people understand what is happening and what
+                needs attention.
+            </p>
+
+        </div>
+
+
+
+        <div class="dashboard-showcase reveal">
+
+            <div class="dashboard-topbar">
+
+                <div>
+                    <span class="live-dot"></span>
+                    Business Intelligence Preview
+                </div>
+
+                <span class="dashboard-label">
+                    ILLUSTRATIVE UI
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+
+                <!-- LEFT -->
+
+                <div class="dashboard-main">
+
+                    <div class="dash-heading">
+
+                        <div>
+                            <small>Performance overview</small>
+                            <h3>Business Activity</h3>
+                        </div>
+
+                        <div class="dash-period">
+                            Monthly
+                        </div>
+
+                    </div>
+
+
+                    <!-- CSS LINE GRAPH -->
+
+                    <div class="chart-area">
+
+                        <div class="chart-y">
+                            <span>100</span>
+                            <span>75</span>
+                            <span>50</span>
+                            <span>25</span>
+                            <span>0</span>
+                        </div>
+
+
+                        <div class="line-chart">
+
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+                            <div class="grid-line"></div>
+
+
+                            <svg
+                                viewBox="0 0 700 250"
+                                preserveAspectRatio="none"
+                            >
+
+                                <defs>
+
+                                    <linearGradient
+                                        id="areaGradient"
+                                        x1="0"
+                                        y1="0"
+                                        x2="0"
+                                        y2="1"
+                                    >
+
+                                        <stop
+                                            offset="0%"
+                                            stop-color="#00d9ff"
+                                            stop-opacity=".30"
+                                        />
+
+                                        <stop
+                                            offset="100%"
+                                            stop-color="#00d9ff"
+                                            stop-opacity="0"
+                                        />
+
+                                    </linearGradient>
+
+                                </defs>
+
+
+                                <path
+                                    class="chart-area-fill"
+                                    d="M0,205
+                                    C70,190 90,175 140,182
+                                    C190,188 215,125 270,140
+                                    C325,155 350,105 400,120
+                                    C450,135 475,78 520,92
+                                    C570,105 610,50 700,62
+                                    L700,250 L0,250 Z"
+                                />
+
+
+                                <path
+                                    class="chart-line"
+                                    d="M0,205
+                                    C70,190 90,175 140,182
+                                    C190,188 215,125 270,140
+                                    C325,155 350,105 400,120
+                                    C450,135 475,78 520,92
+                                    C570,105 610,50 700,62"
+                                />
+
+                            </svg>
+
+
+                            <div class="chart-points">
+
+                                <span style="left:0%;top:82%"></span>
+                                <span style="left:20%;top:73%"></span>
+                                <span style="left:40%;top:56%"></span>
+                                <span style="left:60%;top:48%"></span>
+                                <span style="left:80%;top:32%"></span>
+                                <span style="left:100%;top:25%"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-months">
+
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                        <span>Apr</span>
+                        <span>May</span>
+                        <span>Jun</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT -->
+
+                <div class="dashboard-side">
+
+
+                    <div class="metric-card">
+
+                        <span>Total Activity</span>
+
+                        <strong>24.8K</strong>
+
+                        <small>
+                            Illustrative metric
+                        </small>
+
+                        <div class="metric-progress">
+                            <i style="width:78%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span>Workflow Status</span>
+
+                        <strong>82%</strong>
+
+                        <small>
+                            Example completion indicator
+                        </small>
+
+                        <div class="circle-progress">
+                            <div>
+                                82%
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-chart-card">
+
+                        <span>Category distribution</span>
+
+                        <div class="donut-wrap">
+
+                            <div class="donut"></div>
+
+                            <div class="donut-label">
+                                <strong>100%</strong>
+                                <small>Example</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="solution-points">
+
+            <div class="solution-point reveal">
+
+                <span>01</span>
+
+                <div>
+                    <h3>Collect</h3>
+                    <p>
+                        Keep important business information organized
+                        instead of scattered across different files.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="solution-point reveal">
+
+                <span>02</span>
+
+                <div>
+                    <h3>Connect</h3>
+                    <p>
+                        Link related information so repetitive work becomes
+                        easier to manage.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="solution-point reveal">
+
+                <span>03</span>
+
+                <div>
+                    <h3>Understand</h3>
+                    <p>
+                        Turn organized information into dashboards,
+                        reports and useful visual summaries.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="solution-point reveal">
+
+                <span>04</span>
+
+                <div>
+                    <h3>Improve</h3>
+                    <p>
+                        Use the system to identify workflow problems
+                        and improve processes over time.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section class="section projects-section" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-kicker">
+                SELECTED WORK
+            </div>
+
+            <h2>
+                Projects built around
+                <span>real digital needs.</span>
+            </h2>
+
+            <p>
+                A look at the type of technology products and digital systems
+                THEA.TECH can design and develop.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <article class="project-card project-large reveal">
+
+                <div class="project-visual books-visual">
+
+                    <div class="books-window">
+
+                        <div class="window-header">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="books-layout">
+
+                            <aside></aside>
+
+                            <div class="books-content">
+
+                                <div class="fake-stat-row">
+
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+
+                                </div>
+
+                                <div class="fake-chart"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-type">
+                        IN-HOUSE PRODUCT
+                    </div>
+
+                    <h3>THEA Books</h3>
+
+                    <p>
+                        A business-management and accounting software concept
+                        designed to organize sales, purchases, expenses,
+                        customers, vendors, inventory and reporting.
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>ERP</span>
+                        <span>Accounting</span>
+                        <span>Dashboard</span>
+                        <span>Business Data</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-visual website-visual">
+
+                    <div class="browser-card">
+
+                        <div class="browser-top">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <div class="browser-screen">
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-type">
+                        WEB PROJECTS
+                    </div>
+
+                    <h3>Business Websites</h3>
+
+                    <p>
+                        Professional websites designed to communicate a
+                        business clearly and create a stronger digital presence.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Web</span>
+                        <span>UI/UX</span>
+                        <span>Responsive</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-visual data-visual">
+
+                    <div class="data-columns">
+
+                        <i style="height:35%"></i>
+                        <i style="height:52%"></i>
+                        <i style="height:44%"></i>
+                        <i style="height:70%"></i>
+                        <i style="height:86%"></i>
+                        <i style="height:62%"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-type">
+                        DIGITAL SYSTEMS
+                    </div>
+
+                    <h3>Business Dashboards</h3>
+
+                    <p>
+                        Visual dashboards that bring important operational
+                        information together so teams can understand it faster.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Analytics</span>
+                        <span>Reports</span>
+                        <span>Data</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="section about-section" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-content reveal">
+
+            <div class="section-kicker">
+                WHY THEA.TECH
+            </div>
+
+            <h2>
+                Technology should make
+                <span>business easier.</span>
+            </h2>
+
+            <p>
+                Many businesses do not need complicated technology.
+                They need technology that fits the way they already work
+                and gradually makes that work more organized.
+            </p>
+
+            <p>
+                THEA.TECH focuses on practical digital solutions:
+                understanding the requirement, designing the experience,
+                developing the system and improving it as the business grows.
+            </p>
+
+
+            <a href="#contact" class="text-button">
+                Discuss your requirement →
+            </a>
+
+        </div>
+
+
+        <div class="about-3d reveal">
+
+            <div class="about-ring ring-one"></div>
+            <div class="about-ring ring-two"></div>
+            <div class="about-ring ring-three"></div>
+
+            <div class="about-core">
+
+                <span>THEA</span>
+                <small>.TECH</small>
+
+            </div>
+
+            <div class="about-node node-one">
+                WEB
+            </div>
+
+            <div class="about-node node-two">
+                DATA
+            </div>
+
+            <div class="about-node node-three">
+                ERP
+            </div>
+
+            <div class="about-node node-four">
+                UX
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="section process-section" id="process">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-kicker">
+                HOW WE WORK
+            </div>
+
+            <h2>
+                From idea to
+                <span>working solution.</span>
+            </h2>
+
+            <p>
+                Every project starts with understanding the problem before
+                deciding what technology should be used.
+            </p>
+
+        </div>
+
+
+        <div class="process-timeline">
+
+
+            <div class="process-card reveal">
+
+                <div class="process-icon">01</div>
+
+                <h3>Discover</h3>
+
+                <p>
+                    Understand the business, users, goals and actual problem
+                    that needs to be solved.
+                </p>
+
+            </div>
+
+
+            <div class="process-line"></div>
+
+
+            <div class="process-card reveal">
+
+                <div class="process-icon">02</div>
+
+                <h3>Plan</h3>
+
+                <p>
+                    Break the requirement into features, screens, workflows
+                    and a practical development plan.
+                </p>
+
+            </div>
+
+
+            <div class="process-line"></div>
+
+
+            <div class="process-card reveal">
+
+                <div class="process-icon">03</div>
+
+                <h3>Build</h3>
+
+                <p>
+                    Develop the website, software or digital system and
+                    continuously test the important user flows.
+                </p>
+
+            </div>
+
+
+            <div class="process-line"></div>
+
+
+            <div class="process-card reveal">
+
+                <div class="process-icon">04</div>
+
+                <h3>Improve</h3>
+
+                <p>
+                    Review the result, fix issues and identify useful
+                    improvements for the next stage.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-card reveal">
+
+            <div class="cta-glow"></div>
+
+            <div>
+
+                <div class="section-kicker">
+                    HAVE AN IDEA?
+                </div>
+
+                <h2>
+                    Let's turn your idea
+                    <span>into something useful.</span>
+                </h2>
+
+                <p>
+                    Tell us what you want to build, improve or automate.
+                    We can start by understanding the requirement.
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/923255411451"
+                target="_blank"
+                class="btn btn-primary"
+            >
+                Start a Conversation →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container contact-grid">
+
+
+        <div class="contact-info reveal">
+
+            <div class="section-kicker">
+                CONTACT THEA.TECH
+            </div>
+
+            <h2>
+                Let's talk about
+                <span>your project.</span>
+            </h2>
+
+            <p>
+                Have a website requirement, business software idea,
+                dashboard project or another technology problem?
+                Send the details and we can discuss the next step.
+            </p>
+
+
+            <div class="contact-methods">
 
                 <a
                     href="https://wa.me/923255411451"
                     target="_blank"
-                    rel="noopener"
-                    aria-label="WhatsApp"
+                    class="contact-method"
+                >
+
+                    <span class="contact-icon">WA</span>
+
+                    <div>
+                        <small>WhatsApp</small>
+                        <strong>0325 5411451</strong>
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="mailto:thea.tech2@gmail.com"
+                    class="contact-method"
+                >
+
+                    <span class="contact-icon">@</span>
+
+                    <div>
+                        <small>Email</small>
+                        <strong>thea.tech2@gmail.com</strong>
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-socials">
+
+                <a
+                    href="https://www.facebook.com/61558368271727"
+                    target="_blank"
+                >
+                    Facebook
+                </a>
+
+                <a
+                    href="https://www.instagram.com/the_a_tech?stkn=MWs2cXd6ZGh5bnhmNw=="
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="portal.html"
+                >
+                    Client Portal
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-form-wrap reveal">
+
+            <form
+                id="contactForm"
+                action="https://formsubmit.co/thea.tech2@gmail.com"
+                method="POST"
+            >
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New THEA.TECH Website Inquiry"
+                >
+
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table"
+                >
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="true"
+                >
+
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://thea-tech.github.io/theatech/?sent=1"
+                >
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="service">
+                        What do you need?
+                    </label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option value="">
+                            Select a service
+                        </option>
+
+                        <option>
+                            Web Development
+                        </option>
+
+                        <option>
+                            Business Software
+                        </option>
+
+                        <option>
+                            UI / UX Design
+                        </option>
+
+                        <option>
+                            Digital Solution
+                        </option>
+
+                        <option>
+                            Dashboard / Analytics
+                        </option>
+
+                        <option>
+                            Custom Project
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Project Details
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Briefly explain what you want to build..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary form-submit"
+                >
+                    Send Project Inquiry
+                    <span>→</span>
+                </button>
+
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="#home" class="brand">
+
+                <div class="brand-logo-wrap">
+                    <img src="logo.png" alt="THEA.TECH">
+                </div>
+
+                <div class="brand-text">
+                    <strong>THEA</strong>
+                    <span>.TECH</span>
+                </div>
+
+            </a>
+
+
+            <p>
+                Digital solutions and business technology
+                built around practical needs.
+            </p>
+
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://wa.me/923255411451"
+                    target="_blank"
                 >
                     WA
                 </a>
 
-                <a
-                    href="mailto:thea.tech2@gmail.com"
-                    aria-label="Email"
-                >
+                <a href="mailto:thea.tech2@gmail.com">
                     @
                 </a>
 
                 <a
                     href="https://www.facebook.com/61558368271727"
                     target="_blank"
-                    rel="noopener"
-                    aria-label="Facebook"
                 >
                     f
                 </a>
@@ -117,1275 +1567,76 @@
                 <a
                     href="https://www.instagram.com/the_a_tech?stkn=MWs2cXd6ZGh5bnhmNw=="
                     target="_blank"
-                    rel="noopener"
-                    aria-label="Instagram"
                 >
-                    IG
+                    ◎
                 </a>
 
             </div>
 
+        </div>
 
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Open menu"
-                aria-expanded="false"
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="#services">Services</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Services</h4>
+
+            <a href="#services">Web Development</a>
+            <a href="#services">Business Software</a>
+            <a href="#services">UI / UX Design</a>
+            <a href="#services">Digital Solutions</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Connect</h4>
+
+            <a href="#contact">Contact</a>
+            <a href="portal.html">Client Portal</a>
+            <a
+                href="https://wa.me/923255411451"
+                target="_blank"
             >
-                ☰
-            </button>
+                WhatsApp
+            </a>
+            <a href="mailto:thea.tech2@gmail.com">
+                Email
+            </a>
 
         </div>
 
-    </header>
+    </div>
 
 
+    <div class="container footer-bottom">
 
-    <!-- =========================================
-         MAIN
-    ========================================== -->
+        <span>
+            © <span id="currentYear"></span> THEA.TECH
+        </span>
 
-    <main>
+        <span>
+            Digital Solutions • Business Technology
+        </span>
 
+    </div>
 
-        <!-- =====================================
-             HERO
-        ====================================== -->
+</footer>
 
-        <section
-            class="hero"
-            id="home"
-        >
 
-            <div class="hero-glow"></div>
-
-            <div class="container hero-grid">
-
-                <div class="hero-content">
-
-                    <div class="hero-badge">
-
-                        <span class="status-dot"></span>
-
-                        Digital Technology & Business Solutions
-
-                    </div>
-
-
-                    <h1>
-
-                        Technology that
-                        <span>moves business forward.</span>
-
-                    </h1>
-
-
-                    <p>
-
-                        THEA.TECH creates practical digital solutions,
-                        business software, websites and technology systems
-                        designed to make work smarter and more efficient.
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#services"
-                            class="btn btn-primary"
-                        >
-                            Explore Services
-                        </a>
-
-
-                        <a
-                            href="#contact"
-                            class="btn btn-outline"
-                        >
-                            Start a Project
-                        </a>
-
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/923255411451"
-                        target="_blank"
-                        rel="noopener"
-                        class="hero-whatsapp"
-                    >
-                        Talk to us on WhatsApp →
-                    </a>
-
-                </div>
-
-
-                <!-- HERO VISUAL -->
-
-                <div class="hero-visual">
-
-                    <div class="orbit orbit-one"></div>
-
-                    <div class="orbit orbit-two"></div>
-
-                    <div class="hero-core">
-
-                        <div class="core-ring"></div>
-
-                        <img
-                            src="logo.png"
-                            alt="THEA.TECH"
-                        >
-
-                    </div>
-
-
-                    <div class="floating-box box-one">
-
-                        <strong>WEB</strong>
-
-                        <span>Development</span>
-
-                    </div>
-
-
-                    <div class="floating-box box-two">
-
-                        <strong>ERP</strong>
-
-                        <span>Business Systems</span>
-
-                    </div>
-
-
-                    <div class="floating-box box-three">
-
-                        <strong>DATA</strong>
-
-                        <span>Digital Solutions</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             SERVICES
-        ====================================== -->
-
-        <section
-            class="section services"
-            id="services"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        WHAT WE DO
-                    </span>
-
-                    <h2>
-                        Technology built around
-                        real business needs.
-                    </h2>
-
-                    <p>
-                        From websites to business systems,
-                        we focus on useful technology that
-                        solves practical problems.
-                    </p>
-
-                </div>
-
-
-                <div class="services-grid">
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            01
-                        </div>
-
-                        <div class="service-icon">
-                            WEB
-                        </div>
-
-                        <h3>
-                            Web Development
-                        </h3>
-
-                        <p>
-                            Modern responsive websites and
-                            digital experiences for businesses,
-                            brands and organizations.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            02
-                        </div>
-
-                        <div class="service-icon">
-                            ERP
-                        </div>
-
-                        <h3>
-                            Business Software
-                        </h3>
-
-                        <p>
-                            Custom business systems and
-                            management solutions designed
-                            around operational workflows.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            03
-                        </div>
-
-                        <div class="service-icon">
-                            UI
-                        </div>
-
-                        <h3>
-                            UI / UX Design
-                        </h3>
-
-                        <p>
-                            Clean interfaces focused on
-                            usability, clarity and professional
-                            digital experiences.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            04
-                        </div>
-
-                        <div class="service-icon">
-                            SYS
-                        </div>
-
-                        <h3>
-                            Digital Solutions
-                        </h3>
-
-                        <p>
-                            Practical digital tools that help
-                            businesses organize information,
-                            workflows and operations.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            05
-                        </div>
-
-                        <div class="service-icon">
-                            CLOUD
-                        </div>
-
-                        <h3>
-                            Cloud & Deployment
-                        </h3>
-
-                        <p>
-                            Website deployment, hosting setup
-                            and cloud-ready digital solutions
-                            for growing projects.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-
-
-                    <article class="service-card">
-
-                        <div class="card-number">
-                            06
-                        </div>
-
-                        <div class="service-icon">
-                            DEV
-                        </div>
-
-                        <h3>
-                            Custom Projects
-                        </h3>
-
-                        <p>
-                            Technology projects tailored to
-                            specific business requirements,
-                            ideas and workflows.
-                        </p>
-
-                        <span class="card-arrow">
-                            →
-                        </span>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             PROJECTS
-        ====================================== -->
-
-        <section
-            class="section projects"
-            id="projects"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        SELECTED WORK
-                    </span>
-
-                    <h2>
-                        Building useful digital products.
-                    </h2>
-
-                    <p>
-                        A look at selected technology concepts
-                        and projects developed under THEA.TECH.
-                    </p>
-
-                </div>
-
-
-                <div class="projects-grid">
-
-
-                    <article class="project-card">
-
-                        <div class="project-top">
-
-                            <span>
-                                PRODUCT
-                            </span>
-
-                            <span>
-                                01
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-lines">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <h3>
-                                THEA Books
-                            </h3>
-
-                            <p>
-                                Business management and
-                                accounting software concept
-                                developed for modern businesses.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="project-card">
-
-                        <div class="project-top">
-
-                            <span>
-                                WEB
-                            </span>
-
-                            <span>
-                                02
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-lines">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <h3>
-                                Business Websites
-                            </h3>
-
-                            <p>
-                                Professional responsive websites
-                                designed to establish a strong
-                                digital presence.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="project-card">
-
-                        <div class="project-top">
-
-                            <span>
-                                SYSTEM
-                            </span>
-
-                            <span>
-                                03
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-lines">
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </div>
-
-
-                        <div class="project-content">
-
-                            <h3>
-                                Business Dashboards
-                            </h3>
-
-                            <p>
-                                Digital dashboards and information
-                                systems for organizing business
-                                data and workflows.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             ABOUT
-        ====================================== -->
-
-        <section
-            class="section about"
-            id="about"
-        >
-
-            <div class="container about-grid">
-
-
-                <div class="about-content">
-
-                    <span class="section-label">
-                        ABOUT THEA.TECH
-                    </span>
-
-                    <h2>
-                        Technology should make
-                        business easier.
-                    </h2>
-
-                    <p>
-                        THEA.TECH is focused on creating
-                        practical digital solutions for
-                        businesses and organizations.
-                    </p>
-
-                    <p>
-                        Our approach combines technology,
-                        business understanding and clean
-                        user experiences to build solutions
-                        that are useful in the real world.
-                    </p>
-
-
-                    <a
-                        href="#contact"
-                        class="text-link"
-                    >
-                        Discuss your project →
-                    </a>
-
-                </div>
-
-
-                <div class="about-panel">
-
-                    <div class="panel-line"></div>
-
-                    <div class="panel-item">
-
-                        <span>
-                            FOCUS
-                        </span>
-
-                        <strong>
-                            Business Technology
-                        </strong>
-
-                    </div>
-
-
-                    <div class="panel-item">
-
-                        <span>
-                            APPROACH
-                        </span>
-
-                        <strong>
-                            Practical & Scalable
-                        </strong>
-
-                    </div>
-
-
-                    <div class="panel-item">
-
-                        <span>
-                            DIRECTION
-                        </span>
-
-                        <strong>
-                            Digital Transformation
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             PROCESS
-        ====================================== -->
-
-        <section
-            class="section process"
-            id="process"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        OUR PROCESS
-                    </span>
-
-                    <h2>
-                        From idea to working solution.
-                    </h2>
-
-                </div>
-
-
-                <div class="process-grid">
-
-
-                    <div class="process-card">
-
-                        <span class="process-number">
-                            01
-                        </span>
-
-                        <h3>
-                            Discover
-                        </h3>
-
-                        <p>
-                            Understand the business,
-                            requirements and problem.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span class="process-number">
-                            02
-                        </span>
-
-                        <h3>
-                            Plan
-                        </h3>
-
-                        <p>
-                            Define the solution,
-                            structure and user experience.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span class="process-number">
-                            03
-                        </span>
-
-                        <h3>
-                            Build
-                        </h3>
-
-                        <p>
-                            Develop, test and refine
-                            the digital solution.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-card">
-
-                        <span class="process-number">
-                            04
-                        </span>
-
-                        <h3>
-                            Improve
-                        </h3>
-
-                        <p>
-                            Continue improving the product
-                            as business needs evolve.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             CTA
-        ====================================== -->
-
-        <section class="cta">
-
-            <div class="container">
-
-                <div class="cta-box">
-
-                    <div class="cta-glow"></div>
-
-                    <span class="section-label">
-                        HAVE A PROJECT?
-                    </span>
-
-                    <h2>
-                        Let's build something useful.
-                    </h2>
-
-                    <p>
-                        Have an idea, business requirement
-                        or digital project? Let's discuss it.
-                    </p>
-
-                    <a
-                        href="#contact"
-                        class="btn btn-primary"
-                    >
-                        Start a Conversation
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             CONTACT
-        ====================================== -->
-
-        <section
-            class="section contact"
-            id="contact"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        CONTACT
-                    </span>
-
-                    <h2>
-                        Let's talk about your project.
-                    </h2>
-
-                    <p>
-                        Contact THEA.TECH through WhatsApp,
-                        email or the form below.
-                    </p>
-
-                </div>
-
-
-                <div class="contact-grid">
-
-
-                    <div class="contact-info">
-
-
-                        <a
-                            href="https://wa.me/923255411451"
-                            target="_blank"
-                            rel="noopener"
-                            class="contact-card"
-                        >
-
-                            <span class="contact-label">
-                                WHATSAPP
-                            </span>
-
-                            <strong>
-                                +92 325 5411451
-                            </strong>
-
-                            <small>
-                                Start a conversation →
-                            </small>
-
-                        </a>
-
-
-                        <a
-                            href="mailto:thea.tech2@gmail.com"
-                            class="contact-card"
-                        >
-
-                            <span class="contact-label">
-                                EMAIL
-                            </span>
-
-                            <strong>
-                                thea.tech2@gmail.com
-                            </strong>
-
-                            <small>
-                                Send us an email →
-                            </small>
-
-                        </a>
-
-
-                        <div class="contact-card">
-
-                            <span class="contact-label">
-                                SOCIAL
-                            </span>
-
-                            <div class="contact-socials">
-
-                                <a
-                                    href="https://www.facebook.com/61558368271727"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    Facebook
-                                </a>
-
-                                <a
-                                    href="https://www.instagram.com/the_a_tech?stkn=MWs2cXd6ZGh5bnhmNw=="
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    Instagram
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <a
-                            href="portal.html"
-                            class="contact-card portal-card"
-                        >
-
-                            <span class="contact-label">
-                                CLIENT AREA
-                            </span>
-
-                            <strong>
-                                Client Portal
-                            </strong>
-
-                            <small>
-                                Access project services →
-                            </small>
-
-                        </a>
-
-                    </div>
-
-
-
-                    <!-- CONTACT FORM -->
-
-                    <form
-                        class="contact-form"
-                        id="contactForm"
-                        action="https://formsubmit.co/thea.tech2@gmail.com"
-                        method="POST"
-                    >
-
-                        <input
-                            type="hidden"
-                            name="_subject"
-                            value="THEA.TECH Website Inquiry"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="_template"
-                            value="table"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="_captcha"
-                            value="true"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="_next"
-                            value="https://thea-tech.github.io/theatech/?sent=1"
-                        >
-
-
-                        <div class="form-row">
-
-                            <div class="form-group">
-
-                                <label for="name">
-                                    Your Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Enter your name"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="email">
-                                    Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="phone">
-                                Phone / WhatsApp
-                            </label>
-
-                            <input
-                                type="text"
-                                id="phone"
-                                name="phone"
-                                placeholder="+92..."
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="service">
-                                Service
-                            </label>
-
-                            <select
-                                id="service"
-                                name="service"
-                                required
-                            >
-
-                                <option value="">
-                                    Select a service
-                                </option>
-
-                                <option>
-                                    Web Development
-                                </option>
-
-                                <option>
-                                    Business Software
-                                </option>
-
-                                <option>
-                                    UI / UX Design
-                                </option>
-
-                                <option>
-                                    Digital Solution
-                                </option>
-
-                                <option>
-                                    Cloud & Deployment
-                                </option>
-
-                                <option>
-                                    Custom Project
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="message">
-                                Project Details
-                            </label>
-
-                            <textarea
-                                id="message"
-                                name="message"
-                                placeholder="Tell us about your project..."
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary form-submit"
-                        >
-                            Send Project Inquiry →
-                        </button>
-
-
-                        <p
-                            class="form-note"
-                            id="formNote"
-                        >
-                            We will receive your inquiry by email.
-
-                        </p>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container">
-
-
-            <div class="footer-main">
-
-
-                <div class="footer-brand">
-
-                    <a
-                        href="#home"
-                        class="brand"
-                    >
-
-                        <img
-                            src="logo.png"
-                            alt="THEA.TECH"
-                        >
-
-                        <span>
-                            THEA.TECH
-                        </span>
-
-                    </a>
-
-
-                    <p>
-                        Digital technology and business
-                        solutions for modern organizations.
-                    </p>
-
-
-                    <div class="footer-socials">
-
-                        <a
-                            href="https://wa.me/923255411451"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            WhatsApp
-                        </a>
-
-                        <a
-                            href="mailto:thea.tech2@gmail.com"
-                        >
-                            Email
-                        </a>
-
-                        <a
-                            href="https://www.facebook.com/61558368271727"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Facebook
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/the_a_tech?stkn=MWs2cXd6ZGh5bnhmNw=="
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Instagram
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="footer-column">
-
-                    <h4>
-                        Navigation
-                    </h4>
-
-                    <a href="#home">
-                        Home
-                    </a>
-
-                    <a href="#services">
-                        Services
-                    </a>
-
-                    <a href="#projects">
-                        Projects
-                    </a>
-
-                    <a href="#about">
-                        About
-                    </a>
-
-                    <a href="#contact">
-                        Contact
-                    </a>
-
-                </div>
-
-
-                <div class="footer-column">
-
-                    <h4>
-                        Services
-                    </h4>
-
-                    <a href="#services">
-                        Web Development
-                    </a>
-
-                    <a href="#services">
-                        Business Software
-                    </a>
-
-                    <a href="#services">
-                        UI / UX Design
-                    </a>
-
-                    <a href="#services">
-                        Digital Solutions
-                    </a>
-
-                    <a href="#services">
-                        Custom Projects
-                    </a>
-
-                </div>
-
-
-                <div class="footer-column">
-
-                    <h4>
-                        Connect
-                    </h4>
-
-                    <a href="#contact">
-                        Start a Project
-                    </a>
-
-                    <a href="portal.html">
-                        Client Portal
-                    </a>
-
-                    <a href="mailto:thea.tech2@gmail.com">
-                        Email Us
-                    </a>
-
-                    <a
-                        href="https://wa.me/923255411451"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        WhatsApp
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-                <span>
-                    ©
-                    <span id="currentYear">
-                        2026
-                    </span>
-                    THEA.TECH. All rights reserved.
-                </span>
-
-                <span>
-                    Technology • Business • Digital
-                </span>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
