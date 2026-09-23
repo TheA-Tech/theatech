@@ -1,227 +1,293 @@
 /* =========================================================
    THEA.TECH
-   Main Website JavaScript
+   Website JavaScript
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    /* =====================================================
-       MOBILE MENU
-       ===================================================== */
 
-    const menuToggle =
-        document.getElementById("menuToggle");
+        /* =========================================
+           MOBILE MENU
+        ========================================== */
 
-    const mainNav =
-        document.querySelector(".main-nav");
+        const menuToggle =
+            document.getElementById(
+                "menuToggle"
+            );
 
-    if (menuToggle && mainNav) {
+        const mainNav =
+            document.getElementById(
+                "mainNav"
+            );
 
-        menuToggle.addEventListener(
-            "click",
-            function () {
 
-                mainNav.classList.toggle("active");
+        if (
+            menuToggle &&
+            mainNav
+        ) {
 
-                const expanded =
-                    mainNav.classList.contains("active");
+            menuToggle.addEventListener(
+                "click",
+                function () {
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    expanded
-                );
-            }
-        );
-
-        mainNav
-            .querySelectorAll("a")
-            .forEach(function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        mainNav.classList.remove(
+                    const isOpen =
+                        mainNav.classList.toggle(
                             "active"
                         );
 
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-                    }
-                );
-            });
-    }
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
 
-
-    /* =====================================================
-       CURRENT YEAR
-       ===================================================== */
-
-    const currentYear =
-        document.getElementById("currentYear");
-
-    if (currentYear) {
-
-        currentYear.textContent =
-            new Date().getFullYear();
-    }
-
-
-    /* =====================================================
-       SCROLL REVEAL
-       ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".service-card, " +
-            ".project-card, " +
-            ".process-card, " +
-            ".about-text, " +
-            ".about-panel, " +
-            ".contact-item, " +
-            ".contact-form, " +
-            ".section-heading"
-        );
-
-    revealElements.forEach(function (element) {
-
-        element.classList.add("reveal");
-    });
-
-
-    if ("IntersectionObserver" in window) {
-
-        const observer =
-            new IntersectionObserver(
-                function (entries) {
-
-                    entries.forEach(function (entry) {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            observer.unobserve(
-                                entry.target
-                            );
-                        }
-                    });
-
-                },
-                {
-                    threshold: 0.12
                 }
             );
 
-        revealElements.forEach(function (element) {
 
-            observer.observe(element);
-        });
-
-    } else {
-
-        revealElements.forEach(function (element) {
-
-            element.classList.add("visible");
-        });
-    }
+            const navLinks =
+                mainNav.querySelectorAll(
+                    "a"
+                );
 
 
-    /* =====================================================
-       FORM SUCCESS MESSAGE
-       ===================================================== */
+            navLinks.forEach(
+                function (link) {
 
-    const urlParams =
-        new URLSearchParams(
-            window.location.search
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            mainNav.classList.remove(
+                                "active"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================
+           CURRENT YEAR
+        ========================================== */
+
+        const year =
+            document.getElementById(
+                "currentYear"
+            );
+
+
+        if (year) {
+
+            year.textContent =
+                new Date().getFullYear();
+
+        }
+
+
+
+        /* =========================================
+           SCROLL REVEAL
+        ========================================== */
+
+        const revealItems =
+            document.querySelectorAll(
+                ".service-card, " +
+                ".project-card, " +
+                ".process-card, " +
+                ".about-content, " +
+                ".about-panel, " +
+                ".contact-card, " +
+                ".contact-form, " +
+                ".section-heading"
+            );
+
+
+        revealItems.forEach(
+            function (element) {
+
+                element.classList.add(
+                    "reveal"
+                );
+
+            }
         );
 
-    if (
-        urlParams.get("sent") === "1"
-    ) {
 
-        const message =
-            document.createElement("div");
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
-        message.textContent =
-            "Your message has been sent successfully.";
+            const observer =
+                new IntersectionObserver(
+                    function (entries) {
 
-        message.style.position = "fixed";
-        message.style.right = "20px";
-        message.style.bottom = "20px";
-        message.style.zIndex = "9999";
-        message.style.padding = "14px 18px";
-        message.style.border =
-            "1px solid rgba(22,140,255,.4)";
-        message.style.borderRadius = "10px";
-        message.style.background =
-            "rgba(5,18,32,.95)";
-        message.style.color = "#dce9f5";
-        message.style.boxShadow =
-            "0 15px 40px rgba(0,0,0,.35)";
+                        entries.forEach(
+                            function (entry) {
 
-        document.body.appendChild(message);
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
-        setTimeout(function () {
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
 
-            message.remove();
+                                    observer.unobserve(
+                                        entry.target
+                                    );
 
-        }, 5000);
+                                }
+
+                            }
+                        );
+
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+
+            revealItems.forEach(
+                function (element) {
+
+                    observer.observe(
+                        element
+                    );
+
+                }
+            );
+
+        } else {
+
+            revealItems.forEach(
+                function (element) {
+
+                    element.classList.add(
+                        "visible"
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================================
+           FORM SUCCESS MESSAGE
+        ========================================== */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        if (
+            params.get("sent") === "1"
+        ) {
+
+            const note =
+                document.createElement(
+                    "div"
+                );
+
+
+            note.className =
+                "success-notification";
+
+
+            note.textContent =
+                "Your message has been sent successfully.";
+
+
+            document.body.appendChild(
+                note
+            );
+
+
+            setTimeout(
+                function () {
+
+                    note.classList.add(
+                        "hide"
+                    );
+
+                    setTimeout(
+                        function () {
+
+                            note.remove();
+
+                        },
+                        400
+                    );
+
+                },
+                4500
+            );
+
+        }
+
+
+
+        /* =========================================
+           PARTICLE SYSTEM
+        ========================================== */
+
+        createParticles();
+
     }
+);
 
-
-    /* =====================================================
-       TECH PARTICLES
-       ===================================================== */
-
-    createTechParticles();
-
-});
 
 
 /* =========================================================
-   TECH PARTICLE ENGINE
+   PARTICLE SYSTEM
    ========================================================= */
 
-function createTechParticles() {
-
-    if (
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-        return;
-    }
+function createParticles() {
 
 
-    let canvas =
+    const canvas =
         document.getElementById(
             "techParticles"
         );
 
 
     if (!canvas) {
-
-        canvas =
-            document.createElement("canvas");
-
-        canvas.id =
-            "techParticles";
-
-        document.body.prepend(canvas);
+        return;
     }
 
 
-    const ctx =
+    const context =
         canvas.getContext("2d");
 
 
-    if (!ctx) {
+    if (!context) {
+        return;
+    }
+
+
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
         return;
     }
 
@@ -229,11 +295,13 @@ function createTechParticles() {
     let width =
         window.innerWidth;
 
+
     let height =
         window.innerHeight;
 
 
     let particles = [];
+
 
     const mouse = {
 
@@ -241,11 +309,17 @@ function createTechParticles() {
 
         y: null,
 
-        radius: 140
+        radius: 130
+
     };
 
 
-    function resizeCanvas() {
+
+    /* =========================================
+       RESIZE
+    ========================================== */
+
+    function resize() {
 
         width =
             window.innerWidth;
@@ -253,17 +327,20 @@ function createTechParticles() {
         height =
             window.innerHeight;
 
-        const pixelRatio =
+
+        const ratio =
             Math.min(
                 window.devicePixelRatio || 1,
                 2
             );
 
+
         canvas.width =
-            width * pixelRatio;
+            width * ratio;
 
         canvas.height =
-            height * pixelRatio;
+            height * ratio;
+
 
         canvas.style.width =
             width + "px";
@@ -271,37 +348,36 @@ function createTechParticles() {
         canvas.style.height =
             height + "px";
 
-        ctx.setTransform(
-            pixelRatio,
+
+        context.setTransform(
+            ratio,
             0,
             0,
-            pixelRatio,
+            ratio,
             0,
             0
         );
 
 
-        createParticles();
+        generateParticles();
+
     }
 
 
-    function createParticles() {
+
+    /* =========================================
+       CREATE PARTICLES
+    ========================================== */
+
+    function generateParticles() {
 
         particles = [];
 
-        const area =
-            width * height;
 
         const count =
-            Math.min(
-                115,
-                Math.max(
-                    40,
-                    Math.floor(
-                        area / 15000
-                    )
-                )
-            );
+            width < 600
+                ? 45
+                : 85;
 
 
         for (
@@ -313,33 +389,51 @@ function createTechParticles() {
             particles.push({
 
                 x:
-                    Math.random() * width,
+                    Math.random()
+                    * width,
 
                 y:
-                    Math.random() * height,
+                    Math.random()
+                    * height,
 
-                size:
-                    Math.random() * 1.8 + 0.5,
+                radius:
+                    Math.random()
+                    * 1.5
+                    + .5,
 
                 speedX:
-                    (Math.random() - 0.5)
-                    * 0.28,
+                    (
+                        Math.random()
+                        - .5
+                    ) * .25,
 
                 speedY:
-                    (Math.random() - 0.5)
-                    * 0.28,
+                    (
+                        Math.random()
+                        - .5
+                    ) * .25,
 
                 opacity:
-                    Math.random() * 0.45
-                    + 0.18
+                    Math.random()
+                    * .45
+                    + .15
+
             });
+
         }
+
     }
 
 
-    function drawParticles() {
 
-        ctx.clearRect(
+    /* =========================================
+       DRAW
+    ========================================== */
+
+    function draw() {
+
+
+        context.clearRect(
             0,
             0,
             width,
@@ -347,50 +441,63 @@ function createTechParticles() {
         );
 
 
-        /* PARTICLES */
+        /* DOTS */
 
         particles.forEach(
             function (particle) {
 
+
                 particle.x +=
                     particle.speedX;
+
 
                 particle.y +=
                     particle.speedY;
 
 
-                /* SCREEN WRAP */
+                /* WRAP */
 
                 if (
-                    particle.x < -20
+                    particle.x < -10
                 ) {
+
                     particle.x =
-                        width + 20;
+                        width + 10;
+
                 }
+
 
                 if (
                     particle.x >
-                    width + 20
+                    width + 10
                 ) {
-                    particle.x = -20;
+
+                    particle.x = -10;
+
                 }
 
+
                 if (
-                    particle.y < -20
+                    particle.y < -10
                 ) {
+
                     particle.y =
-                        height + 20;
+                        height + 10;
+
                 }
+
 
                 if (
                     particle.y >
-                    height + 20
+                    height + 10
                 ) {
-                    particle.y = -20;
+
+                    particle.y = -10;
+
                 }
 
 
-                /* MOUSE INTERACTION */
+                /* MOUSE */
 
                 if (
                     mouse.x !== null &&
@@ -405,11 +512,13 @@ function createTechParticles() {
                         particle.y -
                         mouse.y;
 
+
                     const distance =
                         Math.sqrt(
                             dx * dx +
                             dy * dy
                         );
+
 
                     if (
                         distance <
@@ -423,42 +532,51 @@ function createTechParticles() {
                             ) /
                             mouse.radius;
 
+
                         particle.x +=
                             dx *
                             force *
-                            0.008;
+                            .006;
+
 
                         particle.y +=
                             dy *
                             force *
-                            0.008;
+                            .006;
+
                     }
+
                 }
 
 
-                /* DOT */
+                /* DRAW DOT */
 
-                ctx.beginPath();
+                context.beginPath();
 
-                ctx.arc(
+
+                context.arc(
                     particle.x,
                     particle.y,
-                    particle.size,
+                    particle.radius,
                     0,
                     Math.PI * 2
                 );
 
-                ctx.fillStyle =
-                    "rgba(115,190,255," +
+
+                context.fillStyle =
+                    "rgba(95,180,255," +
                     particle.opacity +
                     ")";
 
-                ctx.fill();
+
+                context.fill();
+
             }
         );
 
 
-        /* CONNECTION LINES */
+
+        /* CONNECTIONS */
 
         for (
             let i = 0;
@@ -466,23 +584,31 @@ function createTechParticles() {
             i++
         ) {
 
+
             for (
                 let j = i + 1;
                 j < particles.length;
                 j++
             ) {
 
-                const a =
+
+                const first =
                     particles[i];
 
-                const b =
+
+                const second =
                     particles[j];
 
+
                 const dx =
-                    a.x - b.x;
+                    first.x -
+                    second.x;
+
 
                 const dy =
-                    a.y - b.y;
+                    first.y -
+                    second.y;
+
 
                 const distance =
                     Math.sqrt(
@@ -492,54 +618,62 @@ function createTechParticles() {
 
 
                 if (
-                    distance < 125
+                    distance < 115
                 ) {
+
 
                     const opacity =
                         (
                             1 -
-                            distance / 125
-                        ) *
-                        0.16;
+                            distance / 115
+                        ) * .13;
 
 
-                    ctx.beginPath();
+                    context.beginPath();
 
-                    ctx.moveTo(
-                        a.x,
-                        a.y
+
+                    context.moveTo(
+                        first.x,
+                        first.y
                     );
 
-                    ctx.lineTo(
-                        b.x,
-                        b.y
+
+                    context.lineTo(
+                        second.x,
+                        second.y
                     );
 
-                    ctx.strokeStyle =
-                        "rgba(70,160,235," +
+
+                    context.strokeStyle =
+                        "rgba(75,155,220," +
                         opacity +
                         ")";
 
-                    ctx.lineWidth =
-                        0.6;
 
-                    ctx.stroke();
+                    context.lineWidth =
+                        .6;
+
+
+                    context.stroke();
+
                 }
+
             }
+
         }
 
 
         requestAnimationFrame(
-            drawParticles
+            draw
         );
+
     }
 
 
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
 
+    /* =========================================
+       MOUSE
+    ========================================== */
 
     window.addEventListener(
         "mousemove",
@@ -550,6 +684,7 @@ function createTechParticles() {
 
             mouse.y =
                 event.clientY;
+
         }
     );
 
@@ -561,11 +696,25 @@ function createTechParticles() {
             mouse.x = null;
 
             mouse.y = null;
+
         }
     );
 
 
-    resizeCanvas();
+    /* =========================================
+       WINDOW RESIZE
+    ========================================== */
 
-    drawParticles();
+    window.addEventListener(
+        "resize",
+        resize
+    );
+
+
+    /* START */
+
+    resize();
+
+    draw();
+
 }
