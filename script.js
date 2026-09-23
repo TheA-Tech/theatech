@@ -1,245 +1,245 @@
-/* =========================================================
-   THEA.TECH — MAIN JAVASCRIPT
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        /* =========================================
-           MOBILE MENU
-        ========================================== */
-
-        const menuToggle =
-            document.getElementById("menuToggle");
-
-        const mainNav =
-            document.getElementById("mainNav");
+/* =====================================================
+   THEA.TECH
+   INTERACTIONS + PARTICLES
+===================================================== */
 
 
-        if (menuToggle && mainNav) {
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
-            menuToggle.addEventListener(
-                "click",
-                function () {
+const menuToggle =
+    document.getElementById("menuToggle");
 
-                    const opened =
-                        mainNav.classList.toggle("active");
+const mainNav =
+    document.getElementById("mainNav");
 
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        opened
-                    );
 
+if (menuToggle && mainNav) {
+
+    menuToggle.addEventListener("click", () => {
+
+        mainNav.classList.toggle("open");
+
+    });
+
+
+    document
+        .querySelectorAll(".nav-link, .portal-link")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mainNav.classList.remove("open");
+
+            });
+
+        });
+
+}
+
+
+
+/* =====================================================
+   CURRENT YEAR
+===================================================== */
+
+const yearElement =
+    document.getElementById("currentYear");
+
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
+
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+const navObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) {
+                    return;
                 }
-            );
+
+                const id =
+                    entry.target.getAttribute("id");
 
 
-            mainNav
-                .querySelectorAll("a")
-                .forEach(function (link) {
+                navLinks.forEach(link => {
 
-                    link.addEventListener(
-                        "click",
-                        function () {
+                    link.classList.remove("active");
 
-                            mainNav.classList.remove(
-                                "active"
-                            );
+                    if (
+                        link.getAttribute("href") ===
+                        `#${id}`
+                    ) {
 
-                            menuToggle.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
+                        link.classList.add("active");
 
-                        }
-                    );
+                    }
 
                 });
 
+            });
+
+        },
+        {
+            threshold: 0.25
         }
+    );
 
 
-        /* =========================================
-           YEAR
-        ========================================== */
+sections.forEach(section => {
 
-        const currentYear =
-            document.getElementById(
-                "currentYear"
-            );
+    navObserver.observe(section);
 
-        if (currentYear) {
+});
 
-            currentYear.textContent =
-                new Date().getFullYear();
 
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
         }
+    );
 
 
-        /* =========================================
-           SCROLL REVEAL
-        ========================================== */
+revealElements.forEach(element => {
 
-        const revealItems =
-            document.querySelectorAll(
-                ".service-card, " +
-                ".project-card, " +
-                ".process-card, " +
-                ".about-content, " +
-                ".about-panel, " +
-                ".contact-card, " +
-                ".contact-form, " +
-                ".section-heading"
-            );
+    revealObserver.observe(element);
+
+});
 
 
-        revealItems.forEach(
-            function (item) {
 
-                item.classList.add(
-                    "reveal"
-                );
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        () => {
+
+            if (formMessage) {
+
+                formMessage.textContent =
+                    "Sending your inquiry...";
 
             }
-        );
-
-
-        if ("IntersectionObserver" in window) {
-
-            const observer =
-                new IntersectionObserver(
-                    function (entries) {
-
-                        entries.forEach(
-                            function (entry) {
-
-                                if (
-                                    entry.isIntersecting
-                                ) {
-
-                                    entry.target.classList.add(
-                                        "visible"
-                                    );
-
-                                    observer.unobserve(
-                                        entry.target
-                                    );
-
-                                }
-
-                            }
-                        );
-
-                    },
-                    {
-                        threshold: 0.10
-                    }
-                );
-
-
-            revealItems.forEach(
-                function (item) {
-
-                    observer.observe(item);
-
-                }
-            );
-
-        } else {
-
-            revealItems.forEach(
-                function (item) {
-
-                    item.classList.add(
-                        "visible"
-                    );
-
-                }
-            );
 
         }
+    );
+
+}
 
 
-        /* =========================================
-           FORM SUCCESS
-        ========================================== */
+/* =====================================================
+   FORM SUCCESS MESSAGE
+===================================================== */
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        if (
-            params.get("sent") === "1"
-        ) {
-
-            const message =
-                document.createElement("div");
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
 
-            message.className =
-                "success-notification";
+if (
+    params.get("sent") === "1" &&
+    formMessage
+) {
+
+    formMessage.textContent =
+        "Your inquiry has been submitted successfully.";
+
+}
 
 
-            message.textContent =
-                "Your message has been sent successfully.";
 
-
-            document.body.appendChild(
-                message
-            );
-
-
-            setTimeout(
-                function () {
-
-                    message.classList.add(
-                        "hide"
-                    );
-
-
-                    setTimeout(
-                        function () {
-
-                            message.remove();
-
-                        },
-                        400
-                    );
-
-                },
-                4500
-            );
-
-        }
-
-
-        /* =========================================
-           START PARTICLES
-        ========================================== */
-
-        startParticles();
-
-    }
-);
-
-
-/* =========================================================
-   PREMIUM TECH PARTICLES
-   ========================================================= */
+/* =====================================================
+   PARTICLE NETWORK
+===================================================== */
 
 function startParticles() {
 
-    const canvas =
+    let canvas =
         document.getElementById(
             "techParticles"
         );
 
 
+    /*
+       Safety:
+       If the canvas is missing from HTML,
+       JavaScript creates it automatically.
+    */
+
     if (!canvas) {
-        return;
+
+        canvas =
+            document.createElement("canvas");
+
+        canvas.id =
+            "techParticles";
+
+        canvas.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.prepend(canvas);
+
     }
 
 
@@ -258,11 +258,6 @@ function startParticles() {
         ).matches;
 
 
-    if (reducedMotion) {
-        return;
-    }
-
-
     let width =
         window.innerWidth;
 
@@ -270,20 +265,45 @@ function startParticles() {
         window.innerHeight;
 
 
-    let particles = [];
-
-
-    const mouse = {
+    let mouse = {
         x: null,
-        y: null
+        y: null,
+        radius: 180
     };
 
 
-    /* =========================================
-       RESIZE
-    ========================================== */
+    let particles = [];
 
-    function resizeCanvas() {
+
+    function resize() {
+
+        width =
+            canvas.width =
+            window.innerWidth *
+            window.devicePixelRatio;
+
+        height =
+            canvas.height =
+            window.innerHeight *
+            window.devicePixelRatio;
+
+
+        canvas.style.width =
+            window.innerWidth + "px";
+
+        canvas.style.height =
+            window.innerHeight + "px";
+
+
+        ctx.setTransform(
+            window.devicePixelRatio,
+            0,
+            0,
+            window.devicePixelRatio,
+            0,
+            0
+        );
+
 
         width =
             window.innerWidth;
@@ -292,45 +312,10 @@ function startParticles() {
             window.innerHeight;
 
 
-        const ratio =
-            Math.min(
-                window.devicePixelRatio || 1,
-                2
-            );
-
-
-        canvas.width =
-            width * ratio;
-
-        canvas.height =
-            height * ratio;
-
-
-        canvas.style.width =
-            width + "px";
-
-        canvas.style.height =
-            height + "px";
-
-
-        ctx.setTransform(
-            ratio,
-            0,
-            0,
-            ratio,
-            0,
-            0
-        );
-
-
         createParticles();
 
     }
 
-
-    /* =========================================
-       CREATE
-    ========================================== */
 
     function createParticles() {
 
@@ -338,9 +323,9 @@ function startParticles() {
 
 
         const amount =
-            width < 600
-                ? 65
-                : 125;
+            window.innerWidth < 700
+                ? 55
+                : 110;
 
 
         for (
@@ -352,34 +337,36 @@ function startParticles() {
             particles.push({
 
                 x:
-                    Math.random()
-                    * width,
+                    Math.random() *
+                    width,
 
                 y:
-                    Math.random()
-                    * height,
-
-                radius:
-                    Math.random()
-                    * 2
-                    + 1,
+                    Math.random() *
+                    height,
 
                 vx:
-                    (
-                        Math.random()
-                        - 0.5
-                    ) * 0.42,
+                    (Math.random() - .5)
+                    * (
+                        reducedMotion
+                            ? .05
+                            : .20
+                    ),
 
                 vy:
-                    (
-                        Math.random()
-                        - 0.5
-                    ) * 0.42,
+                    (Math.random() - .5)
+                    * (
+                        reducedMotion
+                            ? .05
+                            : .20
+                    ),
+
+                size:
+                    Math.random() *
+                    1.6 + .6,
 
                 alpha:
-                    Math.random()
-                    * 0.45
-                    + 0.35
+                    Math.random() *
+                    .55 + .25
 
             });
 
@@ -388,143 +375,69 @@ function startParticles() {
     }
 
 
-    /* =========================================
-       DRAW
-    ========================================== */
+    function drawParticle(particle) {
 
-    function drawParticles() {
+        ctx.beginPath();
 
-        ctx.clearRect(
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.size,
             0,
-            0,
-            width,
-            height
+            Math.PI * 2
         );
 
 
-        /* -------------------------------------
-           PARTICLES
-        -------------------------------------- */
-
-        particles.forEach(
-            function (particle) {
-
-                particle.x +=
-                    particle.vx;
-
-                particle.y +=
-                    particle.vy;
+        ctx.fillStyle =
+            `rgba(
+                0,
+                217,
+                255,
+                ${particle.alpha}
+            )`;
 
 
-                /* LOOP AROUND */
+        ctx.shadowBlur = 10;
 
-                if (
-                    particle.x < -20
-                ) {
-
-                    particle.x =
-                        width + 20;
-
-                }
-
-                if (
-                    particle.x >
-                    width + 20
-                ) {
-
-                    particle.x = -20;
-
-                }
-
-                if (
-                    particle.y < -20
-                ) {
-
-                    particle.y =
-                        height + 20;
-
-                }
-
-                if (
-                    particle.y >
-                    height + 20
-                ) {
-
-                    particle.y = -20;
-
-                }
+        ctx.shadowColor =
+            "rgba(0,217,255,.65)";
 
 
-                /* GLOW */
+        ctx.fill();
 
-                ctx.beginPath();
+        ctx.shadowBlur = 0;
 
-                ctx.arc(
-                    particle.x,
-                    particle.y,
-                    particle.radius * 4,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    "rgba(0,140,255,0.08)";
-
-                ctx.fill();
+    }
 
 
-                /* MAIN DOT */
+    function connectParticles() {
 
-                ctx.beginPath();
+        const distanceLimit =
+            window.innerWidth < 700
+                ? 105
+                : 145;
 
-                ctx.arc(
-                    particle.x,
-                    particle.y,
-                    particle.radius,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    "rgba(0,105,220," +
-                    particle.alpha +
-                    ")";
-
-                ctx.fill();
-
-            }
-        );
-
-
-        /* -------------------------------------
-           CONNECTION LINES
-        -------------------------------------- */
 
         for (
-            let i = 0;
-            i < particles.length;
-            i++
+            let a = 0;
+            a < particles.length;
+            a++
         ) {
 
             for (
-                let j = i + 1;
-                j < particles.length;
-                j++
+                let b = a + 1;
+                b < particles.length;
+                b++
             ) {
 
-                const a =
-                    particles[i];
-
-                const b =
-                    particles[j];
-
-
                 const dx =
-                    a.x - b.x;
+                    particles[a].x -
+                    particles[b].x;
 
                 const dy =
-                    a.y - b.y;
-
+                    particles[a].y -
+                    particles[b].y;
 
                 const distance =
                     Math.sqrt(
@@ -534,38 +447,43 @@ function startParticles() {
 
 
                 if (
-                    distance < 145
+                    distance <
+                    distanceLimit
                 ) {
 
                     const opacity =
                         (
                             1 -
-                            distance / 145
-                        ) * 0.30;
+                            distance /
+                            distanceLimit
+                        ) * .15;
 
 
                     ctx.beginPath();
 
+
                     ctx.moveTo(
-                        a.x,
-                        a.y
+                        particles[a].x,
+                        particles[a].y
                     );
 
+
                     ctx.lineTo(
-                        b.x,
-                        b.y
+                        particles[b].x,
+                        particles[b].y
                     );
 
 
                     ctx.strokeStyle =
-                        "rgba(8,105,217," +
-                        opacity +
-                        ")";
+                        `rgba(
+                            0,
+                            217,
+                            255,
+                            ${opacity}
+                        )`;
 
 
-                    ctx.lineWidth =
-                        0.8;
-
+                    ctx.lineWidth = .7;
 
                     ctx.stroke();
 
@@ -575,93 +493,160 @@ function startParticles() {
 
         }
 
+    }
 
-        /* -------------------------------------
-           MOUSE CONNECTION
-        -------------------------------------- */
+
+    function connectMouse() {
 
         if (
-            mouse.x !== null &&
-            mouse.y !== null
+            mouse.x === null ||
+            mouse.y === null
         ) {
 
-            particles.forEach(
-                function (particle) {
-
-                    const dx =
-                        particle.x -
-                        mouse.x;
-
-                    const dy =
-                        particle.y -
-                        mouse.y;
-
-
-                    const distance =
-                        Math.sqrt(
-                            dx * dx +
-                            dy * dy
-                        );
-
-
-                    if (
-                        distance < 170
-                    ) {
-
-                        const opacity =
-                            (
-                                1 -
-                                distance / 170
-                            ) * 0.45;
-
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(
-                            particle.x,
-                            particle.y
-                        );
-
-                        ctx.lineTo(
-                            mouse.x,
-                            mouse.y
-                        );
-
-
-                        ctx.strokeStyle =
-                            "rgba(0,140,255," +
-                            opacity +
-                            ")";
-
-
-                        ctx.lineWidth =
-                            1;
-
-
-                        ctx.stroke();
-
-                    }
-
-                }
-            );
+            return;
 
         }
 
 
-        requestAnimationFrame(
-            drawParticles
-        );
+        const limit =
+            mouse.radius;
+
+
+        particles.forEach(particle => {
+
+            const dx =
+                particle.x -
+                mouse.x;
+
+            const dy =
+                particle.y -
+                mouse.y;
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            if (distance < limit) {
+
+                const opacity =
+                    (
+                        1 -
+                        distance /
+                        limit
+                    ) * .28;
+
+
+                ctx.beginPath();
+
+
+                ctx.moveTo(
+                    particle.x,
+                    particle.y
+                );
+
+
+                ctx.lineTo(
+                    mouse.x,
+                    mouse.y
+                );
+
+
+                ctx.strokeStyle =
+                    `rgba(
+                        129,
+                        92,
+                        255,
+                        ${opacity}
+                    )`;
+
+
+                ctx.lineWidth = .8;
+
+                ctx.stroke();
+
+            }
+
+        });
 
     }
 
 
-    /* =========================================
-       MOUSE
-    ========================================== */
+    function animate() {
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        particles.forEach(particle => {
+
+            if (!reducedMotion) {
+
+                particle.x +=
+                    particle.vx;
+
+                particle.y +=
+                    particle.vy;
+
+            }
+
+
+            if (
+                particle.x < -10 ||
+                particle.x > width + 10
+            ) {
+
+                particle.vx *= -1;
+
+            }
+
+
+            if (
+                particle.y < -10 ||
+                particle.y > height + 10
+            ) {
+
+                particle.vy *= -1;
+
+            }
+
+
+            drawParticle(particle);
+
+        });
+
+
+        connectParticles();
+
+        connectMouse();
+
+
+        if (!reducedMotion) {
+
+            requestAnimationFrame(
+                animate
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "resize",
+        resize
+    );
+
 
     window.addEventListener(
         "mousemove",
-        function (event) {
+        event => {
 
             mouse.x =
                 event.clientX;
@@ -675,30 +660,20 @@ function startParticles() {
 
     window.addEventListener(
         "mouseleave",
-        function () {
+        () => {
 
             mouse.x = null;
-
             mouse.y = null;
 
         }
     );
 
 
-    /* =========================================
-       RESIZE
-    ========================================== */
+    resize();
 
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-
-    /* START */
-
-    resizeCanvas();
-
-    drawParticles();
+    animate();
 
 }
+
+
+startParticles();
