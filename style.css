@@ -4098,3 +4098,1124 @@ footer {
     }
 
 }
+
+/* =========================================================
+   THEA.TECH — GLOBAL TECH PARTICLE SYSTEM
+========================================================= */
+
+body {
+    background: #05070b;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL PARTICLE CANVAS
+--------------------------------------------------------- */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+}
+
+
+/*
+   Keep website content above particles
+*/
+
+.site-header,
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.hero-container {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* ---------------------------------------------------------
+   AMBIENT LIGHT
+--------------------------------------------------------- */
+
+.hero-ambient {
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70, 130, 255, 0.12) 0%,
+            rgba(110, 70, 255, 0.07) 30%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation: ambientPulse 8s ease-in-out infinite;
+}
+
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.95);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   HERO GRID
+--------------------------------------------------------- */
+
+.hero-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 0%,
+            transparent 75%
+        );
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   HERO WORD ROTATION
+--------------------------------------------------------- */
+
+.hero-word {
+
+    position: relative;
+
+    display: inline-block;
+
+    height: 1.15em;
+
+    min-width: 340px;
+
+    overflow: hidden;
+
+    vertical-align: bottom;
+}
+
+
+.hero-word span {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    opacity: 0;
+
+    transform:
+        translateY(100%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b8cff,
+            #8b5cf6,
+            #22d3ee
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        heroWordAnimation 12s infinite;
+}
+
+
+.hero-word span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-word span:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.hero-word span:nth-child(3) {
+    animation-delay: 6s;
+}
+
+.hero-word span:nth-child(4) {
+    animation-delay: 9s;
+}
+
+
+@keyframes heroWordAnimation {
+
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    22% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    27% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   TECHNOLOGY ORBITS
+--------------------------------------------------------- */
+
+.tech-orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid
+        rgba(100, 140, 255, 0.18);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+.orbit-one {
+
+    width: 300px;
+    height: 300px;
+
+    animation:
+        orbitRotate 18s linear infinite;
+}
+
+
+.orbit-two {
+
+    width: 430px;
+    height: 430px;
+
+    border-style: dashed;
+
+    animation:
+        orbitRotateReverse 28s linear infinite;
+}
+
+
+.orbit-three {
+
+    width: 560px;
+    height: 560px;
+
+    opacity: 0.45;
+
+    animation:
+        orbitRotate 40s linear infinite;
+}
+
+
+@keyframes orbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes orbitRotateReverse {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   TECH CORE
+--------------------------------------------------------- */
+
+.tech-core {
+
+    position: relative;
+
+    width: 300px;
+    height: 240px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.core-glow {
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(80,130,255,0.30),
+            transparent 68%
+        );
+
+    filter: blur(25px);
+
+    animation:
+        corePulse 4s ease-in-out infinite;
+}
+
+
+@keyframes corePulse {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.65;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+}
+
+
+.core-window {
+
+    position: relative;
+
+    width: 285px;
+
+    min-height: 205px;
+
+    border-radius: 16px;
+
+    border: 1px solid
+        rgba(130,160,255,0.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,20,35,0.95),
+            rgba(7,10,18,0.92)
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,0.45),
+
+        inset 0 0 40px
+        rgba(80,120,255,0.05);
+
+    backdrop-filter: blur(15px);
+
+    overflow: hidden;
+}
+
+
+.window-bar {
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 14px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+.window-dots {
+
+    display: flex;
+    gap: 5px;
+}
+
+
+.window-dots span {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.45);
+}
+
+
+.window-bar small {
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.system-status {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 18px 8px;
+}
+
+
+.system-title {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #fff;
+}
+
+
+.system-online {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 8px;
+
+    color:
+        rgba(255,255,255,0.55);
+}
+
+
+.system-online span {
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #52e0a1;
+
+    box-shadow:
+        0 0 10px #52e0a1;
+
+    animation:
+        onlinePulse 1.5s infinite;
+}
+
+
+@keyframes onlinePulse {
+
+    50% {
+        opacity: 0.3;
+    }
+
+}
+
+
+.code-area {
+
+    padding: 10px 18px;
+}
+
+
+.code-line {
+
+    height: 4px;
+
+    margin-bottom: 8px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,140,255,0.9),
+            rgba(130,80,255,0.3),
+            transparent
+        );
+
+    animation:
+        codePulse 3s ease-in-out infinite;
+}
+
+
+.code-line.long {
+    width: 85%;
+}
+
+.code-line.medium {
+    width: 65%;
+}
+
+.code-line.short {
+    width: 42%;
+}
+
+.code-line.tiny {
+    width: 25%;
+}
+
+
+@keyframes codePulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+.data-flow {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 15px;
+}
+
+
+.data-flow span {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6f8cff;
+
+    box-shadow:
+        0 0 12px
+        rgba(90,130,255,0.9);
+
+    animation:
+        dataFlow 1.8s infinite;
+}
+
+
+.data-flow span:nth-child(2) {
+    animation-delay: .25s;
+}
+
+.data-flow span:nth-child(3) {
+    animation-delay: .5s;
+}
+
+.data-flow span:nth-child(4) {
+    animation-delay: .75s;
+}
+
+
+@keyframes dataFlow {
+
+    0% {
+        transform: translateX(0);
+        opacity: .25;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(120px);
+        opacity: 0;
+    }
+
+}
+
+
+.system-metrics {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 4px 18px 15px;
+}
+
+
+.system-metrics div {
+
+    flex: 1;
+
+    padding: 8px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.05);
+}
+
+
+.system-metrics small {
+
+    display: block;
+
+    font-size: 7px;
+
+    color:
+        rgba(255,255,255,0.4);
+}
+
+
+.system-metrics strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #fff;
+}
+
+
+
+/* ---------------------------------------------------------
+   FLOATING NODES
+--------------------------------------------------------- */
+
+.floating-node {
+
+    position: absolute;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 10px;
+
+    border:
+        1px solid
+        rgba(120,150,255,0.25);
+
+    border-radius: 9px;
+
+    background:
+        rgba(8,12,23,0.82);
+
+    backdrop-filter: blur(10px);
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-size: 9px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.25);
+
+    animation:
+        floatingNode 5s ease-in-out infinite;
+}
+
+
+.node-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    border-radius: 6px;
+
+    background:
+        rgba(80,120,255,0.10);
+
+    color: #8ba7ff;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+
+.node-web {
+    top: 8%;
+    left: 3%;
+}
+
+.node-software {
+    top: 20%;
+    right: 0;
+    animation-delay: -1s;
+}
+
+.node-data {
+    bottom: 16%;
+    left: 0;
+    animation-delay: -2s;
+}
+
+.node-cloud {
+    bottom: 8%;
+    right: 4%;
+    animation-delay: -3s;
+}
+
+
+@keyframes floatingNode {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   FLOATING SYMBOLS
+--------------------------------------------------------- */
+
+.floating-symbol {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        rgba(120,150,255,0.15);
+
+    background:
+        rgba(255,255,255,0.025);
+
+    color:
+        rgba(120,150,255,0.65);
+
+    font-size: 10px;
+
+    backdrop-filter: blur(8px);
+
+    animation:
+        symbolFloat 7s ease-in-out infinite;
+}
+
+
+.symbol-one {
+    top: 2%;
+    right: 25%;
+}
+
+.symbol-two {
+    bottom: 3%;
+    left: 22%;
+    animation-delay: -2s;
+}
+
+.symbol-three {
+    top: 43%;
+    right: -5%;
+    animation-delay: -4s;
+}
+
+
+@keyframes symbolFloat {
+
+    0%,
+    100% {
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate3d(0,-15px,0)
+            rotate(5deg);
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   HERO SYSTEM BAR
+--------------------------------------------------------- */
+
+.hero-system-bar {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 65px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 6;
+
+    width: min(800px, 80%);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    border-radius: 8px;
+
+    background:
+        rgba(5,8,15,0.55);
+
+    backdrop-filter: blur(12px);
+
+    color:
+        rgba(255,255,255,0.35);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+.system-dot {
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: #53e4a3;
+
+    box-shadow:
+        0 0 10px #53e4a3;
+}
+
+
+
+/* ---------------------------------------------------------
+   HERO PARTICLES
+--------------------------------------------------------- */
+
+.tech-particle-field {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.tech-particle {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: rgba(120,160,255,0.7);
+
+    box-shadow:
+        0 0 8px
+        rgba(100,140,255,0.8);
+
+    animation:
+        particleFloat 8s linear infinite;
+}
+
+
+.p1 {
+    left: 8%;
+    top: 20%;
+}
+
+.p2 {
+    left: 25%;
+    top: 70%;
+    animation-delay: -2s;
+}
+
+.p3 {
+    left: 48%;
+    top: 15%;
+    animation-delay: -4s;
+}
+
+.p4 {
+    right: 20%;
+    top: 35%;
+    animation-delay: -1s;
+}
+
+.p5 {
+    right: 8%;
+    bottom: 25%;
+    animation-delay: -5s;
+}
+
+.p6 {
+    left: 60%;
+    bottom: 10%;
+    animation-delay: -3s;
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translate3d(0,30px,0);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate3d(35px,-80px,0);
+
+        opacity: 0;
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 900px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        transform:
+            scale(0.82);
+
+        margin-top: -20px;
+    }
+
+    .hero-system-bar {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 850px;
+    }
+
+    .hero-word {
+        min-width: 250px;
+    }
+
+    .hero-visual {
+        transform:
+            scale(0.62);
+
+        margin-top: -70px;
+    }
+
+    .floating-node {
+        display: none;
+    }
+
+    .floating-symbol {
+        display: none;
+    }
+
+    .hero-grid {
+        background-size: 35px 35px;
+    }
+
+    #particles {
+        opacity: 0.35;
+    }
+
+}
