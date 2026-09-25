@@ -163,249 +163,219 @@ if (
 
 
 /* =========================================================
-   PARTICLE SYSTEM
+   THEA.TECH — GLOBAL PARTICLE ENGINE
 ========================================================= */
 
-const canvas =
+const particleCanvas =
     document.getElementById("particles");
 
-const ctx =
-    canvas.getContext("2d");
+const particleContext =
+    particleCanvas.getContext("2d");
 
 
-let particles = [];
+let particleWidth;
+let particleHeight;
 
-let mouse = {
+let particleMouse = {
     x: null,
-    y: null,
-    radius: 130
+    y: null
 };
 
 
-function resizeCanvas() {
-
-    canvas.width =
-        window.innerWidth;
-
-    canvas.height =
-        window.innerHeight;
-
-    createParticles();
-
-}
+const particleCount =
+    window.innerWidth < 700
+        ? 45
+        : 100;
 
 
-function createParticles() {
-
-    particles = [];
+const particleList = [];
 
 
-    const area =
-        window.innerWidth *
-        window.innerHeight;
+/* ---------------------------------------------------------
+   RESIZE
+--------------------------------------------------------- */
 
+function resizeParticleCanvas() {
 
-    let amount =
-        Math.floor(area / 13000);
-
-
-    amount =
-        Math.max(
-            35,
-            Math.min(amount, 105)
+    const ratio =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
         );
 
+    particleWidth =
+        window.innerWidth;
 
-    if (window.innerWidth < 600) {
+    particleHeight =
+        window.innerHeight;
 
-        amount = 35;
+    particleCanvas.width =
+        particleWidth * ratio;
+
+    particleCanvas.height =
+        particleHeight * ratio;
+
+    particleCanvas.style.width =
+        particleWidth + "px";
+
+    particleCanvas.style.height =
+        particleHeight + "px";
+
+    particleContext.setTransform(
+        ratio,
+        0,
+        0,
+        ratio,
+        0,
+        0
+    );
+}
+
+
+resizeParticleCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeParticleCanvas
+);
+
+
+/* ---------------------------------------------------------
+   MOUSE
+--------------------------------------------------------- */
+
+window.addEventListener(
+    "mousemove",
+    function(event) {
+
+        particleMouse.x =
+            event.clientX;
+
+        particleMouse.y =
+            event.clientY;
 
     }
+);
 
 
-    for (
-        let i = 0;
-        i < amount;
-        i++
-    ) {
+window.addEventListener(
+    "mouseleave",
+    function() {
 
-        particles.push({
-
-            x:
-                Math.random()
-                * canvas.width,
-
-            y:
-                Math.random()
-                * canvas.height,
-
-            vx:
-                (Math.random() - .5)
-                * .22,
-
-            vy:
-                (Math.random() - .5)
-                * .22,
-
-            size:
-                Math.random()
-                * 1.5
-                + .4,
-
-            alpha:
-                Math.random()
-                * .45
-                + .15
-
-        });
+        particleMouse.x = null;
+        particleMouse.y = null;
 
     }
+);
+
+
+/* ---------------------------------------------------------
+   CREATE PARTICLES
+--------------------------------------------------------- */
+
+for (
+    let i = 0;
+    i < particleCount;
+    i++
+) {
+
+    particleList.push({
+
+        x:
+            Math.random() *
+            window.innerWidth,
+
+        y:
+            Math.random() *
+            window.innerHeight,
+
+        size:
+            Math.random() * 1.8 + 0.5,
+
+        speedX:
+            (Math.random() - 0.5) * 0.25,
+
+        speedY:
+            (Math.random() - 0.5) * 0.25,
+
+        opacity:
+            Math.random() * 0.6 + 0.15
+
+    });
 
 }
 
+
+/* ---------------------------------------------------------
+   DRAW
+--------------------------------------------------------- */
 
 function drawParticles() {
 
-    ctx.clearRect(
+    particleContext.clearRect(
         0,
         0,
-        canvas.width,
-        canvas.height
+        particleWidth,
+        particleHeight
     );
 
 
-    /*
-     * Draw connections first.
-     */
-
-    for (
-        let i = 0;
-        i < particles.length;
-        i++
-    ) {
-
-        for (
-            let j = i + 1;
-            j < particles.length;
-            j++
-        ) {
-
-            const a =
-                particles[i];
-
-            const b =
-                particles[j];
-
-
-            const dx =
-                a.x - b.x;
-
-            const dy =
-                a.y - b.y;
-
-            const distance =
-                Math.sqrt(
-                    dx * dx +
-                    dy * dy
-                );
-
-
-            if (distance < 120) {
-
-                const opacity =
-                    (1 - distance / 120)
-                    * .12;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                    a.x,
-                    a.y
-                );
-
-                ctx.lineTo(
-                    b.x,
-                    b.y
-                );
-
-                ctx.strokeStyle =
-                    `rgba(96,165,250,${opacity})`;
-
-                ctx.lineWidth = .5;
-
-                ctx.stroke();
-
-            }
-
-        }
-
-    }
-
-
-    /*
-     * Draw particles.
-     */
-
-    particles.forEach(
-        particle => {
+    particleList.forEach(
+        function(particle) {
 
             particle.x +=
-                particle.vx;
+                particle.speedX;
 
             particle.y +=
-                particle.vy;
+                particle.speedY;
 
 
-            /*
-             * Wrap around screen.
-             */
+            /* Screen wrapping */
 
             if (
-                particle.x < -10
+                particle.x < 0
             ) {
                 particle.x =
-                    canvas.width + 10;
+                    particleWidth;
             }
 
+
             if (
-                particle.x >
-                canvas.width + 10
+                particle.x > particleWidth
             ) {
-                particle.x = -10;
+                particle.x = 0;
             }
 
+
             if (
-                particle.y < -10
+                particle.y < 0
             ) {
                 particle.y =
-                    canvas.height + 10;
+                    particleHeight;
             }
 
+
             if (
-                particle.y >
-                canvas.height + 10
+                particle.y > particleHeight
             ) {
-                particle.y = -10;
+                particle.y = 0;
             }
 
 
-            /*
-             * Mouse interaction.
-             */
+            /* Mouse interaction */
 
             if (
-                mouse.x !== null &&
-                mouse.y !== null
+                particleMouse.x !== null
             ) {
 
                 const dx =
                     particle.x -
-                    mouse.x;
+                    particleMouse.x;
 
                 const dy =
                     particle.y -
-                    mouse.y;
+                    particleMouse.y;
 
                 const distance =
                     Math.sqrt(
@@ -415,36 +385,25 @@ function drawParticles() {
 
 
                 if (
-                    distance <
-                    mouse.radius
+                    distance < 120
                 ) {
 
-                    const force =
-                        (
-                            mouse.radius -
-                            distance
-                        )
-                        / mouse.radius;
-
-
                     particle.x +=
-                        (dx / distance)
-                        * force
-                        * .8;
+                        dx * 0.002;
 
                     particle.y +=
-                        (dy / distance)
-                        * force
-                        * .8;
+                        dy * 0.002;
 
                 }
 
             }
 
 
-            ctx.beginPath();
+            /* Particle */
 
-            ctx.arc(
+            particleContext.beginPath();
+
+            particleContext.arc(
                 particle.x,
                 particle.y,
                 particle.size,
@@ -453,64 +412,107 @@ function drawParticles() {
             );
 
 
-            /*
-             * RGB-style technology colors.
-             */
+            particleContext.fillStyle =
+                `rgba(
+                    100,
+                    150,
+                    255,
+                    ${particle.opacity}
+                )`;
 
-            const color =
-                Math.random() > .5
-                    ? "96,165,250"
-                    : "34,211,238";
 
-
-            ctx.fillStyle =
-                `rgba(${color},${particle.alpha})`;
-
-            ctx.fill();
+            particleContext.fill();
 
         }
     );
 
 
+    /* -----------------------------------------------------
+       CONNECTION LINES
+    ----------------------------------------------------- */
+
+    for (
+        let i = 0;
+        i < particleList.length;
+        i++
+    ) {
+
+        for (
+            let j = i + 1;
+            j < particleList.length;
+            j++
+        ) {
+
+            const a =
+                particleList[i];
+
+            const b =
+                particleList[j];
+
+
+            const dx =
+                a.x - b.x;
+
+            const dy =
+                a.y - b.y;
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            if (
+                distance < 110
+            ) {
+
+                const opacity =
+                    (1 - distance / 110)
+                    * 0.12;
+
+
+                particleContext.beginPath();
+
+                particleContext.moveTo(
+                    a.x,
+                    a.y
+                );
+
+                particleContext.lineTo(
+                    b.x,
+                    b.y
+                );
+
+
+                particleContext.strokeStyle =
+                    `rgba(
+                        100,
+                        150,
+                        255,
+                        ${opacity}
+                    )`;
+
+
+                particleContext.lineWidth =
+                    0.5;
+
+
+                particleContext.stroke();
+
+            }
+
+        }
+
+    }
+
+
     requestAnimationFrame(
         drawParticles
     );
-
 }
 
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-
-window.addEventListener(
-    "mousemove",
-    event => {
-
-        mouse.x =
-            event.clientX;
-
-        mouse.y =
-            event.clientY;
-
-    }
-);
-
-
-window.addEventListener(
-    "mouseleave",
-    () => {
-
-        mouse.x = null;
-        mouse.y = null;
-
-    }
-);
-
-
-resizeCanvas();
 
 drawParticles();
 
