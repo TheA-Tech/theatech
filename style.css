@@ -5219,3 +5219,999 @@ footer {
     }
 
 }
+
+/* =========================================================
+   THEA.TECH — FUTURISTIC TECHNOLOGY ARCHITECTURE
+========================================================= */
+
+.tech-architecture {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    height: 650px;
+    margin: auto;
+    isolation: isolate;
+    perspective: 1200px;
+}
+
+
+/* =========================================================
+   VISUAL GLOW
+========================================================= */
+
+.tech-visual-glow {
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(84, 217, 255, 0.15) 0%,
+            rgba(84, 217, 255, 0.06) 35%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 0;
+
+    animation: techGlowPulse 5s ease-in-out infinite;
+}
+
+@keyframes techGlowPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(0.95);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.tech-grid {
+    position: absolute;
+    inset: 25px;
+
+    background-image:
+        linear-gradient(
+            rgba(84, 217, 255, 0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(84, 217, 255, 0.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black 20%,
+            transparent 78%
+        );
+
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NETWORK SVG
+========================================================= */
+
+.tech-network {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.network-line {
+    fill: none;
+
+    stroke: url(#techLineGradient);
+
+    stroke-width: 1.4;
+
+    stroke-dasharray: 8 10;
+
+    animation:
+        networkFlow 5s linear infinite;
+}
+
+.network-line.secondary {
+    stroke-width: 0.8;
+    opacity: 0.35;
+    stroke-dasharray: 4 12;
+    animation-duration: 8s;
+}
+
+@keyframes networkFlow {
+
+    to {
+        stroke-dashoffset: -80;
+    }
+
+}
+
+
+/* =========================================================
+   DIGITAL CORE
+========================================================= */
+
+.digital-core {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 210px;
+    height: 210px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+
+.core-outer-ring,
+.core-middle-ring,
+.core-inner-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(84, 217, 255, 0.28);
+
+}
+
+
+.core-outer-ring {
+
+    width: 210px;
+    height: 210px;
+
+    border-top-color:
+        rgba(84, 217, 255, 0.9);
+
+    border-right-color:
+        rgba(141, 124, 255, 0.5);
+
+    animation:
+        coreRotate 14s linear infinite;
+
+}
+
+
+.core-middle-ring {
+
+    width: 165px;
+    height: 165px;
+
+    border-left-color:
+        rgba(84, 217, 255, 0.8);
+
+    border-bottom-color:
+        rgba(141, 124, 255, 0.5);
+
+    animation:
+        coreRotateReverse 9s linear infinite;
+
+}
+
+
+.core-inner-ring {
+
+    width: 125px;
+    height: 125px;
+
+    border-color:
+        rgba(84, 217, 255, 0.22);
+
+    box-shadow:
+        0 0 25px rgba(84, 217, 255, 0.12);
+
+}
+
+
+@keyframes coreRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes coreRotateReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+/* =========================================================
+   CORE CENTER
+========================================================= */
+
+.core-center {
+
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(84, 217, 255, 0.22),
+            rgba(5, 12, 28, 0.95) 68%
+        );
+
+    border:
+        1px solid
+        rgba(84, 217, 255, 0.6);
+
+    box-shadow:
+        0 0 25px rgba(84, 217, 255, 0.2),
+        inset 0 0 25px rgba(84, 217, 255, 0.08);
+
+}
+
+
+.core-symbol {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 15px rgba(84, 217, 255, 0.8);
+
+}
+
+
+.core-center strong {
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #54d9ff;
+
+}
+
+
+.core-center span {
+
+    margin-top: 3px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+
+    color: rgba(255,255,255,0.55);
+
+}
+
+
+/* =========================================================
+   ARCHITECTURE NODES
+========================================================= */
+
+.architecture-node {
+
+    position: absolute;
+
+    width: 185px;
+
+    min-height: 65px;
+
+    padding: 10px 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(13, 25, 48, 0.92),
+            rgba(5, 12, 28, 0.88)
+        );
+
+    border:
+        1px solid
+        rgba(84, 217, 255, 0.22);
+
+    border-radius: 12px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25),
+        inset 0 0 20px rgba(84,217,255,0.025);
+
+    z-index: 6;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.architecture-node:hover {
+
+    transform: translateY(-5px) scale(1.03);
+
+    border-color:
+        rgba(84, 217, 255, 0.65);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.35),
+        0 0 25px rgba(84,217,255,0.12);
+
+}
+
+
+.architecture-node-icon {
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(84, 217, 255, 0.07);
+
+    border:
+        1px solid
+        rgba(84, 217, 255, 0.25);
+
+    color: #54d9ff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 10px rgba(84,217,255,0.5);
+
+}
+
+
+.architecture-node-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+}
+
+
+.architecture-node-content strong {
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    color: #ffffff;
+
+}
+
+
+.architecture-node-content span {
+
+    margin-top: 4px;
+
+    font-size: 8px;
+
+    line-height: 1.3;
+
+    color:
+        rgba(255,255,255,0.48);
+
+}
+
+
+.architecture-node i {
+
+    width: 5px;
+    height: 5px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #54d9ff;
+
+    box-shadow:
+        0 0 10px #54d9ff;
+
+    animation:
+        nodeStatus 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes nodeStatus {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   NODE POSITIONS
+========================================================= */
+
+.tech-node-cloud {
+
+    top: 18px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.tech-node-web {
+
+    top: 105px;
+    left: 22px;
+
+}
+
+
+.tech-node-data {
+
+    top: 105px;
+    right: 22px;
+
+}
+
+
+.tech-node-software {
+
+    bottom: 100px;
+    left: 8px;
+
+}
+
+
+.tech-node-ai {
+
+    bottom: 100px;
+    right: 8px;
+
+}
+
+
+.tech-node-automation {
+
+    bottom: 15px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =========================================================
+   FLOW PARTICLES
+========================================================= */
+
+.flow-particle {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #54d9ff;
+
+    box-shadow:
+        0 0 12px #54d9ff,
+        0 0 25px rgba(84,217,255,0.6);
+
+    z-index: 4;
+
+    opacity: 0;
+
+}
+
+
+.flow-1 {
+
+    left: 26%;
+    top: 25%;
+
+    animation:
+        flowMove1 3.5s linear infinite;
+
+}
+
+
+.flow-2 {
+
+    left: 74%;
+    top: 25%;
+
+    animation:
+        flowMove2 4s linear infinite;
+
+}
+
+
+.flow-3 {
+
+    left: 27%;
+    top: 72%;
+
+    animation:
+        flowMove3 4.2s linear infinite;
+
+}
+
+
+.flow-4 {
+
+    left: 73%;
+    top: 72%;
+
+    animation:
+        flowMove4 3.8s linear infinite;
+
+}
+
+
+.flow-5 {
+
+    left: 50%;
+    top: 20%;
+
+    animation:
+        flowMove5 3s linear infinite;
+
+}
+
+
+.flow-6 {
+
+    left: 50%;
+    top: 80%;
+
+    animation:
+        flowMove6 3.4s linear infinite;
+
+}
+
+
+@keyframes flowMove1 {
+
+    0% {
+        transform:
+            translate(0,0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(155px,115px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowMove2 {
+
+    0% {
+        transform:
+            translate(0,0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-155px,115px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowMove3 {
+
+    0% {
+        transform:
+            translate(0,0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(155px,-120px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowMove4 {
+
+    0% {
+        transform:
+            translate(0,0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-155px,-120px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowMove5 {
+
+    0% {
+        transform:
+            translateY(-100px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(100px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes flowMove6 {
+
+    0% {
+        transform:
+            translateY(100px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-100px);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING TECH LABELS
+========================================================= */
+
+.tech-label {
+
+    position: absolute;
+
+    padding: 5px 9px;
+
+    border:
+        1px solid
+        rgba(84,217,255,0.2);
+
+    border-radius: 5px;
+
+    background:
+        rgba(5,12,28,0.72);
+
+    color:
+        rgba(84,217,255,0.72);
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    backdrop-filter: blur(8px);
+
+    z-index: 7;
+
+    animation:
+        labelFloat 4s ease-in-out infinite;
+
+}
+
+
+.label-api {
+
+    top: 55%;
+
+    left: 4%;
+
+}
+
+
+.label-code {
+
+    top: 48%;
+
+    right: 4%;
+
+    animation-delay: -1s;
+
+}
+
+
+.label-db {
+
+    top: 37%;
+
+    left: 14%;
+
+    animation-delay: -2s;
+
+}
+
+
+.label-cloud {
+
+    top: 38%;
+
+    right: 13%;
+
+    animation-delay: -3s;
+
+}
+
+
+@keyframes labelFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+/* =========================================================
+   STATUS BAR
+========================================================= */
+
+.tech-status-bar {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -15px;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 13px;
+
+    border:
+        1px solid
+        rgba(84,217,255,0.16);
+
+    border-radius: 7px;
+
+    background:
+        rgba(5,12,28,0.72);
+
+    backdrop-filter: blur(10px);
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 7px;
+
+    letter-spacing: 1.3px;
+
+    white-space: nowrap;
+
+    z-index: 8;
+
+}
+
+
+.tech-status-bar b {
+
+    color:
+        rgba(84,217,255,0.8);
+
+    font-weight: 600;
+
+}
+
+
+.status-live {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #54d9ff;
+
+    box-shadow:
+        0 0 10px #54d9ff;
+
+    animation:
+        livePulse 1.5s ease-in-out infinite;
+
+}
+
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .tech-architecture {
+        height: 560px;
+        transform: scale(0.9);
+        transform-origin: center;
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .tech-architecture {
+        height: 470px;
+        transform: scale(0.72);
+        transform-origin: center;
+        margin-top: -45px;
+        margin-bottom: -70px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .tech-architecture {
+        height: 430px;
+        transform: scale(0.61);
+        transform-origin: center;
+        margin-top: -60px;
+        margin-bottom: -100px;
+    }
+
+}
